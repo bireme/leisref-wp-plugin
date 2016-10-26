@@ -1,0 +1,165 @@
+# Copyright (C) 2016 LeisRef
+# This file is distributed under the same license as the LeisRef package.
+msgid ""
+msgstr ""
+"Project-Id-Version: LeisRef 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
+"POT-Creation-Date: 2016-10-26 14:13:58+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: leisref.php:84
+msgid "Legislation Settings"
+msgstr ""
+
+#: leisref.php:84 leisref.php:137
+msgid "Legislation"
+msgstr ""
+
+#: leisref.php:121
+msgid "Legislation sidebar"
+msgstr ""
+
+#: lib/Paginator.php:38 lib/Paginator.php:39 lib/Paginator.php:50
+#: lib/Paginator.php:56 lib/Paginator.php:65 lib/Paginator.php:66
+#: lib/Paginator.php:72 lib/Paginator.php:73
+msgid "go to page"
+msgstr ""
+
+#: settings.php:9
+msgid "LeisRef Plugin Options"
+msgstr ""
+
+#: settings.php:18
+msgid "Plugin page"
+msgstr ""
+
+#: settings.php:23
+msgid "Filter query"
+msgstr ""
+
+#: settings.php:27
+msgid "Search form"
+msgstr ""
+
+#: settings.php:30
+msgid "Show search form"
+msgstr ""
+
+#: settings.php:34
+msgid "AddThis profile ID"
+msgstr ""
+
+#: settings.php:38
+msgid "Google Analytics code"
+msgstr ""
+
+#: settings.php:45
+msgid "Save Changes"
+msgstr ""
+
+#: template/detail.php:31 template/home.php:55
+msgid "Portuguese"
+msgstr ""
+
+#: template/detail.php:32 template/home.php:56
+msgid "Spanish"
+msgstr ""
+
+#: template/detail.php:33 template/home.php:57
+msgid "English"
+msgstr ""
+
+#: template/detail.php:42 template/home.php:64
+msgid "Home"
+msgstr ""
+
+#: template/detail.php:43 template/home.php:65
+msgid "Legislation Directory"
+msgstr ""
+
+#: template/detail.php:44
+msgid "Act"
+msgstr ""
+
+#: template/detail.php:57 template/home.php:87 template-functions.php:64
+msgid " of "
+msgstr ""
+
+#: template/detail.php:64 template/home.php:94
+msgid "Source"
+msgstr ""
+
+#: template/detail.php:70 template/home.php:100
+msgid "Ementa"
+msgstr ""
+
+#: template/detail.php:76 template/home.php:106
+msgid "Organ issuer"
+msgstr ""
+
+#: template/detail.php:82 template/home.php:112
+msgid "Act scope"
+msgstr ""
+
+#: template/detail.php:109 template/detail.php:142 template/home.php:139
+#: template/home.php:172
+msgid "of"
+msgstr ""
+
+#: template/detail.php:187
+msgid "Share"
+msgstr ""
+
+#: template/detail.php:205 template/detail.php:206 template/home.php:222
+#: template/home.php:223
+msgid "Search"
+msgstr ""
+
+#: template/home.php:66
+msgid "Search result"
+msgstr ""
+
+#: template/home.php:71
+msgid "No results found"
+msgstr ""
+
+#: template/home.php:74
+msgid "Legislation found"
+msgstr ""
+
+#: template/home.php:231
+msgid "Subjects"
+msgstr ""
+
+#: template/home.php:256
+msgid "Act type"
+msgstr ""
+
+#: template/home.php:281
+msgid "Year"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "LeisRef"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/bireme/leisref-wp-plugin/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "VHL Legislation Directory WordPress plugin"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "BIREME/OPAS/OMS"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://reddes.bvsalud.org/"
+msgstr ""
