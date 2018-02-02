@@ -16,7 +16,7 @@ if ( !function_exists('print_lang_value') ) {
 }
 
 if ( !function_exists('get_lang_value') ) {
-    function get_lang_value($string, $lang_code){
+    function get_lang_value($string, $lang_code, $default_lang_code = 'en'){
         $lang_value = array();
         $occs = preg_split('/\|/', $string);
 
@@ -26,7 +26,13 @@ if ( !function_exists('get_lang_value') ) {
             $value = $lv[1];
             $lang_value[$lang] = $value;
         }
-        return $lang_value[$lang_code];
+        if ( isset($lang_value[$lang_code]) ){
+            $translated = $lang_value[$lang_code];
+        }else{
+            $translated = $lang_value[$default_lang_code];
+        }
+
+        return $translated;
     }
 }
 
@@ -61,7 +67,7 @@ if ( !function_exists('format_act_date') ) {
             } else {
                 $month_name = strftime("%B", strtotime($string));
             }
-            $date_formated = substr($string,8,2)  . __(' of ','direve') . $month_name . __(' of ') . substr($string,0,4);
+            $date_formated = substr($string,8,2) . ' ' . __('of','leisref') . ' ' . $month_name . ' ' . __('of', 'leisref') . ' ' . substr($string,0,4);
         }else{
             $date_formated =  substr($string,6,2)  . '/' . substr($string,4,2) . '/' . substr($string,0,4);
         }
@@ -73,6 +79,24 @@ if ( !function_exists('format_act_date') ) {
 if ( !function_exists('isUTF8') ) {
     function isUTF8($string){
         return (utf8_encode(utf8_decode($string)) == $string);
+    }
+}
+
+if ( !function_exists('translate_label') ) {
+    function translate_label($texts, $label, $group=NULL) {
+        // labels on texts.ini must be array key without spaces
+        $label_norm = preg_replace('/[&,\'\s]+/', '_', $label);
+        if($group == NULL) {
+            if(isset($texts[$label_norm]) and $texts[$label_norm] != "") {
+                return $texts[$label_norm];
+            }
+        } else {
+            if(isset($texts[$group][$label_norm]) and $texts[$group][$label_norm] != "") {
+                return $texts[$group][$label_norm];
+            }
+        }
+        // case translation not found return original label ucfirst
+        return ucfirst($label);
     }
 }
 

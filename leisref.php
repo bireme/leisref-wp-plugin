@@ -37,14 +37,14 @@ if(!class_exists('LeisRef_Plugin')) {
         public function __construct() {
             // register actions
 
-            add_action( 'init', array(&$this, 'load_translation') );
-            add_action( 'admin_menu', array(&$this, 'admin_menu') );
-            add_action( 'plugins_loaded', array(&$this, 'plugin_init') );
-            add_action( 'wp_head', array(&$this, 'google_analytics_code') );
-            add_action( 'template_redirect', array(&$this, 'theme_redirect') );
-            add_action( 'widgets_init', array(&$this, 'register_sidebars') );
-            add_filter( 'wp_title', array(&$this, 'page_title'), 10, 2 );
-            add_filter( 'get_search_form', array(&$this, 'search_form') );
+            add_action( 'init', array(&$this, 'load_translation'));
+            add_action( 'admin_menu', array(&$this, 'admin_menu'));
+            add_action( 'plugins_loaded', array(&$this, 'plugin_init'));
+            add_action( 'wp_head', array(&$this, 'google_analytics_code'));
+            add_filter( 'wp_head', array(&$this, 'theme_slug_render_title'));
+            add_action( 'template_redirect', array(&$this, 'theme_redirect'));
+            add_action( 'widgets_init', array(&$this, 'register_sidebars'));
+            add_filter( 'get_search_form', array(&$this, 'search_form'));
             add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array(&$this, 'settings_link') );
 
         } // END public function __construct
@@ -66,8 +66,15 @@ if(!class_exists('LeisRef_Plugin')) {
         } // END public static function deactivate
 
         function load_translation(){
-		    // Translations
+            global $leisref_texts;
+
+		    // load internal plugin translations
 		    load_plugin_textdomain( 'leisref', false,  LEISREF_PLUGIN_DIR . '/languages' );
+            // load plugin translations
+            $site_language = strtolower(get_bloginfo('language'));
+            $lang = substr($site_language,0,2);
+
+            $leisref_texts = parse_ini_file(LEISREF_PLUGIN_PATH . "/languages/texts_" . $lang . ".ini", true);
 		}
 
 		function plugin_init() {
@@ -89,31 +96,41 @@ if(!class_exists('LeisRef_Plugin')) {
 		}
 
 		function theme_redirect() {
-		    global $wp, $leisref_service_url, $leisref_plugin_slug;
-		    $pagename = $wp->query_vars["pagename"];
+		    global $wp, $leisref_service_url, $leisref_plugin_slug, $leisref_texts;
+		    $pagename = '';
 
-		    $leisref_service_url = $this->service_url;
-		    $leisref_plugin_slug = $this->plugin_slug;
+            // check if request contains plugin slug string
+            $pos_slug = strpos($wp->request, $this->plugin_slug);
+            if ( $pos_slug !== false ){
+                $pagename = substr($wp->request, $pos_slug);
+            }
 
-		    if ($pagename == $this->plugin_slug || preg_match('/detail\//', $pagename)
-		        || $pagename == $this->plugin_slug . '/legislation-feed') {
+            if ( is_404() && $pos_slug !== false ){
 
-		        add_action( 'wp_enqueue_scripts', array(&$this, 'template_styles_scripts') );
+                $leisref_service_url = $this->service_url;
+                $leisref_plugin_slug = $this->plugin_slug;
+                $similar_docs_url = $this->similar_docs_url;
 
-		        if ($pagename == $this->plugin_slug){
-		            $template = LEISREF_PLUGIN_PATH . '/template/home.php';
-		        }elseif ($pagename == $this->plugin_slug . '/legislation-feed'){
-		            $template = LEISREF_PLUGIN_PATH . '/template/rss.php';
-		        }else{
-		            $template = LEISREF_PLUGIN_PATH . '/template/detail.php';
-		        }
-		        // force status to 200 - OK
-		        status_header(200);
+                if ($pagename == $this->plugin_slug || $pagename == $this->plugin_slug . '/resource'
+                    || $pagename == $this->plugin_slug . '/legislation-feed') {
 
-		        // redirect to page and finish execution
-		        include($template);
-		        die();
-		    }
+    		        add_action( 'wp_enqueue_scripts', array(&$this, 'template_styles_scripts') );
+
+    		        if ($pagename == $this->plugin_slug){
+    		            $template = LEISREF_PLUGIN_PATH . '/template/home.php';
+    		        }elseif ($pagename == $this->plugin_slug . '/legislation-feed'){
+    		            $template = LEISREF_PLUGIN_PATH . '/template/rss.php';
+    		        }else{
+    		            $template = LEISREF_PLUGIN_PATH . '/template/detail.php';
+    		        }
+    		        // force status to 200 - OK
+    		        status_header(200);
+
+    		        // redirect to page and finish execution
+    		        include($template);
+    		        die();
+    		    }
+            }
 		}
 
 		function register_sidebars(){
@@ -128,6 +145,30 @@ if(!class_exists('LeisRef_Plugin')) {
 		    );
 		    register_sidebar( $args );
 		}
+
+
+        function theme_slug_render_title() {
+            global $wp, $leisref_plugin_title;
+            $pagename = '';
+
+            // check if request contains plugin slug string
+            $pos_slug = strpos($wp->request, $this->plugin_slug);
+            if ( $pos_slug !== false ){
+                $pagename = substr($wp->request, $pos_slug);
+            }
+
+            if ( is_404() && $pos_slug !== false ){
+                $leisref_config = get_option('leisref_config');
+                if ( function_exists( 'pll_the_languages' ) ) {
+                    $current_lang = pll_current_language();
+                    $leisref_plugin_title = $leisref_config['plugin_title_' . $current_lang];
+                }else{
+                    $leisref_plugin_title = $leisref_config['plugin_title'];
+                }
+                $title = $leisref_plugin_title . " | " . get_bloginfo('name');
+                print "<title>" . $title . "</title>";
+            }
+        }
 
 		function page_title(){
 		    global $wp;
@@ -150,18 +191,19 @@ if(!class_exists('LeisRef_Plugin')) {
 		}
 
 		function template_styles_scripts(){
-		    wp_enqueue_style ('leisref-page', LEISREF_PLUGIN_URL . 'template/css/style.css');
+		    wp_enqueue_style ('leisref-page', LEISREF_PLUGIN_URL . 'template/css/style.css', array(), LEISREF_VERSION);
+            wp_enqueue_script('leisref-page', LEISREF_PLUGIN_URL . 'template/js/functions.js', array(), LEISREF_VERSION);
 		}
 
 		function register_settings(){
 		    register_setting('leisref-settings-group', 'leisref_config');
 		}
 
-                function settings_link($links) {
-                    $settings_link = '<a href="options-general.php?page=leisref.php">Settings</a>';
-                    array_unshift($links, $settings_link);
-                    return $links;
-                }
+        function settings_link($links) {
+            $settings_link = '<a href="options-general.php?page=leisref.php">Settings</a>';
+            array_unshift($links, $settings_link);
+            return $links;
+        }
 
 		function google_analytics_code(){
 		    global $wp;
