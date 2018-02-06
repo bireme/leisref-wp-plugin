@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2018-02-02 18:45:58+00:00\n"
+"POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,15 +12,15 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: leisref.php:91
+#: leisref.php:92
 msgid "Legislation Settings"
 msgstr ""
 
-#: leisref.php:91 leisref.php:178
+#: leisref.php:92 leisref.php:179
 msgid "Legislation"
 msgstr ""
 
-#: leisref.php:138
+#: leisref.php:139
 msgid "Legislation sidebar"
 msgstr ""
 
@@ -82,48 +82,52 @@ msgstr ""
 msgid "Country/region"
 msgstr ""
 
-#: settings.php:95
+#: settings.php:96
 msgid "Database"
 msgstr ""
 
-#: settings.php:100
+#: settings.php:102
 msgid "Collection"
 msgstr ""
 
-#: settings.php:105 template/metadata.php:61
+#: settings.php:107 template/metadata.php:61
 msgid "Language"
 msgstr ""
 
-#: settings.php:110
+#: settings.php:112
 msgid "Year"
 msgstr ""
 
-#: settings.php:120
+#: settings.php:122
 msgid "Save changes"
 msgstr ""
 
-#: template/detail.php:26 template/home.php:69
+#: template/detail.php:35 template/home.php:69
 msgid "Portuguese"
 msgstr ""
 
-#: template/detail.php:27 template/home.php:70
+#: template/detail.php:36 template/home.php:70
 msgid "Spanish"
 msgstr ""
 
-#: template/detail.php:28 template/home.php:71
+#: template/detail.php:37 template/home.php:71
 msgid "English"
 msgstr ""
 
-#: template/detail.php:37 template/home.php:76
+#: template/detail.php:46 template/home.php:76
 msgid "Home"
 msgstr ""
 
-#: template/detail.php:39
+#: template/detail.php:48
 msgid "Act"
 msgstr ""
 
-#: template/detail.php:79 template/detail.php:80 template/home.php:95
-msgid "Search"
+#: template/detail.php:60
+msgid "Share"
+msgstr ""
+
+#: template/detail.php:88
+msgid "Related articles"
 msgstr ""
 
 #: template/home.php:81
@@ -134,6 +138,10 @@ msgstr ""
 msgid "Enter one or more words"
 msgstr ""
 
+#: template/home.php:95
+msgid "Search"
+msgstr ""
+
 #: template/home.php:104
 msgid "No results found"
 msgstr ""
@@ -142,11 +150,11 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
-#: template/home.php:136
+#: template/home.php:135
 msgid "Filters"
 msgstr ""
 
-#: template/home.php:146
+#: template/home.php:145
 msgid "Selected filters"
 msgstr ""
 

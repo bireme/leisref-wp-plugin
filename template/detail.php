@@ -3,7 +3,7 @@
 Template Name: LeisRef Detail
 */
 
-global $leisref_service_url, $leisref_plugin_slug, $leisref_plugin_title, $leisref_texts;
+global $leisref_service_url, $leisref_plugin_slug, $leisref_plugin_title, $leisref_texts, $similar_docs_url;
 
 $leisref_config = get_option('leisref_config');
 $resource_id   = $_GET['id'];
@@ -20,7 +20,16 @@ if ($response){
     $response_json = json_decode($response);
 
     $resource = $response_json->diaServerResponse[0]->match->docs[0];
-    $related_list = $response_json->diaServerResponse[0]->response->docs;
+
+    // find similar documents
+    $similar_docs_url = $similar_docs_url . '?adhocSimilarDocs=' . urlencode($resource->official_ementa[0]);
+    // get similar docs
+    $similar_docs_xml = @file_get_contents($similar_docs_url);
+    // transform to php array
+    $xml = simplexml_load_string($similar_docs_xml,'SimpleXMLElement',LIBXML_NOCDATA);
+    $json = json_encode($xml);
+    $similar_docs = json_decode($json, TRUE);
+
 }
 
 $fulltext_lang['pt-br'] = __('Portuguese','leisref');
@@ -48,9 +57,9 @@ $fulltext_lang['en'] = __('English','leisref');
                         <?php include('metadata.php') ?>
 
                         <footer class="row-fluid margintop05">
+                            <i class="ico-compartilhar"><?php _e('Share','leisref'); ?></i>
                             <ul class="conteudo-loop-icons">
                                 <li class="conteudo-loop-icons-li">
-                                    <i class="ico-compartilhar"> </i>
                                     <!-- AddThis Button BEGIN -->
                                     <div class="addthis_toolbox addthis_default_style">
                                         <a class="addthis_button_facebook"></a>
@@ -72,15 +81,37 @@ $fulltext_lang['en'] = __('English','leisref');
                     </article>
                 </div>
             </section>
-        <aside id="sidebar">
-                    <section class="header-search">
-                            <?php if ($leisref_config['show_form']) : ?>
-                            <form role="search" method="get" id="searchform" action="<?php echo real_site_url($leisref_plugin_slug); ?>">
-                                    <input value="<?php echo $query ?>" name="q" class="input-search" id="s" type="text" placeholder="<?php _e('Search', 'leisref'); ?>...">
-                                    <input id="searchsubmit" value="<?php _e('Search', 'leisref'); ?>" type="submit">
-                            </form>
-                            <?php endif; ?>
+            <aside id="sidebar">
+                <?php if ( count($similar_docs['document']) > 0 ): ?>
+                    <section class="row-fluid marginbottom25 widget_categories">
+                        <header class="row-fluid border-bottom marginbottom15">
+                            <h1 class="h1-header"><?php _e('Related articles','leisref'); ?></h1>
+                        </header>
+                        <ul>
+                            <?php foreach ( $similar_docs['document'] as $similar) { ?>
+                                <li class="cat-item">
+
+                                    <a href="http://pesquisa.bvsalud.org/portal/resource/<?php echo $lang . '/' . $similar['id']; ?>" target="_blank">
+                                        <?php
+                                            $preferred_lang_list = array($lang, 'en', 'es', 'pt');
+                                            // start with more generic title
+                                            $similar_title = is_array($similar['ti']) ? $similar['ti'][0] : $similar['ti'];
+                                            // search for title in different languages
+                                            foreach ($preferred_lang_list as $lang){
+                                                $field_lang = 'ti_' . $lang;
+                                                if ($similar[$field_lang]){
+                                                    $similar_title = $similar[$field_lang];
+                                                    break;
+                                                }
+                                            }
+                                            echo $similar_title;
+                                        ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
                     </section>
+                <?php endif; ?>
             </aside>
         </div>
     </div>

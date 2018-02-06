@@ -30,6 +30,7 @@ if(!class_exists('LeisRef_Plugin')) {
 
         private $plugin_slug = 'leisref';
         private $service_url = 'http://fi-admin.bvsalud.org/';
+        private $similar_docs_url = 'http://similardocs.bireme.org/SDService';
 
         /**
          * Construct the plugin object
@@ -96,7 +97,7 @@ if(!class_exists('LeisRef_Plugin')) {
 		}
 
 		function theme_redirect() {
-		    global $wp, $leisref_service_url, $leisref_plugin_slug, $leisref_texts;
+		    global $wp, $leisref_service_url, $leisref_plugin_slug, $leisref_texts, $similar_docs_url;
 		    $pagename = '';
 
             // check if request contains plugin slug string

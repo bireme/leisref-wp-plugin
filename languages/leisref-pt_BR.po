@@ -4,26 +4,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2016-10-26 14:13:58+00:00\n"
+"POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
+"PO-Revision-Date: 2018-02-06 12:54-0300\n"
+"Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
+"Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-26 12:22-0300\n"
-"Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
-"Language-Team: \n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: BRAZIL\n"
 
-#: leisref.php:84
+#: leisref.php:92
 msgid "Legislation Settings"
 msgstr "Ajustes Legislação"
 
-#: leisref.php:84
-#: leisref.php:137
+#: leisref.php:92
+#: leisref.php:179
 msgid "Legislation"
 msgstr "Legislação"
 
-#: leisref.php:121
+#: leisref.php:139
 msgid "Legislation sidebar"
 msgstr ""
 
@@ -39,133 +40,164 @@ msgid "go to page"
 msgstr "ir para página"
 
 #: settings.php:9
-msgid "LeisRef Plugin Options"
-msgstr ""
+msgid "Legislation settings"
+msgstr "Legislação ajustes"
 
 #: settings.php:18
 msgid "Plugin page"
 msgstr ""
 
-#: settings.php:23
+#: settings.php:22
 msgid "Filter query"
 msgstr "Filtro de pesquisa"
 
-#: settings.php:27
-msgid "Search form"
-msgstr "Formulário de pesquisa"
-
-#: settings.php:30
-msgid "Show search form"
-msgstr "Mostrar caixa de pesquisa"
-
-#: settings.php:34
+#: settings.php:26
 msgid "AddThis profile ID"
 msgstr ""
 
-#: settings.php:38
+#: settings.php:30
 msgid "Google Analytics code"
 msgstr ""
 
-#: settings.php:45
-msgid "Save Changes"
-msgstr "Gravar Alterações"
+#: settings.php:34
+msgid "Fulltext"
+msgstr "Texto completo"
 
-#: template/detail.php:31
-#: template/home.php:55
-msgid "Portuguese"
-msgstr "Português"
+#: settings.php:38
+msgid "Present alternative fulltext links"
+msgstr "Apresentar links alternativos to texto completo"
 
-#: template/detail.php:32
-#: template/home.php:56
-msgid "Spanish"
-msgstr "Espanhol"
-
-#: template/detail.php:33
-#: template/home.php:57
-msgid "English"
-msgstr "Inglês"
-
-#: template/detail.php:42
-#: template/home.php:64
-msgid "Home"
+#: settings.php:53
+#, fuzzy
+msgid "Home URL"
 msgstr "Ínicio"
 
-#: template/detail.php:43
-#: template/home.php:65
-msgid "Legislation Directory"
-msgstr "Diretório de Legislação"
+#: settings.php:58
+msgid "Page title"
+msgstr "Título da página"
 
-#: template/detail.php:44
-msgid "Act"
-msgstr "Lei"
+#: settings.php:74
+msgid "Display filters"
+msgstr "Mostrar filtros"
 
-#: template/detail.php:57
-#: template/home.php:87
-#: template-functions.php:64
-msgid " of "
-msgstr "de"
+#: settings.php:80
+msgid "Subject"
+msgstr "Assunto"
 
-#: template/detail.php:64
-#: template/home.php:94
-msgid "Source"
-msgstr "Fonte"
-
-#: template/detail.php:70
-#: template/home.php:100
-msgid "Ementa"
-msgstr "Ementa"
-
-#: template/detail.php:76
-#: template/home.php:106
-msgid "Organ issuer"
-msgstr "Orgão emissor"
-
-#: template/detail.php:82
-#: template/home.php:112
-msgid "Act scope"
-msgstr "Escopo"
-
-#: template/detail.php:109
-#: template/detail.php:142
-#: template/home.php:139
-#: template/home.php:172
-msgid "of"
-msgstr "de"
-
-#: template/detail.php:187
-msgid "Share"
-msgstr "Compartilhar"
-
-#: template/detail.php:205
-#: template/detail.php:206
-#: template/home.php:222
-#: template/home.php:223
-msgid "Search"
-msgstr "Pesquisa"
-
-#: template/home.php:66
-msgid "Search result"
-msgstr "Resultado da pesquisa"
-
-#: template/home.php:71
-msgid "No results found"
-msgstr "Nenhum resultado encontrado"
-
-#: template/home.php:74
-msgid "Legislation found"
-msgstr "Nenhuma legislação encontrada"
-
-#: template/home.php:231
-msgid "Subjects"
-msgstr "Assuntos"
-
-#: template/home.php:256
+#: settings.php:85
 msgid "Act type"
 msgstr "Tipo do ato"
 
-#: template/home.php:281
+#: settings.php:90
+msgid "Country/region"
+msgstr "País/região"
+
+#: settings.php:96
+msgid "Database"
+msgstr "Base de dados"
+
+#: settings.php:102
+msgid "Collection"
+msgstr "Coleção"
+
+#: settings.php:107
+#: template/metadata.php:61
+msgid "Language"
+msgstr "Idioma"
+
+#: settings.php:112
 msgid "Year"
 msgstr "Ano"
+
+#: settings.php:122
+msgid "Save changes"
+msgstr "Salvar mudanças"
+
+#: template/detail.php:35
+#: template/home.php:69
+msgid "Portuguese"
+msgstr "Português"
+
+#: template/detail.php:36
+#: template/home.php:70
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: template/detail.php:37
+#: template/home.php:71
+msgid "English"
+msgstr "Inglês"
+
+#: template/detail.php:46
+#: template/home.php:76
+msgid "Home"
+msgstr "Ínicio"
+
+#: template/detail.php:48
+msgid "Act"
+msgstr "Lei"
+
+#: template/detail.php:60
+msgid "Share"
+msgstr "Compartilhar"
+
+#: template/detail.php:88
+msgid "Related articles"
+msgstr "Artigos relacionados"
+
+#: template/home.php:81
+msgid "Search result"
+msgstr "Resultado da pesquisa"
+
+#: template/home.php:94
+msgid "Enter one or more words"
+msgstr "Entre uma ou mais palavras"
+
+#: template/home.php:95
+msgid "Search"
+msgstr "Pesquisa"
+
+#: template/home.php:104
+msgid "No results found"
+msgstr "Nenhum resultado encontrado"
+
+#: template/home.php:107
+msgid "Total"
+msgstr "Total"
+
+#: template/home.php:135
+msgid "Filters"
+msgstr "Filtros"
+
+#: template/home.php:145
+msgid "Selected filters"
+msgstr "Selecione os filtros"
+
+#: template/metadata.php:31
+msgid "Act country/region"
+msgstr "País/região do ato"
+
+#: template/metadata.php:38
+msgid "Organ issuer"
+msgstr "Orgão emissor"
+
+#: template/metadata.php:44
+msgid "Act scope"
+msgstr "Escopo"
+
+#: template/metadata.php:55
+msgid "Source"
+msgstr "Fonte"
+
+#: template/metadata.php:87
+#: template/metadata.php:120
+#: template-functions.php:70
+msgid "of"
+msgstr "de"
+
+#: template/metadata.php:157
+msgid "Text in"
+msgstr "Texto em"
 
 #. Plugin Name of the plugin/theme
 msgid "LeisRef"
@@ -187,3 +219,20 @@ msgstr ""
 msgid "http://reddes.bvsalud.org/"
 msgstr ""
 
+#~ msgid "Search form"
+#~ msgstr "Formulário de pesquisa"
+
+#~ msgid "Show search form"
+#~ msgstr "Mostrar caixa de pesquisa"
+
+#~ msgid "Legislation Directory"
+#~ msgstr "Diretório de Legislação"
+
+#~ msgid " of "
+#~ msgstr "de"
+
+#~ msgid "Ementa"
+#~ msgstr "Ementa"
+
+#~ msgid "Legislation found"
+#~ msgstr "Nenhuma legislação encontrada"

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2018-02-02 18:45:58+00:00\n"
-"PO-Revision-Date: 2018-02-02 16:47-0300\n"
+"POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
+"PO-Revision-Date: 2018-02-06 12:49-0300\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -14,16 +14,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Spanish\n"
 
-#: leisref.php:91
+#: leisref.php:92
 msgid "Legislation Settings"
 msgstr "Ajustes Legislación"
 
-#: leisref.php:91
-#: leisref.php:178
+#: leisref.php:92
+#: leisref.php:179
 msgid "Legislation"
 msgstr "Legislación"
 
-#: leisref.php:138
+#: leisref.php:139
 msgid "Legislation sidebar"
 msgstr "Legislación sidebar"
 
@@ -90,56 +90,58 @@ msgstr "Tipo del acto"
 msgid "Country/region"
 msgstr "País/región"
 
-#: settings.php:95
+#: settings.php:96
 msgid "Database"
 msgstr "Base de datos"
 
-#: settings.php:100
+#: settings.php:102
 msgid "Collection"
 msgstr "Colección"
 
-#: settings.php:105
+#: settings.php:107
 #: template/metadata.php:61
 msgid "Language"
 msgstr "Idioma"
 
-#: settings.php:110
+#: settings.php:112
 msgid "Year"
 msgstr "Año"
 
-#: settings.php:120
+#: settings.php:122
 msgid "Save changes"
 msgstr "Guardar cambios"
 
-#: template/detail.php:26
+#: template/detail.php:35
 #: template/home.php:69
 msgid "Portuguese"
 msgstr "Português"
 
-#: template/detail.php:27
+#: template/detail.php:36
 #: template/home.php:70
 msgid "Spanish"
 msgstr "Español"
 
-#: template/detail.php:28
+#: template/detail.php:37
 #: template/home.php:71
 msgid "English"
 msgstr "Inglês"
 
-#: template/detail.php:37
+#: template/detail.php:46
 #: template/home.php:76
 msgid "Home"
 msgstr "Inicio"
 
-#: template/detail.php:39
+#: template/detail.php:48
 msgid "Act"
 msgstr "Ato"
 
-#: template/detail.php:79
-#: template/detail.php:80
-#: template/home.php:95
-msgid "Search"
-msgstr "Buscar"
+#: template/detail.php:60
+msgid "Share"
+msgstr "Compartir"
+
+#: template/detail.php:88
+msgid "Related articles"
+msgstr "Artículos relacionados"
 
 #: template/home.php:81
 msgid "Search result"
@@ -149,6 +151,10 @@ msgstr "Resultado de la búsqueda"
 msgid "Enter one or more words"
 msgstr "Ingrese una o más palabras"
 
+#: template/home.php:95
+msgid "Search"
+msgstr "Buscar"
+
 #: template/home.php:104
 msgid "No results found"
 msgstr "No se han encontrado resultados"
@@ -157,11 +163,11 @@ msgstr "No se han encontrado resultados"
 msgid "Total"
 msgstr "Total"
 
-#: template/home.php:136
+#: template/home.php:135
 msgid "Filters"
 msgstr "Filtros"
 
-#: template/home.php:146
+#: template/home.php:145
 msgid "Selected filters"
 msgstr "Filtros seleccionados"
 
@@ -216,9 +222,6 @@ msgstr ""
 
 #~ msgid "Ementa"
 #~ msgstr "Ementa"
-
-#~ msgid "Share"
-#~ msgstr "Compartir"
 
 #~ msgid "Legislation found"
 #~ msgstr "Legislación encontrada"
