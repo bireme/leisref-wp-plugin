@@ -63,6 +63,19 @@ $detail_page = (isset($resource_id) ? true: false);
     </div>
 <?php endif; ?>
 
+<?php if ($resource->collection && $detail_page) : ?>
+    <div class="row-fluid">
+        <?php _e('Collection','leisref'); ?>:
+        <strong><?php print_lang_value($resource->collection, $lang);?></strong>
+    </div>
+<?php endif; ?>
+
+<?php if ($resource->publication_date && $detail_page) : ?>
+    <div class="row-fluid">
+        <?php _e('Publication date','leisref'); ?>:
+        <strong><?php echo format_date($resource->publication_date[0]); ?></strong>
+    </div>
+<?php endif; ?>
 
 <?php if ($resource->relationship_active): ?>
     <?php foreach ( $resource->relationship_active as $rel) { ?>
