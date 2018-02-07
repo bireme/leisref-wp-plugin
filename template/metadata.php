@@ -79,7 +79,7 @@ $detail_page = (isset($resource_id) ? true: false);
             <?php
                 print_lang_value($rel_relation, $lang);
                 if ($rel_act_link != ''){
-                    echo '<a href="' . real_site_url($leisref_plugin_slug) . 'detail/' . $rel_act_link . '">';
+                    echo '<a href="' . real_site_url($leisref_plugin_slug) . 'resource/?id=' . $rel_act_link . '">';
                 }
                 echo '&nbsp';
                 print_lang_value($rel_act_type, $lang);
@@ -112,7 +112,7 @@ $detail_page = (isset($resource_id) ? true: false);
             <?php
                 print_lang_value($rel_relation, $lang);
                 if ($rel_act_link != ''){
-                    echo '<a href="' . real_site_url($leisref_plugin_slug) . 'detail/' . $rel_act_link . '">';
+                    echo '<a href="' . real_site_url($leisref_plugin_slug) . 'resource/?id=' . $rel_act_link . '">';
                 }
                 echo '&nbsp';
                 print_lang_value($rel_act_type, $lang);
