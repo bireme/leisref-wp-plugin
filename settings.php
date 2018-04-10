@@ -1,9 +1,8 @@
 <?php
 function leisref_page_admin() {
-
     $config = get_option('leisref_config');
 
-    ?>
+?>
     <div class="wrap">
             <div id="icon-options-general" class="icon32"></div>
             <h2><?php _e('Legislation settings', 'leisref'); ?></h2>
@@ -117,14 +116,11 @@ function leisref_page_admin() {
 
                     </tbody>
                 </table>
-
                 <p class="submit">
-                <input type="submit" class="button-primary" value="<?php _e('Save changes') ?>" />
+                    <input type="submit" class="button-primary" value="<?php _e('Save changes') ?>" />
                 </p>
-
             </form>
         </div>
-
-        <?php
+<?php
 }
 ?>

@@ -64,7 +64,7 @@ if ($response){
 $page_url_params = real_site_url($leisref_plugin_slug) . '?q=' . urlencode($query)  . '&filter=' . urlencode($filter);
 $feed_url = real_site_url($leisref_plugin_slug) . 'legislation-feed?q=' . urlencode($query) . '&filter=' . urlencode($user_filter);
 
-$pages = new Paginator($total, $start);
+$pages = new Paginator($total, $start, $count);
 $pages->paginate($page_url_params);
 $fulltext_lang['pt-br'] = __('Portuguese','leisref');
 $fulltext_lang['es'] = __('Spanish','leisref');

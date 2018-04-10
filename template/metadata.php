@@ -20,18 +20,19 @@ $detail_page = (isset($resource_id) ? true: false);
     </h2>
 </div>
 
-<?php if ($resource->official_ementa): ?>
-    <div class="row-fluid">
+<div class="row-fluid">
+    <?php if ($resource->official_ementa): ?>
         <?php echo $resource->official_ementa[0];?>
-    </div>
-<?php endif; ?>
+    <?php elseif ($resource->unofficial_ementa): ?>
+        <?php echo $resource->unofficial_ementa[0];?>
+    <?php endif; ?>
+</div>
 
 <?php if ($resource->scope_region): ?>
     <div class="row-fluid">
         <?php _e('Act country/region','leisref'); ?>: <strong><?php print_lang_value($resource->scope_region, $lang) ;?></strong>
     </div>
 <?php endif; ?>
-
 
 <?php if ($resource->organ_issuer): ?>
     <div class="row-fluid">

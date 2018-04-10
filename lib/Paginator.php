@@ -5,14 +5,13 @@ class Paginator{
     var $start;
     var $output;
     var $pag = array();
-    var $default_count = 20;
     var $current_page;
 
-    function Paginator($total, $start)
+    function Paginator($total, $start, $count=10)
     {
         $this->total = $total;
         $this->start = $start;
-        $this->count = ( !empty($_GET['count']) ? $_GET['count'] : $this->default_count );
+        $this->count = $count;
         $this->current_page = ( !empty($_GET['page']) ? $_GET['page'] : 1);
     }
 
@@ -25,7 +24,7 @@ class Paginator{
 
 
 
-        
+
         $range_min = (($this->current_page-5) > 0) ? $this->current_page-5 : 1;
         $range_max = (($range_min+7) > $pag['total_pages']) ? $pag['total_pages'] : $range_min+7;
         $pag['pages'] = range($range_min, $range_max);
@@ -49,18 +48,18 @@ class Paginator{
                     if ($this->current_page != $for_page){
                         $this->output .= '<li><a href="' . $page_url_params . '&page=' . $for_page . '" title="' . __('go to page','lis') . ' ' . $for_page . '">' . $for_page . '</a></li>';
                     }else{
-                        $this->output .= '<li class="active"><a href="#">' . $for_page .'</a></li>'; 
+                        $this->output .= '<li class="active"><a href="#">' . $for_page .'</a></li>';
                     }
                 }else{
                     if ($for_page != 1){
                         $this->output .= '<li><a href="' . $page_url_params . '&page=' . $for_page . '" title="' . __('go to page','lis') . ' ' . $for_page . '">' .$for_page . '</a></li>';
                     }else{
-                        $this->output .= '<li> class="active"><a href="#">' . $for_page .'</a></li>'; 
+                        $this->output .= '<li> class="active"><a href="#">' . $for_page .'</a></li>';
                     }
                 }
             }
 
-            if ( $this->current_page != '' ){                
+            if ( $this->current_page != '' ){
                 if ($this->current_page < $pag['total_pages']) {
                     $this->output .= '<li><a href="' . $page_url_params . '&page=' . ($this->current_page+1) . '" title="' . __('go to page', 'lis') . ($this->current_page+1) . '"> &raquo; </a></li>';
                     $this->output .= '<li><a href="' . $page_url_params . '&page=' . ($pag['total_pages']) . '" title="' . __('go to page', 'lis') . $pag['total_pages'] . '">&raquo;&raquo;</a></li>';

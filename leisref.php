@@ -8,7 +8,7 @@ Version: 0.1
 Author URI: http://reddes.bvsalud.org/
 */
 
-define('LEISREF_VERSION', '0.1' );
+define('LEISREF_VERSION', '0.2' );
 
 define('LEISREF_SYMBOLIC_LINK', false );
 define('LEISREF_PLUGIN_DIRNAME', 'leisref' );
@@ -42,11 +42,11 @@ if(!class_exists('LeisRef_Plugin')) {
             add_action( 'admin_menu', array(&$this, 'admin_menu'));
             add_action( 'plugins_loaded', array(&$this, 'plugin_init'));
             add_action( 'wp_head', array(&$this, 'google_analytics_code'));
-            add_filter( 'wp_head', array(&$this, 'theme_slug_render_title'));
             add_action( 'template_redirect', array(&$this, 'theme_redirect'));
             add_action( 'widgets_init', array(&$this, 'register_sidebars'));
             add_filter( 'get_search_form', array(&$this, 'search_form'));
             add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array(&$this, 'settings_link') );
+            add_filter( 'document_title_parts', array(&$this, 'theme_slug_render_title'));
 
         } // END public function __construct
 
@@ -75,7 +75,7 @@ if(!class_exists('LeisRef_Plugin')) {
             $site_language = strtolower(get_bloginfo('language'));
             $lang = substr($site_language,0,2);
 
-            $leisref_texts = parse_ini_file(LEISREF_PLUGIN_PATH . "/languages/texts_" . $lang . ".ini", true);
+            $leisref_texts = @parse_ini_file(LEISREF_PLUGIN_PATH . "/languages/texts_" . $lang . ".ini", true);
 		}
 
 		function plugin_init() {
@@ -166,9 +166,10 @@ if(!class_exists('LeisRef_Plugin')) {
                 }else{
                     $leisref_plugin_title = $leisref_config['plugin_title'];
                 }
-                $title = $leisref_plugin_title . " | " . get_bloginfo('name');
-                print "<title>" . $title . "</title>";
+                $title_parts['title'] = $leisref_plugin_title . " | " . get_bloginfo('name');
             }
+
+            return $title_parts;
         }
 
 		function page_title(){
