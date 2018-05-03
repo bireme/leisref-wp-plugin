@@ -73,7 +73,7 @@ $fulltext_lang['en'] = __('English','leisref');
 
 <?php get_header('leisref');?>
     <div class="row-fluid breadcrumb">
-        <a href="<?php echo $home_url ?>"><?php _e('Home','leisref'); ?></a> >
+        <a href="<?php echo real_site_url() ?>"><?php _e('Home','leisref'); ?></a> >
         <?php if ($query == '' && $filter == ''): ?>
             <?php echo $leisref_plugin_title ?>
         <?php else: ?>
