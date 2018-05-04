@@ -21,7 +21,8 @@ if ( !function_exists('get_lang_value') ) {
         $occs = preg_split('/\|/', $string);
 
         foreach ($occs as $occ){
-            $lv = preg_split('/\^/', $occ);
+            $re_sep = (strpos($occ, '~') !== false ? '/\~/' : '/\^/');
+            $lv = preg_split($re_sep, $occ);
             $lang = substr($lv[0],0,2);
             $value = $lv[1];
             $lang_value[$lang] = $value;
