@@ -43,7 +43,7 @@ $fulltext_lang['en'] = __('English','leisref');
 <div id="content" class="row-fluid">
         <div class="ajusta2">
             <div class="row-fluid breadcrumb">
-                <a href="<?php echoreal_site_url() ?>"><?php _e('Home','leisref'); ?></a> >
+                <a href="<?php echo real_site_url() ?>"><?php _e('Home','leisref'); ?></a> >
                 <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php echo $leisref_plugin_title ?> </a> >
                 <?php _e('Act','leisref'); ?>
             </div>
