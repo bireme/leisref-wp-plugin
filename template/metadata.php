@@ -98,8 +98,11 @@ $detail_page = (isset($resource_id) ? true: false);
                 echo '&nbsp';
                 print_lang_value($rel_act_type, $lang);
                 echo '&nbsp';
-                echo $rel_act_number . ', ' . __('of', 'leisref'). '&nbsp';
-                echo format_act_date($rel_act_date, $lang) . '&nbsp';
+                echo $rel_act_number;
+                if ($rel_act_date != 'None'){
+                    echo ', ' . __('of', 'leisref'). '&nbsp';
+                    echo format_act_date($rel_act_date, $lang) . '&nbsp';
+                }
                 if ($rel_act_link != ''){
                     echo '</a>';
                 }
