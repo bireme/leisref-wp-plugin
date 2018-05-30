@@ -7,7 +7,7 @@ global $leisref_service_url, $leisref_plugin_slug, $leisref_plugin_title, $leisr
 require_once(LEISREF_PLUGIN_PATH . '/lib/Paginator.php');
 
 $leisref_config = get_option('leisref_config');
-$leisref_initial_filter = $leisef_config['initial_filter'];
+$leisref_initial_filter = $leisref_config['initial_filter'];
 
 $site_language = strtolower(get_bloginfo('language'));
 $lang = substr($site_language,0,2);
