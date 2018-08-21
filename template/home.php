@@ -181,6 +181,32 @@ $fulltext_lang['en'] = __('English','leisref');
                                 </section>
                             <?php endif; ?>
 
+                            <?php if ( in_array('collection', $leisref_config['available_filter']) && $collection_list ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $collection_list as $collection ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=collection:"' . $collection[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $collection[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
                             <?php if ( in_array('descriptor', $leisref_config['available_filter']) && $descriptor_list ): ?>
                 			    <section class="row-fluid marginbottom25 widget_categories">
                 					<header class="row-fluid border-bottom marginbottom15">
@@ -253,32 +279,6 @@ $fulltext_lang['en'] = __('English','leisref');
                                             <li class="cat-item">
                                                 <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
                                                 <span class="cat-item-count"><?php echo $region[1] ?></span>
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
-                                </section>
-                            <?php endif; ?>
-
-                            <?php if ( in_array('collection', $leisref_config['available_filter']) && $collection_list ): ?>
-                                <section class="row-fluid widget_categories">
-                                    <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
-                                    </header>
-                                    <ul>
-                                        <?php foreach ( $collection_list as $collection ) { ?>
-                                            <li class="cat-item">
-                                                <?php
-                                                    $filter_link = '?';
-                                                    if ($query != ''){
-                                                        $filter_link .= 'q=' . $query . '&';
-                                                    }
-                                                    $filter_link .= 'filter=collection:"' . $collection[0] . '"';
-                                                    if ($user_filter != ''){
-                                                        $filter_link .= ' AND ' . $user_filter ;
-                                                    }
-                                                ?>
-                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
-                                                <span class="cat-item-count"><?php echo $collection[1]; ?></span>
                                             </li>
                                         <?php } ?>
                                     </ul>
