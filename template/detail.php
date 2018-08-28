@@ -82,7 +82,7 @@ $fulltext_lang['en'] = __('English','leisref');
                         </ul>
 
 <?php
-    $url=OER_PLUGIN_URL.'template/similar.php?query='.$similar_query.'&lang='.$lang;
+    $url=LEISREF_PLUGIN_URL.'template/similar.php?query='.$similar_query.'&lang='.$lang;
 ?>
 <script type="text/javascript">
     show_similar("<?php echo $url; ?>");
