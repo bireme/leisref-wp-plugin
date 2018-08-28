@@ -4,11 +4,11 @@ Plugin Name: LeisRef
 Plugin URI: https://github.com/bireme/leisref-wp-plugin/
 Description: VHL Legislation Directory WordPress plugin
 Author: BIREME/OPAS/OMS
-Version: 0.1
+Version: 0.3
 Author URI: http://reddes.bvsalud.org/
 */
 
-define('LEISREF_VERSION', '0.2' );
+define('LEISREF_VERSION', '0.3' );
 
 define('LEISREF_SYMBOLIC_LINK', false );
 define('LEISREF_PLUGIN_DIRNAME', 'leisref' );
@@ -148,7 +148,7 @@ if(!class_exists('LeisRef_Plugin')) {
 		}
 
 
-        function theme_slug_render_title() {
+        function theme_slug_render_title($title) {
             global $wp, $leisref_plugin_title;
             $pagename = '';
 
@@ -166,10 +166,10 @@ if(!class_exists('LeisRef_Plugin')) {
                 }else{
                     $leisref_plugin_title = $leisref_config['plugin_title'];
                 }
-                $title_parts['title'] = $leisref_plugin_title . " | " . get_bloginfo('name');
+                $title['title'] = $leisref_plugin_title . " | " . get_bloginfo('name');
             }
 
-            return $title_parts;
+            return $title;
         }
 
 		function page_title(){
