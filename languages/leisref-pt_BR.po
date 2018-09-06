@@ -5,37 +5,34 @@ msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
 "POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
-"PO-Revision-Date: 2018-02-06 12:54-0300\n"
+"PO-Revision-Date: 2018-09-06 11:26-0300\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: leisref.php:92
 msgid "Legislation Settings"
 msgstr "Ajustes Legislação"
 
-#: leisref.php:92
-#: leisref.php:179
+#: leisref.php:92 leisref.php:179
 msgid "Legislation"
 msgstr "Legislação"
 
 #: leisref.php:139
 msgid "Legislation sidebar"
-msgstr ""
+msgstr "Sidebar Legislação"
 
-#: lib/Paginator.php:38
-#: lib/Paginator.php:39
-#: lib/Paginator.php:50
-#: lib/Paginator.php:56
-#: lib/Paginator.php:65
-#: lib/Paginator.php:66
-#: lib/Paginator.php:72
-#: lib/Paginator.php:73
+#: leisref.php:150
+msgid "Legislation header"
+msgstr "Cabeçalho Legislação"
+
+#: lib/Paginator.php:38 lib/Paginator.php:39 lib/Paginator.php:50
+#: lib/Paginator.php:56 lib/Paginator.php:65 lib/Paginator.php:66
+#: lib/Paginator.php:72 lib/Paginator.php:73
 msgid "go to page"
 msgstr "ir para página"
 
@@ -45,7 +42,7 @@ msgstr "Legislação ajustes"
 
 #: settings.php:18
 msgid "Plugin page"
-msgstr ""
+msgstr "Página de Plugin"
 
 #: settings.php:22
 msgid "Filter query"
@@ -53,11 +50,11 @@ msgstr "Filtro de pesquisa"
 
 #: settings.php:26
 msgid "AddThis profile ID"
-msgstr ""
+msgstr "ID  do Perfil AddThis"
 
 #: settings.php:30
 msgid "Google Analytics code"
-msgstr ""
+msgstr "Código do Google Analytics"
 
 #: settings.php:34
 msgid "Fulltext"
@@ -100,8 +97,7 @@ msgstr "Base de dados"
 msgid "Collection"
 msgstr "Coleção"
 
-#: settings.php:107
-#: template/metadata.php:61
+#: settings.php:107 template/metadata.php:61
 msgid "Language"
 msgstr "Idioma"
 
@@ -113,23 +109,19 @@ msgstr "Ano"
 msgid "Save changes"
 msgstr "Salvar mudanças"
 
-#: template/detail.php:35
-#: template/home.php:69
+#: template/detail.php:35 template/home.php:69
 msgid "Portuguese"
 msgstr "Português"
 
-#: template/detail.php:36
-#: template/home.php:70
+#: template/detail.php:36 template/home.php:70
 msgid "Spanish"
 msgstr "Espanhol"
 
-#: template/detail.php:37
-#: template/home.php:71
+#: template/detail.php:37 template/home.php:71
 msgid "English"
 msgstr "Inglês"
 
-#: template/detail.php:46
-#: template/home.php:76
+#: template/detail.php:46 template/home.php:76
 msgid "Home"
 msgstr "Ínicio"
 
@@ -189,9 +181,7 @@ msgstr "Escopo"
 msgid "Source"
 msgstr "Fonte"
 
-#: template/metadata.php:87
-#: template/metadata.php:120
-#: template-functions.php:70
+#: template/metadata.php:87 template/metadata.php:120 template-functions.php:70
 msgid "of"
 msgstr "de"
 

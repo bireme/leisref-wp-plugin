@@ -72,6 +72,7 @@ $fulltext_lang['en'] = __('English','leisref');
 ?>
 
 <?php get_header('leisref');?>
+
     <div class="row-fluid breadcrumb">
         <a href="<?php echo real_site_url() ?>"><?php _e('Home','leisref'); ?></a> >
         <?php if ($query == '' && $filter == ''): ?>
@@ -81,9 +82,16 @@ $fulltext_lang['en'] = __('English','leisref');
             <?php _e('Search result', 'leisref') ?>
         <?php endif; ?>
     </div>
-
 	<div id="content" class="row-fluid">
+
+
 		<div class="ajusta2">
+      <!-- Start sidebar leisref-header -->
+          <div class="row-fluid">
+          <?php dynamic_sidebar('leisref-header');?>
+          </div>
+          <div class="spacer"></div>
+      <!-- end sidebar leisref-header -->
             <section class="header-search">
                 <form role="search" method="get" name="searchForm" id="searchForm" action="<?php echo real_site_url($leisref_plugin_slug); ?>">
                     <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>">

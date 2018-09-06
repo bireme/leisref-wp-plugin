@@ -5,21 +5,20 @@ msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
 "POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
-"PO-Revision-Date: 2018-02-06 12:49-0300\n"
+"PO-Revision-Date: 2018-09-06 11:32-0300\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: leisref.php:92
 msgid "Legislation Settings"
 msgstr "Ajustes Legislación"
 
-#: leisref.php:92
-#: leisref.php:179
+#: leisref.php:92 leisref.php:179
 msgid "Legislation"
 msgstr "Legislación"
 
@@ -27,14 +26,13 @@ msgstr "Legislación"
 msgid "Legislation sidebar"
 msgstr "Legislación sidebar"
 
-#: lib/Paginator.php:38
-#: lib/Paginator.php:39
-#: lib/Paginator.php:50
-#: lib/Paginator.php:56
-#: lib/Paginator.php:65
-#: lib/Paginator.php:66
-#: lib/Paginator.php:72
-#: lib/Paginator.php:73
+#: leisref.php:150
+msgid "Legislation header"
+msgstr "Legislación sidebar superior"
+
+#: lib/Paginator.php:38 lib/Paginator.php:39 lib/Paginator.php:50
+#: lib/Paginator.php:56 lib/Paginator.php:65 lib/Paginator.php:66
+#: lib/Paginator.php:72 lib/Paginator.php:73
 msgid "go to page"
 msgstr "ir a la página"
 
@@ -98,8 +96,7 @@ msgstr "Base de datos"
 msgid "Collection"
 msgstr "Colección"
 
-#: settings.php:107
-#: template/metadata.php:61
+#: settings.php:107 template/metadata.php:61
 msgid "Language"
 msgstr "Idioma"
 
@@ -111,23 +108,19 @@ msgstr "Año"
 msgid "Save changes"
 msgstr "Guardar cambios"
 
-#: template/detail.php:35
-#: template/home.php:69
+#: template/detail.php:35 template/home.php:69
 msgid "Portuguese"
 msgstr "Português"
 
-#: template/detail.php:36
-#: template/home.php:70
+#: template/detail.php:36 template/home.php:70
 msgid "Spanish"
 msgstr "Español"
 
-#: template/detail.php:37
-#: template/home.php:71
+#: template/detail.php:37 template/home.php:71
 msgid "English"
 msgstr "Inglês"
 
-#: template/detail.php:46
-#: template/home.php:76
+#: template/detail.php:46 template/home.php:76
 msgid "Home"
 msgstr "Inicio"
 
@@ -187,9 +180,7 @@ msgstr "Esfera del acto"
 msgid "Source"
 msgstr "Fuente"
 
-#: template/metadata.php:87
-#: template/metadata.php:120
-#: template-functions.php:70
+#: template/metadata.php:87 template/metadata.php:120 template-functions.php:70
 msgid "of"
 msgstr "de"
 

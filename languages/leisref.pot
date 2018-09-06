@@ -24,6 +24,10 @@ msgstr ""
 msgid "Legislation sidebar"
 msgstr ""
 
+#: leisref.php:150
+msgid "Legislation header"
+msgstr ""
+
 #: lib/Paginator.php:38 lib/Paginator.php:39 lib/Paginator.php:50
 #: lib/Paginator.php:56 lib/Paginator.php:65 lib/Paginator.php:66
 #: lib/Paginator.php:72 lib/Paginator.php:73

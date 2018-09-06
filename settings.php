@@ -67,7 +67,27 @@ function leisref_page_admin() {
                         }
 
                         ?>
+<?php /* Options Homepage layout
+                        <tr valign="top">
+                          <th scope="row">
+                            <?php _e('Show filters as whole page', 'leisref'); ?>:
+                          </th>
+                          <td>
+                            <label for="whole_page">
+                              <input type="radio" id="whole_page" value="whole_page" name="leisref_config[page_layout]"  <?php if($config['page_layout'] == 'whole_page' ){ echo 'checked'; }?>>
+                              <?php _e('Show filters as whole page', 'leisref'); ?>
 
+                            </label>
+                            <br>
+                            <br>
+                            <label for="normal_page">
+                              <input type="radio" id="normal_page" value="normal_page" name="leisref_config[page_layout]" <?php if(!isset($config['page_layout']) || $config['page_layout'] == 'normal_page' ){ echo 'checked'; }?> >
+                              <?php _e('Show normal page', 'leisref'); ?>
+
+                            </label>
+                          </td>
+                        </tr>
+*/ ?>
                         <tr valign="top">
                             <th scope="row">
                                 <?php _e('Display filters', 'leisref'); ?>:
