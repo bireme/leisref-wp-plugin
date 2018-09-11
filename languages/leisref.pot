@@ -106,6 +106,18 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
+#: settings.php: 123
+msgid "Page Layout"
+msgstr ""
+
+#: settings.php:124
+msgid "Show normal page"
+msgstr ""
+
+#: settings.php:125
+msgid "Show filters as whole page"
+msgstr ""
+
 #: template/detail.php:35 template/home.php:69
 msgid "Portuguese"
 msgstr ""

@@ -67,10 +67,10 @@ function leisref_page_admin() {
                         }
 
                         ?>
-<?php /* Options Homepage layout
+
                         <tr valign="top">
                           <th scope="row">
-                            <?php _e('Show filters as whole page', 'leisref'); ?>:
+                            <?php _e('Page Layout', 'leisref'); ?>:
                           </th>
                           <td>
                             <label for="whole_page">
@@ -87,7 +87,7 @@ function leisref_page_admin() {
                             </label>
                           </td>
                         </tr>
-*/ ?>
+
                         <tr valign="top">
                             <th scope="row">
                                 <?php _e('Display filters', 'leisref'); ?>:

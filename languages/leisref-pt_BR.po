@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
 "POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
-"PO-Revision-Date: 2018-09-06 11:26-0300\n"
+"PO-Revision-Date: 2018-09-11 14:59-0300\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -108,6 +108,18 @@ msgstr "Ano"
 #: settings.php:122
 msgid "Save changes"
 msgstr "Salvar mudanças"
+
+#: settings.php:123
+msgid "Page Layout"
+msgstr "Layout de Página"
+
+#: settings.php:124
+msgid "Show normal page"
+msgstr "Mostrar página normal"
+
+#: settings.php:125
+msgid "Show filters as whole page"
+msgstr "Mostrar filtros em página inteira"
 
 #: template/detail.php:35 template/home.php:69
 msgid "Portuguese"

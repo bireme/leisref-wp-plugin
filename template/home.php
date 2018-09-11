@@ -84,8 +84,7 @@ $fulltext_lang['en'] = __('English','leisref');
     </div>
 	<div id="content" class="row-fluid">
 
-
-		<div class="ajusta2">
+	  <div class="ajusta2">
       <!-- Start sidebar leisref-header -->
           <div class="row-fluid">
           <?php dynamic_sidebar('leisref-header');?>
@@ -106,6 +105,9 @@ $fulltext_lang['en'] = __('English','leisref');
                     <a href="<?php echo $feed_url ?>" target="blank"><img src="<?php echo LEISREF_PLUGIN_URL; ?>template/images/icon_rss.png" ></a>
                 </div>
             </section>
+
+<?php if ($leisref_config[page_layout] != 'whole_page') :  // test for page layout?>
+
             <div class="content-area result-list">
     			<section id="conteudo">
                     <?php if ( isset($total) && strval($total) == 0) :?>
@@ -350,6 +352,171 @@ $fulltext_lang['en'] = __('English','leisref');
                 </aside>
     			<div class="spacer"></div>
             </div> <!-- close DIV.result-area -->
+<?php else: // start whole page ?>
+
+<div class="content-area result-list">
+
+  <?php if ( in_array('collection', $leisref_config['available_filter']) && $collection_list ): ?>
+      <section>
+        <header class="row-fluid border-bottom">
+           <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
+        </header>
+          <ul class="col3">
+              <?php foreach ( $collection_list as $collection ) { ?>
+                  <li class="cat-item">
+                      <?php
+                          $filter_link = '?';
+                          if ($query != ''){
+                              $filter_link .= 'q=' . $query . '&';
+                          }
+                          $filter_link .= 'filter=collection:"' . $collection[0] . '"';
+                          if ($user_filter != ''){
+                              $filter_link .= ' AND ' . $user_filter ;
+                          }
+                      ?>
+                      <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
+                      <span><?php echo $collection[1]; ?></span>
+                  </li>
+              <?php } ?>
+          </ul>
+      </section>
+  <?php endif; ?>
+<?php if ( in_array('descriptor', $leisref_config['available_filter']) && $descriptor_list ): ?>
+  <section>
+    <header class="row-fluid border-bottom">
+      <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter') ?></h1>
+    </header>
+    <ul class="col3">
+    <?php foreach ( $descriptor_list as $descriptor) { ?>
+    <?php
+      $filter_link = '?';
+      if ($query != ''){
+        $filter_link .= 'q=' . $query . '&';
+      }
+      $filter_link .= 'filter=descriptor:"' . $descriptor[0] . '"';
+      if ($user_filter != ''){
+        $filter_link .= ' AND ' . $user_filter ;
+      }
+      ?>
+        <li>
+        <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
+        <span><?php echo $descriptor[1] ?></span>
+      </li>
+<?php } ?>
+    </ul>
+  </section>
+<?php endif; ?>
+
+<?php if ( in_array('act_type', $leisref_config['available_filter']) && $act_type_list ): ?>
+    <section >
+        <header class="row-fluid border-bottom ">
+            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter') ?></h1>
+        </header>
+        <ul class="col3">
+            <?php foreach ( $act_type_list as $type) { ?>
+                <?php
+                    $filter_link = '?';
+                    if ($query != ''){
+                        $filter_link .= 'q=' . $query . '&';
+                    }
+                    $filter_link .= 'filter=act_type:"' . $type[0] . '"';
+                    if ($user_filter != ''){
+                        $filter_link .= ' AND ' . $user_filter ;
+                    }
+                ?>
+                <li>
+                    <a href='<?php echo $filter_link; ?>'><?php print_lang_value($type[0], $site_language)?></a>
+                    <span><?php echo $type[1] ?></span>
+                </li>
+            <?php } ?>
+        </ul>
+    </section>
+<?php endif; ?>
+
+<?php if ( in_array('scope_region', $leisref_config['available_filter']) && $scope_region_list ): ?>
+    <section>
+        <header class="row-fluid border-bottom">
+            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_region', 'filter') ?></h1>
+        </header>
+        <ul class="col3">
+            <?php foreach ( $scope_region_list as $region) { ?>
+                <?php
+                    $filter_link = '?';
+                    if ($query != ''){
+                        $filter_link .= 'q=' . $query . '&';
+                    }
+                    $filter_link .= 'filter=scope_region:"' . $region[0] . '"';
+                    if ($user_filter != ''){
+                        $filter_link .= ' AND ' . $user_filter ;
+                    }
+                ?>
+                <li class="cat-item">
+                    <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
+                    <span ><?php echo $region[1] ?></span>
+                </li>
+            <?php } ?>
+        </ul>
+    </section>
+<?php endif; ?>
+
+<?php if ( in_array('language', $leisref_config['available_filter']) && $language_list ): ?>
+    <section >
+        <header class="row-fluid border-bottom ">
+            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'language', 'filter'); ?></h1>
+        </header>
+        <ul class="col3">
+            <?php foreach ( $language_list as $lang ) { ?>
+                <li class="cat-item">
+                    <?php
+                        $filter_link = '?';
+                        if ($query != ''){
+                            $filter_link .= 'q=' . $query . '&';
+                        }
+                        $filter_link .= 'filter=language:"' . $lang[0] . '"';
+                        if ($user_filter != ''){
+                            $filter_link .= ' AND ' . $user_filter ;
+                        }
+                    ?>
+                    <a href='<?php echo $filter_link; ?>'><?php print_lang_value($lang[0], $site_language); ?></a>
+                    <span><?php echo $lang[1]; ?></span>
+                </li>
+            <?php } ?>
+        </ul>
+    </section>
+<?php endif; ?>
+
+<?php if (count($publication_year) > 0) :?>
+    <section >
+        <header class="row-fluid border-bottom ">
+            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'year', 'filter') ?></h1>
+        </header>
+        <ul class="col3">
+            <?php foreach ( $publication_year as $year) { ?>
+                <?php
+                    $filter_link = '?';
+                    if ($query != ''){
+                        $filter_link .= 'q=' . $query . '&';
+                    }
+                    $filter_link .= 'filter=publication_year:"' . $year[0] . '"';
+                    if ($user_filter != ''){
+                        $filter_link .= ' AND ' . $user_filter ;
+                    }
+                ?>
+                <li >
+                    <a href='<?php echo $filter_link; ?>'><?php echo $year[0] ?></a>
+                    <span><?php echo $year[1] ?></span>
+                </li>
+            <?php } ?>
+        </ul>
+    </section>
+<?php endif; ?>
+
+
+</div>
+<div class="spacer"></div>
+
+<?php endif; // end whole page?>
+
 		</div> <!-- close DIV.ajusta2 -->
 	</div>
 <?php get_footer();?>
