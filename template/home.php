@@ -106,7 +106,7 @@ $fulltext_lang['en'] = __('English','leisref');
                 </div>
             </section>
 
-<?php if ($leisref_config[page_layout] != 'whole_page' || $_GET['q'] != '' || $_GET['filter'] != '' ) :  // test for page layout,  query search and Filters ?>
+<?php if ($leisref_config['page_layout'] != 'whole_page' || $_GET['q'] != '' || $_GET['filter'] != '' ) :  // test for page layout,  query search and Filters ?>
 
             <div class="content-area result-list">
     			<section id="conteudo">
