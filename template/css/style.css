@@ -349,3 +349,35 @@ input[type=radio]{float:left; margin:3px 5px 0 0;}
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+UL.col3{
+	padding-right: 0px;
+	PADDING-LEFT: 0px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	MARGIN: 15px 0px;
+	WIDTH: 100%;
+	PADDING-TOP: 0px;
+	LIST-STYLE-TYPE: none;
+}
+UL.col3 LI {
+	PADDING-RIGHT: 2px;
+	DISPLAY: inline;
+	FLOAT: left;
+	WIDTH: 28%;
+	margin-left: 48px;
+	PADDING-TOP: 2px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid rgb(229,229,229);
+}
+ul.col3 span {
+	background: rgb(172,172,172);
+	color: rgb(255,255,255);
+	padding: 0 2px 0 2px;
+	border-radius: 10px;
+	margin-left: 15px;
+	float: right;
+	min-width: 25px;
+	text-align: center;
+
+}
