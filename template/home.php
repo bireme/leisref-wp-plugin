@@ -114,7 +114,7 @@ $fulltext_lang['en'] = __('English','leisref');
                         <h1 class="h1-header"><?php _e('No results found','leisref'); ?></h1>
                     <?php else :?>
         				<header class="row-fluid border-bottom">
-    					   <h1 class="h1-header"><?php _e('Total','leisref'); ?>: <?php echo $total; ?></h1>
+    					   <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
         				</header>
         				<div class="row-fluid">
                             <?php foreach ( $legislation_list as $resource) { ?>
@@ -355,6 +355,13 @@ $fulltext_lang['en'] = __('English','leisref');
 <?php else: // start whole page ?>
 
 <div class="content-area result-list">
+  <section >
+    <header class="row-fluid">
+     <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
+     </header>
+  </section>
+
+
 
   <?php if ( in_array('collection', $leisref_config['available_filter']) && $collection_list ): ?>
       <section>
