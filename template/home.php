@@ -114,7 +114,7 @@ $fulltext_lang['en'] = __('English','leisref');
                         <h1 class="h1-header"><?php _e('No results found','leisref'); ?></h1>
                     <?php else :?>
         				<header class="row-fluid border-bottom">
-    					   <h1 class="h1-header"><?php _e('Total','leisref'); ?>: <?php echo $total; ?></h1>
+    					   <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
         				</header>
         				<div class="row-fluid">
                             <?php foreach ( $legislation_list as $resource) { ?>
@@ -355,6 +355,13 @@ $fulltext_lang['en'] = __('English','leisref');
 <?php else: // start whole page ?>
 
 <div class="content-area result-list">
+  <section >
+    <header class="row-fluid">
+     <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
+     </header>
+  </section>
+
+
 
   <?php if ( in_array('collection', $leisref_config['available_filter']) && $collection_list ): ?>
       <section>
@@ -374,8 +381,14 @@ $fulltext_lang['en'] = __('English','leisref');
                               $filter_link .= ' AND ' . $user_filter ;
                           }
                       ?>
-                      <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
-                      <span><?php echo $collection[1]; ?></span>
+                      <div class="list_bloco">
+                        <div class="list_link">
+                          <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
+                        </div>
+                        <div class="list_badge">
+                            <span><?php echo $collection[1]; ?></span>
+                        </div>
+                      </div>
                   </li>
               <?php } ?>
           </ul>
@@ -399,8 +412,14 @@ $fulltext_lang['en'] = __('English','leisref');
       }
       ?>
         <li>
-        <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
-        <span><?php echo $descriptor[1] ?></span>
+        <div class="list_bloco">
+          <div class="list_link">
+            <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
+          </div>
+          <div class="list_badge">
+            <span><?php echo $descriptor[1] ?></span>
+          </div>
+        </div>
       </li>
 <?php } ?>
     </ul>
@@ -425,8 +444,16 @@ $fulltext_lang['en'] = __('English','leisref');
                     }
                 ?>
                 <li>
-                    <a href='<?php echo $filter_link; ?>'><?php print_lang_value($type[0], $site_language)?></a>
-                    <span><?php echo $type[1] ?></span>
+                    <div class="list_bloco">
+                      <div class="list_link">
+                        <a href='<?php echo $filter_link; ?>'><?php print_lang_value($type[0], $site_language)?></a>
+
+                      </div>
+                      <div class="list_badge">
+                        <span><?php echo $type[1] ?></span>
+
+                      </div>
+                    </div>
                 </li>
             <?php } ?>
         </ul>
@@ -451,8 +478,14 @@ $fulltext_lang['en'] = __('English','leisref');
                     }
                 ?>
                 <li class="cat-item">
-                    <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
-                    <span ><?php echo $region[1] ?></span>
+                    <div class="list_bloco">
+                      <div class="list_link">
+                        <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
+                      </div>
+                      <div class="list_badge">
+                        <span ><?php echo $region[1] ?></span>
+                      </div>
+                    </div>
                 </li>
             <?php } ?>
         </ul>
@@ -477,9 +510,17 @@ $fulltext_lang['en'] = __('English','leisref');
                             $filter_link .= ' AND ' . $user_filter ;
                         }
                     ?>
-                    <a href='<?php echo $filter_link; ?>'><?php print_lang_value($lang[0], $site_language); ?></a>
-                    <span><?php echo $lang[1]; ?></span>
-                </li>
+
+                        <div class="list_bloco">
+                          <div class="list_link">
+                            <a href='<?php echo $filter_link; ?>'><?php print_lang_value($lang[0], $site_language); ?></a>
+                          </div>
+                          <div class="list_badge">
+                            <span><?php echo $lang[1]; ?></span>
+                          </div>
+                        </div>
+                    </li>
+
             <?php } ?>
         </ul>
     </section>
@@ -502,10 +543,19 @@ $fulltext_lang['en'] = __('English','leisref');
                         $filter_link .= ' AND ' . $user_filter ;
                     }
                 ?>
-                <li >
-                    <a href='<?php echo $filter_link; ?>'><?php echo $year[0] ?></a>
-                    <span><?php echo $year[1] ?></span>
-                </li>
+                <li class="cat-item">
+                        <div class="list_bloco">
+                          <div class="list_link">
+                            <a href='<?php echo $filter_link; ?>'><?php echo $year[0] ?></a>
+
+                          </div>
+                          <div class="list_badge">
+                            <span><?php echo $year[1] ?></span>
+
+                          </div>
+                        </div>
+                    </li>
+
             <?php } ?>
         </ul>
     </section>
