@@ -210,6 +210,8 @@ if(!class_exists('LeisRef_Plugin')) {
 
 		function register_settings(){
 		    register_setting('leisref-settings-group', 'leisref_config');
+        wp_enqueue_style ('oer' ,  LEISREF_PLUGIN_URL . 'template/css/admin.css');
+        wp_enqueue_script('oer' ,  LEISREF_PLUGIN_URL . 'template/js/jquery-ui.js');
 		}
 
         function settings_link($links) {
