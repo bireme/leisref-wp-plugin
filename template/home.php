@@ -406,7 +406,7 @@ $order = explode(';', $leisref_config['available_filter']);
           </ul>
       </section>
   <?php endif; ?>
-<?php if ($content == 'Descriptor' ): ?>
+<?php if ($content == 'Subject' ): ?>
   <section>
     <header class="row-fluid border-bottom">
       <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter') ?></h1>
@@ -472,7 +472,7 @@ $order = explode(';', $leisref_config['available_filter']);
     </section>
 <?php endif; ?>
 
-<?php if ( $content == 'Contry/region' ): ?>
+<?php if ( $content == 'Country/region' ): ?>
     <section>
         <header class="row-fluid border-bottom">
             <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_region', 'filter') ?></h1>
