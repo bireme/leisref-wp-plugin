@@ -416,3 +416,33 @@ UL.col3 LI {
 	float: right;
 
 }
+
+.destak h2 {
+	margin-top: -30px;
+	background-color: #dbdbdb;
+	padding: 5px 10px;
+	color: #545454;
+	font-size: 16px;
+	font-weight: normal;
+	width: 110px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+
+.destak {
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 5px;
+	float: left;
+	margin-top: 30px;
+	width: 100%;
+	box-sizing: border-box;
+
+}
+
+.video iframe {
+	margin: 5%;
+	width: 90%;
+	box-shadow: 2px 2px 5px #888;
+}

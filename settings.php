@@ -89,6 +89,77 @@ function leisref_page_admin() {
                         </tr>
 
                         <tr valign="top">
+                            <th scope="row"><?php _e('Sidebar order', 'leisref');?>:</th>
+
+                            <?php
+                              if(!isset($config['available_filter'])){
+                                $config['available_filter'] = 'Subject;Act type;Country/region;Database;Collection;Language;Year';
+                                $order = explode(';', $config['available_filter'] );
+
+                              }else {
+                                $order = explode(';', $config['available_filter'] );
+                            }
+
+                            ?>
+
+                            <td>
+
+
+                              <table border=0>
+                                <tr>
+                                <td >
+                                    <p align="right"><?php _e('Available', 'leisref');?><br>
+                                      <ul id="sortable1" class="droptrue">
+                                      <?php
+                                      if(!in_array('Subject', $order) && !in_array('Subject ', $order) ){
+                                        echo '<li class="ui-state-default" id="Subject">'.translate('Subject','leisref').'</li>';
+                                      }
+                                      if(!in_array('Act type', $order) && !in_array('Act type ', $order) ){
+                                        echo '<li class="ui-state-default" id="Act type">'.translate('Act type','leisref').'</li>';
+                                      }
+                                      if(!in_array('Country/region', $order) && !in_array('Country/region ', $order) ){
+                                        echo '<li class="ui-state-default" id="Country/region">'.translate('Country/region','leisref').'</li>';
+                                      }
+                                      if(!in_array('Database', $order) && !in_array('Database ', $order) ){
+                                        echo '<li class="ui-state-default" id="Database">'.translate('Database','leisref').'</li>';
+                                      }
+                                      if(!in_array('Collection', $order) && !in_array('Collection ', $order) ){
+                                        echo '<li class="ui-state-default" id="Collection">'.translate('Collection','leisref').'</li>';
+                                      }
+                                      if(!in_array('Language', $order) && !in_array('Language ', $order) ){
+                                        echo '<li class="ui-state-default" id="Language">'.translate('Language','leisref').'</li>';
+                                      }
+                                      if(!in_array('Year', $order) && !in_array('Year ', $order) ){
+                                        echo '<li class="ui-state-default" id="Year">'.translate('Year','leisref').'</li>';
+                                      }
+                                      ?>
+                                      </ul>
+
+                                    </p>
+                                </td>
+
+                                <td >
+                                    <p align="left"><?php _e('Selected', 'leisref');?> <br>
+                                      <ul id="sortable2" class="sortable-list">
+                                      <?php
+                                      foreach ($order as $index => $item) {
+                                        $item = trim($item); // Important
+                                        echo '<li class="ui-state-default" id="'.$item.'">'.translate($item ,'leisref').'</li>';
+                                      }
+                                      ?>
+                                      </ul>
+                                      <input type="hidden" id="order_aux" name="leisref_config[available_filter]" value="<?php echo trim($config['available_filter']); ?> " >
+
+                                    </p>
+                                </td>
+                                </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+
+                        <?php /*
+                        <tr valign="top">
                             <th scope="row">
                                 <?php _e('Display filters', 'leisref'); ?>:
                             </th>
@@ -115,7 +186,7 @@ function leisref_page_admin() {
                                         <?php _e('Database', 'leisref'); ?>
                                     </label>
                                     <br/>
-                                    -->
+
                                     <label for="available_filter_collection">
                                         <input type="checkbox" name="leisref_config[available_filter][]" value="collection" id="available_filter_collection" <?php echo (!isset($config['available_filter']) ||  in_array('collection', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
                                         <?php _e('Collection', 'leisref'); ?>
@@ -133,6 +204,7 @@ function leisref_page_admin() {
                                 </fieldset>
                             </td>
                         </tr>
+                      */ ?>
 
                     </tbody>
                 </table>
@@ -141,6 +213,25 @@ function leisref_page_admin() {
                 </p>
             </form>
         </div>
+        <script type="text/javascript">
+            $j( function() {
+              $j( "ul.droptrue" ).sortable({
+                connectWith: "ul"
+              });
+
+              $j('.sortable-list').sortable({
+
+                connectWith: 'ul',
+                update: function(event, ui) {
+                  var changedList = this.id;
+                  var order = $j(this).sortable('toArray');
+                  var positions = order.join(';');
+                  $j('#order_aux').val(positions);
+
+                }
+              });
+            } );
+        </script>
 <?php
 }
 ?>
