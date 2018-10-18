@@ -175,5 +175,9 @@ $detail_page = (isset($resource_id) ? true: false);
                 </a>
             </span>&nbsp;&nbsp;
         <?php } ?>
+        <?php if (!$detail_page) : ?>
+        <span style="margin-left: 10px;"><a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>" class="read-more"><?php _e('Read more','leisref') ?></a></span>
+        <?php endif; ?>
     </div>
+
 <?php endif; ?>

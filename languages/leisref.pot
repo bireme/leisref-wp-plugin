@@ -98,6 +98,10 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+#: settings.php:179 template/metadata.php:61
+msgid "Read more"
+msgstr ""
+
 #: settings.php:112
 msgid "Year"
 msgstr ""

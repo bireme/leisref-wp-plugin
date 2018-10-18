@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
 "POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
-"PO-Revision-Date: 2018-09-13 15:43-0300\n"
+"PO-Revision-Date: 2018-10-17 22:48-0300\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -100,6 +100,10 @@ msgstr "Coleção"
 #: settings.php:107 template/metadata.php:61
 msgid "Language"
 msgstr "Idioma"
+
+#: settings.php:179 template/metadata.php:61
+msgid "Read more"
+msgstr "Veja mais"
 
 #: settings.php:112
 msgid "Year"
