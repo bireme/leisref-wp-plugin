@@ -1,7 +1,7 @@
 var $j = jQuery;
 
 $j(window).load(function(){
-	showTips();
+	//showTips();
 	show_more_list();
 });
 
@@ -23,12 +23,13 @@ function change_sort(obj){
     form.sort.value = sort;
     $j("#searchForm").submit();
 }
-
+/*
 function showTips(){
 	$j('.tooltip').tooltipster({
 		animation: 'fade',
 	});
 }
+*/
 
 function showHideFilters(){
 	$j('#filters').toggle();
@@ -89,5 +90,5 @@ function show_similar(url){
     };
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-    
+
 }

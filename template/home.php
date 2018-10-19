@@ -200,7 +200,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ($content == 'Collection') :  ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php __('Collection','leisref'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $collection_list as $collection ) { ?>
@@ -226,7 +226,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ($content == 'Subject' ): ?>
                 			    <section class="row-fluid marginbottom25 widget_categories">
                 					<header class="row-fluid border-bottom marginbottom15">
-                						<h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter') ?></h1>
+                						<h1 class="h1-header"><?php __('Subject','leisref') ?></h1>
                 					</header>
                 					<ul>
                                         <?php foreach ( $descriptor_list as $descriptor) { ?>
@@ -252,7 +252,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Act type' ): ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php __('Act type','leisref'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $act_type_list as $type) { ?>
@@ -278,7 +278,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Country/region' ): ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'Country/region', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php __('Country/region ', $order); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $scope_region_list as $region) { ?>
@@ -304,7 +304,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Language' ) : ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'language', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php __('Language','leisref'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $language_list as $lang ) { ?>
@@ -331,7 +331,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ($content == 'Year' ) :?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'year', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php __('Year','leisref'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $publication_year as $year) { ?>
@@ -380,7 +380,7 @@ $order = explode(';', $leisref_config['available_filter']);
   <?php if ($content == 'Collection') : ?>
       <section>
         <header class="row-fluid border-bottom">
-           <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
+           <h1 class="h1-header"><?php echo __('Collection','leisref'); ?></h1>
         </header>
           <ul class="col3">
               <?php foreach ( $collection_list as $collection ) { ?>
@@ -411,7 +411,7 @@ $order = explode(';', $leisref_config['available_filter']);
 <?php if ($content == 'Subject' ): ?>
   <section>
     <header class="row-fluid border-bottom">
-      <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter') ?></h1>
+      <h1 class="h1-header"><?php __('Subject','leisref'); ?></h1>
     </header>
     <ul class="col3">
     <?php foreach ( $descriptor_list as $descriptor) { ?>
@@ -443,7 +443,7 @@ $order = explode(';', $leisref_config['available_filter']);
 <?php if( $content == 'Act type' ): ?>
     <section >
         <header class="row-fluid border-bottom ">
-            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter') ?></h1>
+            <h1 class="h1-header"><?php __('Act type','leisref'); ?></h1>
         </header>
         <ul class="col3">
             <?php foreach ( $act_type_list as $type) { ?>
@@ -477,7 +477,7 @@ $order = explode(';', $leisref_config['available_filter']);
 <?php if ( $content == 'Country/region' ): ?>
     <section>
         <header class="row-fluid border-bottom">
-            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_region', 'filter') ?></h1>
+            <h1 class="h1-header"><?php __('Country/region','leisref'); ?></h1>
         </header>
         <ul class="col3">
             <?php foreach ( $scope_region_list as $region) { ?>
@@ -509,7 +509,7 @@ $order = explode(';', $leisref_config['available_filter']);
 <?php if ($content == 'Language' ): ?>
     <section >
         <header class="row-fluid border-bottom ">
-            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'language', 'filter'); ?></h1>
+            <h1 class="h1-header"><?php __('Language','leisref'); ?></h1>
         </header>
         <ul class="col3">
             <?php foreach ( $language_list as $lang ) { ?>
@@ -543,7 +543,7 @@ $order = explode(';', $leisref_config['available_filter']);
 <?php if ($content == 'Year' ) :?>
     <section >
         <header class="row-fluid border-bottom ">
-            <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'year', 'filter') ?></h1>
+            <h1 class="h1-header"><?php __('Year','leisref'); ?></h1>
         </header>
         <ul class="col3">
             <?php foreach ( $publication_year as $year) { ?>
