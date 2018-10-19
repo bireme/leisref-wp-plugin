@@ -367,12 +367,14 @@ $fulltext_lang['en'] = __('English','leisref');
      <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
      </header>
   </section>
-
+		</div> <!-- close DIV.ajusta2 -->
 <?php
 $order = explode(';', $leisref_config['available_filter']);
+
   foreach($order as $index=>$content) {
     $content = trim($content);
 ?>
+
 
 
   <?php if ($content == 'Collection') : ?>
@@ -580,6 +582,6 @@ $order = explode(';', $leisref_config['available_filter']);
 
 <?php endif; // end whole page?>
 
-		</div> <!-- close DIV.ajusta2 -->
+
 	</div>
 <?php get_footer();?>
