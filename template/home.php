@@ -278,7 +278,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Country/region' ): ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php _e('Country/region ', 'leisref'); ?></h1>
+                                        <h1 class="h1-header"><?php _e('Country/region', 'leisref'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $scope_region_list as $region) { ?>
