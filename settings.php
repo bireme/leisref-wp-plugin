@@ -70,7 +70,7 @@ function leisref_page_admin() {
 
                         <tr valign="top">
                           <th scope="row">
-                            <?php _e('Page Layout', 'leisref'); ?>:
+                            <?php _e('Page layout', 'leisref'); ?>:
                           </th>
                           <td>
                             <label for="whole_page">
@@ -89,7 +89,7 @@ function leisref_page_admin() {
                         </tr>
 
                         <tr valign="top">
-                            <th scope="row"><?php _e('Sidebar order', 'leisref');?>:</th>
+                            <th scope="row"><?php _e('Search filters', 'leisref');?>:</th>
 
                             <?php
                               if(!isset($config['available_filter'])){
@@ -108,7 +108,7 @@ function leisref_page_admin() {
                               <table border=0>
                                 <tr>
                                 <td >
-                                    <p align="right"><?php _e('Available', 'leisref');?><br>
+                                    <p align="left"><?php _e('Available', 'leisref');?><br>
                                       <ul id="sortable1" class="droptrue">
                                       <?php
                                       if(!in_array('Subject', $order) && !in_array('Subject ', $order) ){

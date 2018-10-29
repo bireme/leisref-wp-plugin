@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2018-02-06 14:48:26+00:00\n"
-"PO-Revision-Date: 2018-10-17 22:49-0300\n"
+"POT-Creation-Date: 2018-10-29 20:50:39+00:00\n"
+"PO-Revision-Date: 2018-10-29 17:53-0300\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Legislation Settings"
 msgstr "Ajustes Legislación"
 
-#: leisref.php:92 leisref.php:179
+#: leisref.php:92 leisref.php:191
 msgid "Legislation"
 msgstr "Legislación"
 
@@ -30,183 +30,172 @@ msgstr "Legislación sidebar"
 msgid "Legislation header"
 msgstr "Legislación sidebar superior"
 
-#: lib/Paginator.php:38 lib/Paginator.php:39 lib/Paginator.php:50
-#: lib/Paginator.php:56 lib/Paginator.php:65 lib/Paginator.php:66
-#: lib/Paginator.php:72 lib/Paginator.php:73
+#: lib/Paginator.php:37 lib/Paginator.php:38 lib/Paginator.php:49
+#: lib/Paginator.php:55 lib/Paginator.php:64 lib/Paginator.php:65
+#: lib/Paginator.php:71 lib/Paginator.php:72
 msgid "go to page"
 msgstr "ir a la página"
 
-#: settings.php:9
+#: settings.php:8
 msgid "Legislation settings"
 msgstr "Legislación ajustes"
 
-#: settings.php:18
+#: settings.php:17
 msgid "Plugin page"
 msgstr "Pagina del plugin"
 
-#: settings.php:22
+#: settings.php:21
 msgid "Filter query"
 msgstr "Filtro de búsqueda"
 
-#: settings.php:26
+#: settings.php:25
 msgid "AddThis profile ID"
 msgstr ""
 
-#: settings.php:30
+#: settings.php:29
 msgid "Google Analytics code"
 msgstr "Código del Google Analytics"
 
-#: settings.php:34
+#: settings.php:33
 msgid "Fulltext"
 msgstr "Texto completo"
 
-#: settings.php:38
+#: settings.php:37
 msgid "Present alternative fulltext links"
 msgstr "Presentar enlaces alternativos de texto completo"
 
-#: settings.php:53
+#: settings.php:52
 msgid "Home URL"
 msgstr "Enlace de la página inicial"
 
-#: settings.php:58
+#: settings.php:57 settings.php:64
 msgid "Page title"
 msgstr "Titulo"
 
-#: settings.php:74
-msgid "Display filters"
-msgstr "Mostrar filtros"
+#: settings.php:73
+msgid "Page layout"
+msgstr "Layout de  página"
 
-#: settings.php:80
-msgid "Subject"
-msgstr "Asunto"
-
-#: settings.php:85
-msgid "Act type"
-msgstr "Tipo del acto"
-
-#: settings.php:90
-msgid "Country/region"
-msgstr "País/región"
-
-#: settings.php:96
-msgid "Database"
-msgstr "Base de datos"
-
-#: settings.php:102
-msgid "Collection"
-msgstr "Colección"
-
-#: settings.php:107 template/metadata.php:61
-msgid "Language"
-msgstr "Idioma"
-
-#: settings.php:179 template/metadata.php:61
-msgid "Read more"
-msgstr "Vea mas"
-
-#: settings.php:112
-msgid "Year"
-msgstr "Año"
-
-#: settings.php:122
-msgid "Save changes"
-msgstr "Guardar cambios"
-
-#: settings.php:123
-msgid "Page Layout"
-msgstr "Layout de pagina"
-
-#: settings.php:124
-msgid "Show normal page"
-msgstr "Mostrar página normal"
-
-#: settings.php:125
+#: settings.php:78
 msgid "Show filters as whole page"
 msgstr "Mostrar filtros como página completa"
 
-#: template/detail.php:35 template/home.php:69
+#: settings.php:85
+msgid "Show normal page"
+msgstr "Mostrar página normal"
+
+#: settings.php:92
+msgid "Search filters"
+msgstr "Filtros de búsqueda"
+
+#: settings.php:111
+msgid "Available"
+msgstr "Disponible"
+
+#: settings.php:142
+msgid "Selected"
+msgstr "Seleccionados"
+
+#: settings.php:212
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#: template/detail.php:27 template/home.php:69
 msgid "Portuguese"
 msgstr "Português"
 
-#: template/detail.php:36 template/home.php:70
+#: template/detail.php:28 template/home.php:70
 msgid "Spanish"
 msgstr "Español"
 
-#: template/detail.php:37 template/home.php:71
+#: template/detail.php:29 template/home.php:71
 msgid "English"
 msgstr "Inglês"
 
-#: template/detail.php:46 template/home.php:76
+#: template/detail.php:38 template/home.php:77
 msgid "Home"
 msgstr "Inicio"
 
-#: template/detail.php:48
+#: template/detail.php:40
 msgid "Act"
 msgstr "Ato"
 
-#: template/detail.php:60
+#: template/detail.php:52
 msgid "Share"
 msgstr "Compartir"
 
-#: template/detail.php:88
+#: template/detail.php:79
 msgid "Related articles"
 msgstr "Artículos relacionados"
 
-#: template/home.php:81
+#: template/home.php:82
 msgid "Search result"
 msgstr "Resultado de la búsqueda"
 
-#: template/home.php:94
+#: template/home.php:101
 msgid "Enter one or more words"
 msgstr "Ingrese una o más palabras"
 
-#: template/home.php:95
+#: template/home.php:102
 msgid "Search"
 msgstr "Buscar"
 
-#: template/home.php:104
+#: template/home.php:114
 msgid "No results found"
 msgstr "No se han encontrado resultados"
 
-#: template/home.php:107
-msgid "Total"
-msgstr "Total"
-
-#: template/home.php:135
-msgid "Filters"
-msgstr "Filtros"
-
-#: template/home.php:145
-msgid "Selected filters"
-msgstr "Filtros seleccionados"
-
-#: template/home.php:117
+#: template/home.php:117 template/home.php:367
 msgid "Normative Acts"
 msgstr "Actos Normativos"
 
-#: template/metadata.php:31
+#: template/home.php:145
+msgid "Filters"
+msgstr "Filtros"
+
+#: template/home.php:155
+msgid "Selected filters"
+msgstr "Filtros seleccionados"
+
+#: template/metadata.php:33
 msgid "Act country/region"
 msgstr "País/región del acto"
 
-#: template/metadata.php:38
+#: template/metadata.php:39
 msgid "Organ issuer"
 msgstr "Órgano Emisor"
 
-#: template/metadata.php:44
+#: template/metadata.php:45
 msgid "Act scope"
 msgstr "Esfera del acto"
 
-#: template/metadata.php:55
+#: template/metadata.php:56
 msgid "Source"
 msgstr "Fuente"
 
-#: template/metadata.php:87 template/metadata.php:120 template-functions.php:70
+#: template/metadata.php:62
+msgid "Language"
+msgstr "Idioma"
+
+#: template/metadata.php:69
+msgid "Collection"
+msgstr "Colección"
+
+#: template/metadata.php:76
+msgid "Publication date"
+msgstr ""
+
+#: template/metadata.php:103 template/metadata.php:137
+#: template-functions.php:71
 msgid "of"
 msgstr "de"
 
-#: template/metadata.php:157
+#: template/metadata.php:174
 msgid "Text in"
 msgstr "Texto en"
+
+#: template/metadata.php:179
+msgid "Read more"
+msgstr "Vea mas"
 
 #. Plugin Name of the plugin/theme
 msgid "LeisRef"
@@ -227,6 +216,27 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://reddes.bvsalud.org/"
 msgstr ""
+
+#~ msgid "Display filters"
+#~ msgstr "Mostrar filtros"
+
+#~ msgid "Subject"
+#~ msgstr "Asunto"
+
+#~ msgid "Act type"
+#~ msgstr "Tipo del acto"
+
+#~ msgid "Country/region"
+#~ msgstr "País/región"
+
+#~ msgid "Database"
+#~ msgstr "Base de datos"
+
+#~ msgid "Year"
+#~ msgstr "Año"
+
+#~ msgid "Total"
+#~ msgstr "Total"
 
 #~ msgid "Legislation Directory"
 #~ msgstr "Directorio de legislación"
