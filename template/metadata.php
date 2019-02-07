@@ -45,8 +45,8 @@ $detail_page = (isset($resource_id) ? true: false);
         <?php _e('Act scope','leisref'); ?>:
         <strong>
         <?php print_lang_value($resource->scope, $lang);?>
-        <?php echo ($resource->scope_state != ''  ? ' - ' . $resource->scope_state[0] : ''); ?>
-        <?php echo ($resource->scope_city != ''  ? '- ' . $resource->scope_city[0] : ''); ?>
+        <?php if ($resource->scope_state) echo ' - '; print_lang_value($resource->scope_state, $lang);?>
+        <?php if ($resource->scope_city) echo ' - '; print_lang_value($resource->scope_city, $lang);?>
         </strong>
     </div>
 <?php endif; ?>
