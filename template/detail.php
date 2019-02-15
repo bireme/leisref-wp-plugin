@@ -19,8 +19,18 @@ $response = @file_get_contents($leisref_service_request);
 if ($response){
     $response_json = json_decode($response);
     $resource = $response_json->diaServerResponse[0]->match->docs[0];
-    // find similar documents
-    $similar_docs_url = $similar_docs_url . '?adhocSimilarDocs=' . urlencode($resource->official_ementa[0]);
+    // create param to find similars
+    $similar_text = $resource->title;
+    if (isset($resource->mh)){
+        $similar_text .= ' ' . implode(' ', $resource->mh);
+    }
+    if (isset($resource->official_ementa)){
+        $similar_text .= ' ' . $resource->official_ementa[0];
+    }elseif (isset($resource->unofficial_ementa)){
+        $similar_text .= ' ' . $resource->unofficial_ementa[0];
+    }
+
+    $similar_docs_url = $similar_docs_url . '?adhocSimilarDocs=' . urlencode($similar_text);
     $similar_query = urlencode($similar_docs_url);
 }
 
