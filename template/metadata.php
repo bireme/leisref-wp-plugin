@@ -9,7 +9,7 @@ $detail_page = (isset($resource_id) ? true: false);
                 <?php echo $resource->title ?>
             <?php else: ?>
                 <?php print_lang_value($resource->act_type, $site_language); ?>
-                nº <?php echo $resource->act_number[0]; ?>
+                Nº <?php echo $resource->act_number[0]; ?>
                 <?php
                     if ($resource->issue_date[0]) {
                         echo '- ' . format_act_date($resource->issue_date[0], $lang);
