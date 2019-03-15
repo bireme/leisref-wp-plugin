@@ -214,6 +214,8 @@ function leisref_page_admin() {
             </form>
         </div>
         <script type="text/javascript">
+            var $j = jQuery.noConflict();
+            
             $j( function() {
               $j( "ul.droptrue" ).sortable({
                 connectWith: "ul"

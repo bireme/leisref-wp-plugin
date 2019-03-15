@@ -146,16 +146,16 @@ if(!class_exists('LeisRef_Plugin')) {
 		    );
 		    register_sidebar( $args );
 
-        $args2 = array(
-            'name' => __('Legislation header', 'leisref'),
-            'id'   => 'leisref-header',
-            'description' => 'Legislation header',
-            'before_widget' => '<section id="%1$s" class="row-fluid widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<header class="row-fluid border-bottom marginbottom15"><h1 class="h1-header">',
-            'after_title'   => '</h1></header>',
-        );
-        register_sidebar( $args2 );
+            $args2 = array(
+                'name' => __('Legislation header', 'leisref'),
+                'id'   => 'leisref-header',
+                'description' => 'Legislation header',
+                'before_widget' => '<section id="%1$s" class="row-fluid widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<header class="row-fluid border-bottom marginbottom15"><h1 class="h1-header">',
+                'after_title'   => '</h1></header>',
+            );
+            register_sidebar( $args2 );
 		}
 
 
