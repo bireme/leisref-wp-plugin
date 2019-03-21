@@ -89,6 +89,7 @@ $detail_page = (isset($resource_id) ? true: false);
                 $rel_act_date = $rel_parts[3];
                 $rel_act_apparatus = $rel_parts[4];
                 $rel_act_link = $rel_parts[5];
+                $rel_act_title = $rel_parts[6];
             ?>
             <?php
                 print_lang_value($rel_relation, $lang);
@@ -98,7 +99,11 @@ $detail_page = (isset($resource_id) ? true: false);
                 echo '&nbsp';
                 print_lang_value($rel_act_type, $lang);
                 echo '&nbsp';
-                echo $rel_act_number;
+                if ($rel_act_title){
+                    echo $rel_act_title;
+                }else{
+                    echo $rel_act_number;
+                }
                 if ($rel_act_date != 'None'){
                     echo ', ' . __('of', 'leisref'). '&nbsp';
                     echo format_act_date($rel_act_date, $lang) . '&nbsp';
@@ -107,7 +112,7 @@ $detail_page = (isset($resource_id) ? true: false);
                     echo '</a>';
                 }
                 if ($rel_act_apparatus != ''){
-                    echo '- ' . $rel_act_apparatus;
+                    echo ' (' . $rel_act_apparatus . ')' ;
                 }
             ?>
         </div>
@@ -125,8 +130,13 @@ $detail_page = (isset($resource_id) ? true: false);
                 $rel_act_number = $rel_parts[2];
                 $rel_act_date = $rel_parts[3];
                 $rel_act_link = $rel_parts[4];
+                $rel_act_title = $rel_parts[5];
+                $rel_act_apparatus = $rel_parts[6];
             ?>
             <?php
+                if ($rel_act_apparatus != ''){
+                    echo '(' . $rel_act_apparatus . ') ';
+                }
                 print_lang_value($rel_relation, $lang);
                 if ($rel_act_link != ''){
                     echo '<a href="' . real_site_url($leisref_plugin_slug) . 'resource/?id=' . $rel_act_link . '">';
@@ -134,13 +144,17 @@ $detail_page = (isset($resource_id) ? true: false);
                 echo '&nbsp';
                 print_lang_value($rel_act_type, $lang);
                 echo '&nbsp';
-                echo $rel_act_number . ', ' . __('of', 'leisref'). '&nbsp';
-                echo format_act_date($rel_act_date, $lang) . '&nbsp';
+                if ($rel_act_title){
+                    echo $rel_act_title;
+                }else{
+                    echo $rel_act_number;
+                }
+                if ($rel_act_date != 'None'){
+                    echo ', ' . __('of', 'leisref'). '&nbsp';
+                    echo format_act_date($rel_act_date, $lang) . '&nbsp';
+                }
                 if ($rel_act_link != ''){
                     echo '</a>';
-                }
-                if ($rel_act_apparatus != ''){
-                    echo '- ' . $rel_act_apparatus;
                 }
             ?>
         </div>
