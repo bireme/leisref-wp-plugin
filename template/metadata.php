@@ -74,7 +74,7 @@ $detail_page = (isset($resource_id) ? true: false);
 <?php if ($resource->publication_date && $detail_page) : ?>
     <div class="row-fluid">
         <?php _e('Publication date','leisref'); ?>:
-        <strong><?php echo format_date($resource->publication_date[0]); ?></strong>
+        <strong><?php echo format_date($resource->publication_date); ?></strong>
     </div>
 <?php endif; ?>
 
