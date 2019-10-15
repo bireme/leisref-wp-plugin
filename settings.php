@@ -95,9 +95,8 @@ function leisref_page_admin() {
                               if(!isset($config['available_filter'])){
                                 $config['available_filter'] = 'Subject;Act type;Country/region;Database;Collection;Language;Year';
                                 $order = explode(';', $config['available_filter'] );
-
                               }else {
-                                $order = explode(';', $config['available_filter'] );
+                                $order = array_filter(explode(';', $config['available_filter']));
                             }
 
                             ?>
