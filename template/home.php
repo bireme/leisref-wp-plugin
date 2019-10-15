@@ -36,8 +36,8 @@ $leisref_search = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($q
 if ( $user_filter != '' ) {
     $user_filter_list = preg_split("/ AND /", $user_filter);
     $applied_filter_list = array();
-    foreach($user_filter_list as $filter){
-        preg_match('/([a-z_]+):(.+)/',$filter, $filter_parts);
+    foreach($user_filter_list as $filters){
+        preg_match('/([a-z_]+):(.+)/',$filters, $filter_parts);
         if ($filter_parts){
             // convert to internal format
             $applied_filter_list[$filter_parts[1]][] = str_replace('"', '', $filter_parts[2]);
