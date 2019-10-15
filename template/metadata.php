@@ -1,10 +1,17 @@
 <?php
-$detail_page = (isset($resource_id) ? true: false);
+    $document_url = '#';
+    $detail_page = (isset($resource_id) ? true: false);
+
+    if ( $resource->fulltext ) {   
+        $document_url_parts = explode("|", $resource->fulltext[0]);
+        $document_lang = $document_url_parts[0];
+        $document_url = $document_url_parts[1];
+    }
 ?>
 
 <div class="row-fluid">
     <h2 class="h2-loop-tit">
-        <a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>">
+        <a href="<?php echo $document_url; ?>">
             <?php if ($resource->title) : ?>
                 <?php echo $resource->title ?>
             <?php else: ?>
@@ -161,7 +168,6 @@ $detail_page = (isset($resource_id) ? true: false);
     <?php } ?>
 <?php endif; ?>
 
-
 <?php if ($resource->descriptor || $resource->keyword ) : ?>
     <div id="conteudo-loop-tags" class="row-fluid margintop10">
         <i class="ico-tags"> </i>
@@ -177,7 +183,7 @@ $detail_page = (isset($resource_id) ? true: false);
 
 <?php if ($resource->fulltext): ?>
     <div class="row-fluid">
-        <?php foreach ( $resource->fulltext as $fulltext) { ?>
+        <?php foreach ( $resource->fulltext as $fulltext) : ?>
             <?php
                 $document_url_parts = explode("|", $fulltext);
                 $document_lang = $document_url_parts[0];
@@ -188,10 +194,9 @@ $detail_page = (isset($resource_id) ? true: false);
                     <?php _e('Text in','leisref') ?> <?php echo $fulltext_lang[$document_lang] ?>
                 </a>
             </span>&nbsp;&nbsp;
-        <?php } ?>
+        <?php endforeach; ?>
         <?php if (!$detail_page) : ?>
         <span style="margin-left: 10px;"><a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>" class="read-more"><?php _e('Read more','leisref') ?></a></span>
         <?php endif; ?>
     </div>
-
 <?php endif; ?>
