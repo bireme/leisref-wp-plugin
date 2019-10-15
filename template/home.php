@@ -66,25 +66,29 @@ $feed_url = real_site_url($leisref_plugin_slug) . 'legislation-feed?q=' . urlenc
 
 $pages = new Paginator($total, $start, $count);
 $pages->paginate($page_url_params);
+
+$home_url = isset($leisref_config['home_url_' . $lang]) ? $leisref_config['home_url_' . $lang] : real_site_url();
+$plugin_breadcrumb = isset($leisref_config['plugin_title_' . $lang]) ? $leisref_config['plugin_title_' . $lang] : $leisref_config['plugin_title'];
+
 $fulltext_lang['pt-br'] = __('Portuguese','leisref');
 $fulltext_lang['es'] = __('Spanish','leisref');
 $fulltext_lang['en'] = __('English','leisref');
+
 ?>
 
 <?php get_header('leisref');?>
 
-    <div class="row-fluid breadcrumb">
-        <a href="<?php echo real_site_url() ?>"><?php _e('Home','leisref'); ?></a> >
-        <?php if ($query == '' && $filter == ''): ?>
-            <?php echo $leisref_plugin_title ?>
-        <?php else: ?>
-            <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php echo $leisref_plugin_title ?> </a> >
-            <?php _e('Search result', 'leisref') ?>
-        <?php endif; ?>
-    </div>
-
     <div id="content" class="row-fluid">
 	  <div class="ajusta2">
+          <div class="row-fluid breadcrumb">
+              <a href="<?php echo $home_url ?>"><?php _e('Home','leisref'); ?></a> >
+              <?php if ($query == '' && $filter == ''): ?>
+                  <?php echo $plugin_breadcrumb ?>
+              <?php else: ?>
+                  <a href="<?php echo real_site_url($biblio_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
+                  <?php _e('Search result', 'leisref') ?>
+              <?php endif; ?>
+          </div>
           <!-- Start sidebar leisref-header -->
           <div class="row-fluid">
               <?php dynamic_sidebar('leisref-header');?>

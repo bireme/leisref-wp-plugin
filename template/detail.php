@@ -34,6 +34,9 @@ if ($response){
     $similar_query = urlencode($similar_docs_url);
 }
 
+$home_url = isset($leisref_config['home_url_' . $lang]) ? $leisref_config['home_url_' . $lang] : real_site_url();
+$plugin_breadcrumb = isset($leisref_config['plugin_title_' . $lang]) ? $leisref_config['plugin_title_' . $lang] : $leisref_config['plugin_title'];
+
 $fulltext_lang['pt-br'] = __('Portuguese','leisref');
 $fulltext_lang['es'] = __('Spanish','leisref');
 $fulltext_lang['en'] = __('English','leisref');
@@ -42,14 +45,13 @@ $fulltext_lang['en'] = __('English','leisref');
 
 <?php get_header('leisref'); ?>
 
-<div id="content" class="row-fluid">
+    <div id="content" class="row-fluid">
         <div class="ajusta2">
             <div class="row-fluid breadcrumb">
-                <a href="<?php echo real_site_url() ?>"><?php _e('Home','leisref'); ?></a> >
-                <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php echo $leisref_plugin_title ?> </a> >
+                <a href="<?php echo $home_url ?>"><?php _e('Home','leisref'); ?></a> >
+                <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
                 <?php _e('Act','leisref'); ?>
             </div>
-
             <section id="conteudo">
                 <header class="row-fluid border-bottom">
                     <h1 class="h1-header"><?php echo $resource->title; ?></h1>
