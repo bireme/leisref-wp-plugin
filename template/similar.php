@@ -11,7 +11,11 @@
     $json = json_encode($xml);
     $similar_docs = json_decode($json, TRUE);
     
-    if ( $similar_docs && array_key_exists('document', $similar_docs) ) {
+    if ( $similar_docs && array_key_exists('document', $similar_docs) && count($similar_docs) > 0 ) {
+        if( !array_key_exists( 0, $similar_docs['document'] ) ) {
+            $similar_docs['document'] = array_values($similar_docs);
+        }
+
         foreach ( $similar_docs['document'] as $similar) {
             ?>
             <li class="cat-item">
@@ -38,6 +42,6 @@
             <?php
         }
     } else {
-        echo '<li>' . __('No related documents', 'biblio') . '</li>';
+        echo '<li>' . __('No related documents', 'leisref') . '</li>';
     }
 ?>

@@ -75,6 +75,13 @@ function leisref_page_admin() {
                             </td>
                         </tr>
                         <tr valign="top">
+                            <th scope="row"><?php _e('More Related filter', 'leisref'); ?>:</th>
+                            <td>
+                                <input type="text" name="leisref_config[extra_filter_db]" value='<?php echo $config['extra_filter_db']; ?>' class="regular-text code">
+                                <small style="display: block;">* <?php _e('The filters must be separated by commas.', 'leisref'); ?></small>
+                            </td>
+                        </tr>
+                        <tr valign="top">
                           <th scope="row">
                             <?php _e('Page layout', 'leisref'); ?>:
                           </th>
