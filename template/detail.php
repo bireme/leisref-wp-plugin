@@ -21,8 +21,8 @@ if ($response){
     $resource = $response_json->diaServerResponse[0]->match->docs[0];
     // create param to find similars
     $similar_text = $resource->title;
-    if (isset($resource->mh)){
-        $similar_text .= ' ' . implode(' ', $resource->mh);
+    if (isset($resource->mj)){
+        $similar_text .= ' ' . implode(' ', $resource->mj);
     }
     if (isset($resource->official_ementa)){
         $similar_text .= ' ' . $resource->official_ementa[0];
@@ -31,7 +31,8 @@ if ($response){
     }
 
     $similar_docs_url = $similar_docs_url . '?adhocSimilarDocs=' . urlencode($similar_text);
-    $similar_query = urlencode($similar_docs_url);
+    $similar_docs_request = ( $leisref_config['default_filter_db'] ) ? $similar_docs_url . '&sources=' . $leisref_config['default_filter_db'] : $similar_docs_url;
+    $similar_query = urlencode($similar_docs_request);
 }
 
 $home_url = isset($leisref_config['home_url_' . $lang]) ? $leisref_config['home_url_' . $lang] : real_site_url();
@@ -86,15 +87,15 @@ $fulltext_lang['en'] = __('English','leisref');
                 </div>
             </section>
             <aside id="sidebar">
-                    <section class="row-fluid marginbottom25 widget_categories">
-                        <header class="row-fluid border-bottom marginbottom15">
-                            <h1 class="h1-header"><?php _e('Related articles','leisref'); ?></h1>
-                        </header>
-                        <ul id="ajax">
-                        </ul>
+                <section class="row-fluid marginbottom25 widget_categories">
+                    <header class="row-fluid border-bottom marginbottom15">
+                        <h1 class="h1-header"><?php _e('Related articles','leisref'); ?></h1>
+                    </header>
+                    <ul id="ajax">
 
+                    </ul>
 <?php
-    $url=LEISREF_PLUGIN_URL.'template/similar.php?query='.$similar_query.'&lang='.$lang;
+$url=LEISREF_PLUGIN_URL.'template/similar.php?query='.$similar_query.'&lang='.$lang;
 ?>
 <script type="text/javascript">
     show_similar("<?php echo $url; ?>");

@@ -65,9 +65,15 @@ function leisref_page_admin() {
                             echo '   <td><input type="text" name="leisref_config[plugin_title]" value="' . $config["plugin_title"] . '" class="regular-text code"></td>';
                             echo '</tr>';
                         }
-
                         ?>
 
+                        <tr valign="top">
+                            <th scope="row"><?php _e('Related Documents filter', 'leisref'); ?>:</th>
+                            <td>
+                                <input type="text" name="leisref_config[default_filter_db]" value='<?php echo $config['default_filter_db']; ?>' class="regular-text code">
+                                <small style="display: block;">* <?php _e('The filters must be separated by commas.', 'leisref'); ?></small>
+                            </td>
+                        </tr>
                         <tr valign="top">
                           <th scope="row">
                             <?php _e('Page layout', 'leisref'); ?>:
@@ -102,8 +108,6 @@ function leisref_page_admin() {
                             ?>
 
                             <td>
-
-
                               <table border=0>
                                 <tr>
                                 <td >
@@ -136,8 +140,7 @@ function leisref_page_admin() {
 
                                     </p>
                                 </td>
-
-                                <td >
+                                <td>
                                     <p align="left"><?php _e('Selected', 'leisref');?> <br>
                                       <ul id="sortable2" class="sortable-list">
                                       <?php
@@ -153,7 +156,6 @@ function leisref_page_admin() {
                                 </td>
                                 </tr>
                                 </table>
-
                             </td>
                         </tr>
 
