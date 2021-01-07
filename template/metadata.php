@@ -1,17 +1,11 @@
 <?php
     $document_url = '#';
     $detail_page = (isset($resource_id) ? true: false);
-
-    if ( $resource->fulltext ) {   
-        $document_url_parts = explode("|", $resource->fulltext[0]);
-        $document_lang = $document_url_parts[0];
-        $document_url = $document_url_parts[1];
-    }
 ?>
 
 <div class="row-fluid">
     <h2 class="h2-loop-tit">
-        <a href="<?php echo $document_url; ?>">
+        <a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>">
             <?php if ($resource->title) : ?>
                 <?php echo $resource->title ?>
             <?php else: ?>
@@ -34,6 +28,17 @@
         <?php echo $resource->unofficial_ementa[0];?>
     <?php endif; ?>
 </div>
+
+<?php if ($resource->scope) : ?>
+    <div class="row-fluid">
+        <?php _e('Act scope','leisref'); ?>:
+        <strong>
+        <?php print_lang_value($resource->scope, $lang);?>
+        <?php if ($resource->scope_state) echo ' - '; print_lang_value($resource->scope_state, $lang);?>
+        <?php if ($resource->scope_city) echo ' - '; print_lang_value($resource->scope_city, $lang);?>
+        </strong>
+    </div>
+<?php endif; ?>
 
 <?php if ($resource->scope_region): ?>
     <div class="row-fluid">
@@ -181,6 +186,11 @@
     </div>
 <?php endif; ?>
 
+<?php if (!$detail_page) : ?>
+    <a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>" class="read-more"><?php _e('Read more','leisref') ?></a>
+<?php endif; ?>
+
+
 <?php if ($resource->fulltext): ?>
     <div class="row-fluid">
         <?php foreach ( $resource->fulltext as $fulltext) : ?>
@@ -188,15 +198,15 @@
                 $document_url_parts = explode("|", $fulltext);
                 $document_lang = $document_url_parts[0];
                 $document_url = $document_url_parts[1];
+                $extension_list = array('pdf', 'html', 'htm', 'doc', 'xml');
+                $document_extension = end(explode('.', $document_url));
             ?>
             <span class="more">
                 <a href="<?php echo $document_url ?>" target="_blank">
                     <?php _e('Text in','leisref') ?> <?php echo $fulltext_lang[$document_lang] ?>
+                    <?php if ( in_array($document_extension, $extension_list) ) echo ' (' . strtoupper($document_extension) . ')' ;?>
                 </a>
             </span>&nbsp;&nbsp;
         <?php endforeach; ?>
-        <?php if (!$detail_page) : ?>
-        <span style="margin-left: 10px;"><a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>" class="read-more"><?php _e('Read more','leisref') ?></a></span>
-        <?php endif; ?>
     </div>
 <?php endif; ?>

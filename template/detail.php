@@ -87,9 +87,6 @@ $fulltext_lang['en'] = __('English','leisref');
                     </article>
                 </div>
                 <div class="row-fluid">
-                    <header class="row-fluid border-bottom marginbottom15">
-                        <h1 class="h1-header"><?php _e('More related','leisref'); ?></h1>
-                    </header>
                     <div id="loader" class="loader" style="display: inline-block;"></div>
                 </div>
                 <div class="row-fluid">

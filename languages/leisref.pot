@@ -1,30 +1,30 @@
-# Copyright (C) 2018 LeisRef
+# Copyright (C) 2021 LeisRef
 # This file is distributed under the same license as the LeisRef package.
 msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2018-10-29 20:50:39+00:00\n"
+"POT-Creation-Date: 2021-01-06 19:02:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: leisref.php:92
+#: leisref.php:95
 msgid "Legislation Settings"
 msgstr ""
 
-#: leisref.php:92 leisref.php:191
+#: leisref.php:95 leisref.php:232
 msgid "Legislation"
 msgstr ""
 
-#: leisref.php:139
+#: leisref.php:144
 msgid "Legislation sidebar"
 msgstr ""
 
-#: leisref.php:150
+#: leisref.php:155
 msgid "Legislation header"
 msgstr ""
 
@@ -70,129 +70,149 @@ msgstr ""
 msgid "Page title"
 msgstr ""
 
-#: settings.php:73
-msgid "Page layout"
+#: settings.php:71
+msgid "Related Documents filter"
+msgstr ""
+
+#: settings.php:74 settings.php:81
+msgid "The filters must be separated by commas."
 msgstr ""
 
 #: settings.php:78
+msgid "More Related filter"
+msgstr ""
+
+#: settings.php:86
+msgid "Page layout"
+msgstr ""
+
+#: settings.php:91
 msgid "Show filters as whole page"
 msgstr ""
 
-#: settings.php:85
+#: settings.php:98
 msgid "Show normal page"
 msgstr ""
 
-#: settings.php:92
+#: settings.php:105
 msgid "Search filters"
 msgstr ""
 
-#: settings.php:111
+#: settings.php:121
 msgid "Available"
 msgstr ""
 
-#: settings.php:142
+#: settings.php:151
 msgid "Selected"
 msgstr ""
 
-#: settings.php:212
+#: settings.php:220
 msgid "Save changes"
 msgstr ""
 
-#: template/detail.php:27 template/home.php:69
+#: template/advanced.php:73 template/detail.php:42 template/home.php:73
 msgid "Portuguese"
 msgstr ""
 
-#: template/detail.php:28 template/home.php:70
+#: template/advanced.php:74 template/detail.php:43 template/home.php:74
 msgid "Spanish"
 msgstr ""
 
-#: template/detail.php:29 template/home.php:71
+#: template/advanced.php:75 template/detail.php:44 template/home.php:75
 msgid "English"
 msgstr ""
 
-#: template/detail.php:38 template/home.php:77
+#: template/advanced.php:84 template/detail.php:53 template/home.php:84
 msgid "Home"
 msgstr ""
 
-#: template/detail.php:40
-msgid "Act"
-msgstr ""
-
-#: template/detail.php:52
-msgid "Share"
-msgstr ""
-
-#: template/detail.php:79
-msgid "Related articles"
-msgstr ""
-
-#: template/home.php:82
+#: template/advanced.php:89 template/home.php:89
 msgid "Search result"
 msgstr ""
 
-#: template/home.php:101
+#: template/advanced.php:105 template/home.php:105
 msgid "Enter one or more words"
 msgstr ""
 
-#: template/home.php:102
+#: template/advanced.php:106 template/home.php:106
 msgid "Search"
 msgstr ""
 
-#: template/home.php:114
-msgid "No results found"
-msgstr ""
-
-#: template/home.php:117 template/home.php:367
+#: template/advanced.php:120 template/home.php:121 template/home.php:371
 msgid "Normative Acts"
 msgstr ""
 
-#: template/home.php:145
+#: template/detail.php:55
+msgid "Act"
+msgstr ""
+
+#: template/detail.php:66
+msgid "Share"
+msgstr ""
+
+#: template/detail.php:91
+msgid "More related"
+msgstr ""
+
+#: template/detail.php:111
+msgid "Related articles"
+msgstr ""
+
+#: template/home.php:118
+msgid "No results found"
+msgstr ""
+
+#: template/home.php:149
 msgid "Filters"
 msgstr ""
 
-#: template/home.php:155
+#: template/home.php:159
 msgid "Selected filters"
 msgstr ""
 
-#: template/metadata.php:33
-msgid "Act country/region"
-msgstr ""
-
-#: template/metadata.php:39
-msgid "Organ issuer"
-msgstr ""
-
-#: template/metadata.php:45
+#: template/metadata.php:40 template/metadata.php:63
 msgid "Act scope"
 msgstr ""
 
-#: template/metadata.php:56
+#: template/metadata.php:51
+msgid "Act country/region"
+msgstr ""
+
+#: template/metadata.php:57
+msgid "Organ issuer"
+msgstr ""
+
+#: template/metadata.php:74
 msgid "Source"
 msgstr ""
 
-#: template/metadata.php:62
+#: template/metadata.php:80
 msgid "Language"
 msgstr ""
 
-#: template/metadata.php:69
+#: template/metadata.php:87
 msgid "Collection"
 msgstr ""
 
-#: template/metadata.php:76
+#: template/metadata.php:94
 msgid "Publication date"
 msgstr ""
 
-#: template/metadata.php:103 template/metadata.php:137
+#: template/metadata.php:126 template/metadata.php:171
 #: template-functions.php:71
 msgid "of"
 msgstr ""
 
-#: template/metadata.php:174
+#: template/metadata.php:196
+msgid "Read more"
+msgstr ""
+
+#: template/metadata.php:212
 msgid "Text in"
 msgstr ""
 
-#: template/metadata.php:179
-msgid "Read more"
+#: template/related.php:60 template/similar.php:45
+msgid "No related documents"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
