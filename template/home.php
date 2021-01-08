@@ -116,7 +116,7 @@ $fulltext_lang['en'] = __('English','leisref');
                   <?php echo $plugin_breadcrumb ?>
               <?php else: ?>
                   <a href="<?php echo real_site_url($biblio_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
-                  <?php _e('Advanced search', 'leisref') ?>
+                  <?php _e('Search result', 'leisref') ?>
               <?php endif; ?>
           </div>
           <!-- Start sidebar leisref-header -->
