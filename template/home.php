@@ -20,6 +20,48 @@ $total = 0;
 $count = 10;
 $filter = '';
 
+$advanced_filter_param = $_GET['advanced_filter'];
+$start = ($page * $count) - $count;
+
+if ( $user_filter != '' || $advanced_filter_param) {
+    $applied_filter_list = array();
+
+    // process user filter param
+    $user_filter_list = preg_split("/ AND /", $user_filter);
+    foreach($user_filter_list as $filters){
+        preg_match('/([a-z_]+):(.+)/',$filters, $filter_parts);
+        if ($filter_parts){
+            $filter_name = $filter_parts[1];
+            $filter_query = $filter_parts[2];
+            // check filter_query for multiples values
+            $filter_or_list = preg_split("/ OR /", $filter_query);
+            if($filter_or_list){
+                foreach($filter_or_list as $filter_or){
+                    $applied_filter_list[$filter_name][] = preg_replace('/["\(\)]/', '', $filter_or);
+                }
+            }else{
+                $applied_filter_list[$filter_name][] = preg_replace('/"/', '', $filter_query);
+            }
+        }
+    }
+
+    // process advanced form filter list
+    foreach($advanced_filter_param as $adv_filter_name => $adv_filter_value) {
+        foreach($adv_filter_value as $filter_value){
+            $applied_filter_list[$adv_filter_name][] = str_replace('"', '', $filter_value);
+        }
+    }
+
+    // create filter query
+    $u_filter = array();
+    foreach(array_keys($applied_filter_list) as $filter_name) {
+        $u_filter[] = $filter_name . ':("' . join('" OR "', $applied_filter_list[$filter_name]) . '")';
+    }
+
+    $user_filter = join(" AND ", $u_filter);
+
+}
+
 if ($leisref_initial_filter != ''){
     if ($user_filter != ''){
         $filter = $leisref_initial_filter . ' AND ' . $user_filter;
@@ -29,21 +71,9 @@ if ($leisref_initial_filter != ''){
 }else{
     $filter = $user_filter;
 }
-$start = ($page * $count) - $count;
 
 $leisref_search = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $lang;
 
-if ( $user_filter != '' ) {
-    $user_filter_list = preg_split("/ AND /", $user_filter);
-    $applied_filter_list = array();
-    foreach($user_filter_list as $filters){
-        preg_match('/([a-z_]+):(.+)/',$filters, $filter_parts);
-        if ($filter_parts){
-            // convert to internal format
-            $applied_filter_list[$filter_parts[1]][] = str_replace('"', '', $filter_parts[2]);
-        }
-    }
-}
 
 $response = @file_get_contents($leisref_search);
 if ($response){
@@ -61,7 +91,7 @@ if ($response){
     $publication_year = $response_json->diaServerResponse[0]->facet_counts->facet_fields->publication_year;
 }
 
-$page_url_params = real_site_url($leisref_plugin_slug) . '?q=' . urlencode($query)  . '&filter=' . urlencode($filter);
+$page_url_params = real_site_url($leisref_plugin_slug) . '?q=' . urlencode($query)  . '&filter=' . urlencode($user_filter);
 $feed_url = real_site_url($leisref_plugin_slug) . 'legislation-feed?q=' . urlencode($query) . '&filter=' . urlencode($user_filter);
 
 $pages = new Paginator($total, $start, $count);
@@ -86,7 +116,7 @@ $fulltext_lang['en'] = __('English','leisref');
                   <?php echo $plugin_breadcrumb ?>
               <?php else: ?>
                   <a href="<?php echo real_site_url($biblio_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
-                  <?php _e('Search result', 'leisref') ?>
+                  <?php _e('Advanced search', 'leisref') ?>
               <?php endif; ?>
           </div>
           <!-- Start sidebar leisref-header -->
@@ -104,6 +134,8 @@ $fulltext_lang['en'] = __('English','leisref');
                     <input type="hidden" name="page" id="page" value="<?php echo $page; ?>">
                     <input value='<?php echo $query; ?>' name="q" class="input-search" id="s" type="text" placeholder="<?php _e('Enter one or more words', 'leisref'); ?>">
                     <input id="searchsubmit" value="<?php _e('Search', 'leisref'); ?>" type="submit">
+                    <br/>
+                    <a href="<?php echo real_site_url($leisref_plugin_slug) . 'advanced' ?>"><?php _e('Advanced search','leisref'); ?></a>
                 </form>
                 <div class="pull-right rss">
                     <a href="<?php echo $feed_url ?>" target="blank"><img src="<?php echo LEISREF_PLUGIN_URL; ?>template/images/icon_rss.png" ></a>

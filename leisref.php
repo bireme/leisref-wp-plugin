@@ -29,7 +29,7 @@ if(!class_exists('LeisRef_Plugin')) {
     class LeisRef_Plugin {
 
         private $plugin_slug = 'leisref';
-        private $service_url = 'http://fi-admin.data.bvsalud.org/';
+        private $service_url = 'https://fi-admin-api.bvsalud.org/';
         private $similar_docs_url = 'http://similardocs.bireme.org/SDService';
 
         /**
@@ -116,12 +116,14 @@ if(!class_exists('LeisRef_Plugin')) {
                 $similar_docs_url = $this->similar_docs_url;
 
                 if ($pagename == $this->plugin_slug || $pagename == $this->plugin_slug . '/resource'
-                    || $pagename == $this->plugin_slug . '/legislation-feed') {
+                    || $pagename == $this->plugin_slug . '/legislation-feed' || $pagename == $this->plugin_slug . '/advanced' ) {
 
     		        add_action( 'wp_enqueue_scripts', array(&$this, 'template_styles_scripts') );
 
     		        if ($pagename == $this->plugin_slug){
-    		            $template = LEISREF_PLUGIN_PATH . '/template/home.php';
+                        $template = LEISREF_PLUGIN_PATH . '/template/home.php';
+                    }elseif ($pagename == $this->plugin_slug . '/advanced'){
+                        $template = LEISREF_PLUGIN_PATH . '/template/advanced.php';
     		        }elseif ($pagename == $this->plugin_slug . '/legislation-feed'){
     		            $template = LEISREF_PLUGIN_PATH . '/template/rss.php';
     		        }else{
