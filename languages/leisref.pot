@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2021-01-08 19:14:10+00:00\n"
+"POT-Creation-Date: 2021-01-08 19:26:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -150,7 +150,11 @@ msgstr ""
 msgid "Related articles"
 msgstr ""
 
-#: template/home.php:119 template/home.php:138
+#: template/home.php:119
+msgid "Search result"
+msgstr ""
+
+#: template/home.php:138
 msgid "Advanced search"
 msgstr ""
 
