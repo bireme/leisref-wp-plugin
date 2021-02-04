@@ -29,20 +29,16 @@
     <?php endif; ?>
 </div>
 
-<?php if ($resource->scope) : ?>
+<?php if ($resource->source_name): ?>
     <div class="row-fluid">
-        <?php _e('Act scope','leisref'); ?>:
-        <strong>
-        <?php print_lang_value($resource->scope, $lang);?>
-        <?php if ($resource->scope_state) echo ' - '; print_lang_value($resource->scope_state, $lang);?>
-        <?php if ($resource->scope_city) echo ' - '; print_lang_value($resource->scope_city, $lang);?>
-        </strong>
+        <?php _e('Source','leisref'); ?>: <strong><?php print_lang_value($resource->source_name, $lang) ;?></strong>
     </div>
 <?php endif; ?>
 
-<?php if ($resource->scope_region): ?>
+<?php if ($resource->publication_date) : ?>
     <div class="row-fluid">
-        <?php _e('Act country/region','leisref'); ?>: <strong><?php print_lang_value($resource->scope_region, $lang) ;?></strong>
+        <?php _e('Publication date','leisref'); ?>:
+        <strong><?php echo format_date($resource->publication_date); ?></strong>
     </div>
 <?php endif; ?>
 
@@ -52,20 +48,16 @@
     </div>
 <?php endif; ?>
 
-<?php if ($resource->scope && $detail_page) : ?>
+
+<?php if ($resource->scope) : ?>
     <div class="row-fluid">
         <?php _e('Act scope','leisref'); ?>:
         <strong>
         <?php print_lang_value($resource->scope, $lang);?>
         <?php if ($resource->scope_state) echo ' - '; print_lang_value($resource->scope_state, $lang);?>
         <?php if ($resource->scope_city) echo ' - '; print_lang_value($resource->scope_city, $lang);?>
+        <?php if ($resource->scope_region) echo ' / '; print_lang_value($resource->scope_region, $lang) ;?>
         </strong>
-    </div>
-<?php endif; ?>
-
-<?php if ($resource->source_name && $detail_page): ?>
-    <div class="row-fluid">
-        <?php _e('Source','leisref'); ?>: <strong><?php print_lang_value($resource->source_name, $lang) ;?></strong>
     </div>
 <?php endif; ?>
 
@@ -80,13 +72,6 @@
     <div class="row-fluid">
         <?php _e('Collection','leisref'); ?>:
         <strong><?php print_lang_value($resource->collection, $lang);?></strong>
-    </div>
-<?php endif; ?>
-
-<?php if ($resource->publication_date && $detail_page) : ?>
-    <div class="row-fluid">
-        <?php _e('Publication date','leisref'); ?>:
-        <strong><?php echo format_date($resource->publication_date); ?></strong>
     </div>
 <?php endif; ?>
 
