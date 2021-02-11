@@ -155,6 +155,14 @@ if ( !function_exists('real_site_url') ) {
 
 if ( !function_exists('translate_filter_options') ) {
 
+    function sort_by_label($a, $b){
+        $a = strtolower($a['label']);
+        $b = strtolower($b['label']);
+
+        if ($a == $b) return 0;
+        return ($a < $b) ? -1 : 1;
+    }
+
     function translate_filter_options($filter, $lang_code){
         // translate and sort list
         $list_translated = array();
@@ -164,7 +172,7 @@ if ( !function_exists('translate_filter_options') ) {
                 $list_translated[] = array("label" => $translation, "original" => $filter_option);
             }
         }
-        asort($list_translated, SORT_STRING);
+        usort($list_translated, 'sort_by_label');
 
         return $list_translated;
     }
