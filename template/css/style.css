@@ -251,6 +251,10 @@ input[type=radio]{float:left; margin:3px 5px 0 0;}
 	padding: 5px 0;
 }
 
+ul.two-columns-list{
+	column-count: 2;
+}
+
 @media (min-width: 766px) and (max-width: 1099px) {
 	.ajusta, .ajusta3, .ajusta2, .top, .bar .barInner, .footerArea {width:100%; margin:0;}
 	.container{width:95% !important;margin: 0 2.5% !important;}

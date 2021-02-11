@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2021-01-08 19:26:11+00:00\n"
-"PO-Revision-Date: 2021-01-08 17:26-0200\n"
+"POT-Creation-Date: 2021-02-11 13:29:53+00:00\n"
+"PO-Revision-Date: 2021-02-11 12:01-0200\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -73,20 +73,16 @@ msgid "Page title"
 msgstr "Titulo"
 
 #: settings.php:71
-#, fuzzy
-#| msgid "Related articles"
-msgid "Related Documents filter"
-msgstr "Artículos relacionados"
+msgid "Sources for similar documents"
+msgstr "Fuentes para documentos similares"
 
 #: settings.php:74 settings.php:81
-msgid "The filters must be separated by commas."
-msgstr ""
+msgid "The database names must be separated by commas."
+msgstr "Los nombres de las bases de datos deben estar separados por comas."
 
 #: settings.php:78
-#, fuzzy
-#| msgid "Selected filters"
-msgid "More Related filter"
-msgstr "Filtros seleccionados"
+msgid "Sources for related documents"
+msgstr "Fuentes de documentos relacionados"
 
 #: settings.php:86
 msgid "Page layout"
@@ -112,37 +108,41 @@ msgstr "Disponible"
 msgid "Selected"
 msgstr "Seleccionados"
 
-#: settings.php:220
+#: settings.php:173
 msgid "Save changes"
 msgstr "Guardar cambios"
 
-#: template/advanced.php:49 template/detail.php:42 template/home.php:103
+#: template/advanced.php:50 template/detail.php:42 template/home.php:108
 msgid "Portuguese"
 msgstr "Português"
 
-#: template/advanced.php:50 template/detail.php:43 template/home.php:104
+#: template/advanced.php:51 template/detail.php:43 template/home.php:109
 msgid "Spanish"
 msgstr "Español"
 
-#: template/advanced.php:51 template/detail.php:44 template/home.php:105
+#: template/advanced.php:52 template/detail.php:44 template/home.php:110
 msgid "English"
 msgstr "Inglês"
 
-#: template/advanced.php:60 template/detail.php:53 template/home.php:114
+#: template/advanced.php:61 template/detail.php:53 template/home.php:119
 msgid "Home"
 msgstr "Inicio"
 
-#: template/advanced.php:65
+#: template/advanced.php:66
 msgid "Advanced Search"
-msgstr ""
+msgstr "Búsqueda Avanzada"
 
-#: template/advanced.php:82 template/home.php:135
+#: template/advanced.php:84 template/home.php:142
 msgid "Enter one or more words"
 msgstr "Ingrese una o más palabras"
 
-#: template/advanced.php:83 template/advanced.php:128 template/home.php:136
+#: template/advanced.php:85 template/advanced.php:142 template/home.php:143
 msgid "Search"
 msgstr "Buscar"
+
+#: template/advanced.php:89
+msgid "Search by act number"
+msgstr "Buscar por número de acto"
 
 #: template/detail.php:55
 msgid "Act"
@@ -156,68 +156,72 @@ msgstr "Compartir"
 msgid "Related articles"
 msgstr "Artículos relacionados"
 
-#: template/home.php:119
+#: template/home.php:124
 msgid "Search result"
 msgstr "Resultado de la búsqueda"
 
-#: template/home.php:138
+#: template/home.php:145
 msgid "Advanced search"
 msgstr "Búsqueda avanzada"
 
-#: template/home.php:150
+#: template/home.php:152
+msgid "Act number"
+msgstr "Número del acto"
+
+#: template/home.php:152
+msgid "clear"
+msgstr "limpiar"
+
+#: template/home.php:167
 msgid "No results found"
 msgstr "No se han encontrado resultados"
 
-#: template/home.php:153 template/home.php:403
+#: template/home.php:170 template/home.php:380
 msgid "Normative Acts"
 msgstr "Actos Normativos"
 
-#: template/home.php:181
+#: template/home.php:198
 msgid "Filters"
 msgstr "Filtros"
 
-#: template/home.php:191
+#: template/home.php:208
 msgid "Selected filters"
 msgstr "Filtros seleccionados"
 
-#: template/metadata.php:34 template/metadata.php:57
-msgid "Act scope"
-msgstr "Esfera del acto"
-
-#: template/metadata.php:45
-msgid "Act country/region"
-msgstr "País/región del acto"
-
-#: template/metadata.php:51
-msgid "Organ issuer"
-msgstr "Órgano Emisor"
-
-#: template/metadata.php:68
+#: template/metadata.php:34
 msgid "Source"
 msgstr "Fuente"
 
-#: template/metadata.php:74
-msgid "Language"
-msgstr "Idioma"
-
-#: template/metadata.php:81
-msgid "Collection"
-msgstr "Colección"
-
-#: template/metadata.php:88
+#: template/metadata.php:40
 msgid "Publication date"
 msgstr "Fecha de publicación"
 
-#: template/metadata.php:120 template/metadata.php:165
+#: template/metadata.php:47
+msgid "Organ issuer"
+msgstr "Órgano Emisor"
+
+#: template/metadata.php:54
+msgid "Act scope"
+msgstr "Esfera del acto"
+
+#: template/metadata.php:66
+msgid "Language"
+msgstr "Idioma"
+
+#: template/metadata.php:73
+msgid "Collection"
+msgstr "Colección"
+
+#: template/metadata.php:105 template/metadata.php:150
 #: template-functions.php:71
 msgid "of"
 msgstr "de"
 
-#: template/metadata.php:190
+#: template/metadata.php:175
 msgid "Read more"
 msgstr "Vea mas"
 
-#: template/metadata.php:206
+#: template/metadata.php:191
 msgid "Text in"
 msgstr "Texto en"
 
@@ -226,10 +230,8 @@ msgid "More related"
 msgstr ""
 
 #: template/related.php:61 template/similar.php:45
-#, fuzzy
-#| msgid "No results found"
 msgid "No related documents"
-msgstr "No se han encontrado resultados"
+msgstr "No se han encontrado documentos relacionados"
 
 #. Plugin Name of the plugin/theme
 msgid "LeisRef"
@@ -250,6 +252,19 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://reddes.bvsalud.org/"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Related articles"
+#~ msgid "Related Documents filter"
+#~ msgstr "Artículos relacionados"
+
+#, fuzzy
+#~| msgid "Selected filters"
+#~ msgid "More Related filter"
+#~ msgstr "Filtros seleccionados"
+
+#~ msgid "Act country/region"
+#~ msgstr "País/región del acto"
 
 #~ msgid "Display filters"
 #~ msgstr "Mostrar filtros"

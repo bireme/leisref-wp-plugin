@@ -75,6 +75,17 @@ function remove_filter(id) {
     $("#formFilters").submit();
 }
 
+function remove_act_number() {
+    // remove hidden field
+    $("input[name=act_number]").remove();
+
+    if (document.getElementById('formFilters')) {
+        $("#formFilters").submit();
+    }else{
+        $("#searchForm").submit();
+    }
+}
+
 function show_similar(url){
     //$j("#ajax").load(url);
     var xmlhttp = new XMLHttpRequest();

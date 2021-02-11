@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2021-01-08 19:26:11+00:00\n"
+"POT-Creation-Date: 2021-02-11 13:29:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,15 +71,15 @@ msgid "Page title"
 msgstr ""
 
 #: settings.php:71
-msgid "Related Documents filter"
+msgid "Sources for similar documents"
 msgstr ""
 
 #: settings.php:74 settings.php:81
-msgid "The filters must be separated by commas."
+msgid "The database names must be separated by commas."
 msgstr ""
 
 #: settings.php:78
-msgid "More Related filter"
+msgid "Sources for related documents"
 msgstr ""
 
 #: settings.php:86
@@ -106,36 +106,40 @@ msgstr ""
 msgid "Selected"
 msgstr ""
 
-#: settings.php:220
+#: settings.php:173
 msgid "Save changes"
 msgstr ""
 
-#: template/advanced.php:49 template/detail.php:42 template/home.php:103
+#: template/advanced.php:50 template/detail.php:42 template/home.php:108
 msgid "Portuguese"
 msgstr ""
 
-#: template/advanced.php:50 template/detail.php:43 template/home.php:104
+#: template/advanced.php:51 template/detail.php:43 template/home.php:109
 msgid "Spanish"
 msgstr ""
 
-#: template/advanced.php:51 template/detail.php:44 template/home.php:105
+#: template/advanced.php:52 template/detail.php:44 template/home.php:110
 msgid "English"
 msgstr ""
 
-#: template/advanced.php:60 template/detail.php:53 template/home.php:114
+#: template/advanced.php:61 template/detail.php:53 template/home.php:119
 msgid "Home"
 msgstr ""
 
-#: template/advanced.php:65
+#: template/advanced.php:66
 msgid "Advanced Search"
 msgstr ""
 
-#: template/advanced.php:82 template/home.php:135
+#: template/advanced.php:84 template/home.php:142
 msgid "Enter one or more words"
 msgstr ""
 
-#: template/advanced.php:83 template/advanced.php:128 template/home.php:136
+#: template/advanced.php:85 template/advanced.php:142 template/home.php:143
 msgid "Search"
+msgstr ""
+
+#: template/advanced.php:89
+msgid "Search by act number"
 msgstr ""
 
 #: template/detail.php:55
@@ -150,68 +154,72 @@ msgstr ""
 msgid "Related articles"
 msgstr ""
 
-#: template/home.php:119
+#: template/home.php:124
 msgid "Search result"
 msgstr ""
 
-#: template/home.php:138
+#: template/home.php:145
 msgid "Advanced search"
 msgstr ""
 
-#: template/home.php:150
+#: template/home.php:152
+msgid "Act number"
+msgstr ""
+
+#: template/home.php:152
+msgid "clear"
+msgstr ""
+
+#: template/home.php:167
 msgid "No results found"
 msgstr ""
 
-#: template/home.php:153 template/home.php:403
+#: template/home.php:170 template/home.php:380
 msgid "Normative Acts"
 msgstr ""
 
-#: template/home.php:181
+#: template/home.php:198
 msgid "Filters"
 msgstr ""
 
-#: template/home.php:191
+#: template/home.php:208
 msgid "Selected filters"
 msgstr ""
 
-#: template/metadata.php:34 template/metadata.php:57
-msgid "Act scope"
-msgstr ""
-
-#: template/metadata.php:45
-msgid "Act country/region"
-msgstr ""
-
-#: template/metadata.php:51
-msgid "Organ issuer"
-msgstr ""
-
-#: template/metadata.php:68
+#: template/metadata.php:34
 msgid "Source"
 msgstr ""
 
-#: template/metadata.php:74
-msgid "Language"
-msgstr ""
-
-#: template/metadata.php:81
-msgid "Collection"
-msgstr ""
-
-#: template/metadata.php:88
+#: template/metadata.php:40
 msgid "Publication date"
 msgstr ""
 
-#: template/metadata.php:120 template/metadata.php:165
+#: template/metadata.php:47
+msgid "Organ issuer"
+msgstr ""
+
+#: template/metadata.php:54
+msgid "Act scope"
+msgstr ""
+
+#: template/metadata.php:66
+msgid "Language"
+msgstr ""
+
+#: template/metadata.php:73
+msgid "Collection"
+msgstr ""
+
+#: template/metadata.php:105 template/metadata.php:150
 #: template-functions.php:71
 msgid "of"
 msgstr ""
 
-#: template/metadata.php:190
+#: template/metadata.php:175
 msgid "Read more"
 msgstr ""
 
-#: template/metadata.php:206
+#: template/metadata.php:191
 msgid "Text in"
 msgstr ""
 

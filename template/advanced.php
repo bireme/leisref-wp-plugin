@@ -25,9 +25,10 @@ if ($leisref_initial_filter != ''){
 }
 $start = ($page * $count) - $count;
 
-$leisref_search = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $lang;
+$leisref_search_url = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $lang;
+$leisref_search_url.= "&facet.field=act_type&f.act_type.facet.limit=-1&facet.field=collection&f.collection.facet.limit=-1";
 
-$response = @file_get_contents($leisref_search);
+$response = @file_get_contents($leisref_search_url);
 if ($response){
     $response_json = json_decode($response);
     //var_dump($response_json);
@@ -79,8 +80,15 @@ $fulltext_lang['en'] = __('English','leisref');
               <input type="hidden" name="format" id="format" value="<?php echo $format ? $format : 'summary'; ?>">
               <input type="hidden" name="count" id="count" value="<?php echo $count; ?>">
 
-              <input value='<?php echo $query; ?>' name="q" class="input-search" id="s" type="text" placeholder="<?php _e('Enter one or more words', 'leisref'); ?>">
-              <input id="searchsubmit" value="<?php _e('Search', 'leisref'); ?>" type="submit">
+              <div class="row-fluid">
+                <input value='<?php echo $query; ?>' name="q" class="input-search" id="s" type="text" placeholder="<?php _e('Enter one or more words', 'leisref'); ?>">
+                <input id="searchsubmit" value="<?php _e('Search', 'leisref'); ?>" type="submit">
+              </div>
+
+              <div class="row-fluid">
+                <?php _e('Search by act number', 'leisref'); ?><br/>
+                <input value="" name="act_number" class="input-search" id="act_number" type="text" placeholder="">
+              </div>
 
               <?php
                 $order = explode(';', $leisref_config['available_filter']);
@@ -88,16 +96,19 @@ $fulltext_lang['en'] = __('English','leisref');
                   $content = trim($content);
               ?>
 
-                <?php if ($content == 'Act type') :  ?>
+                <?php if ($content == 'Act type') : ?>
                   <div class="row-fluid widget_categories">
                       <div class="row-fluid border-bottom">
                           <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter'); ?></h1>
                       </div>
-                      <ul>
-                          <?php foreach ($act_type_list as $type) { ?>
+                      <ul class="two-columns-list">
+                          <?php
+                            $type_list_translated = translate_filter_options($act_type_list, $lang);
+                          ?>
+                          <?php foreach ($type_list_translated as $item) { ?>
                               <li class="cat-item">
-                                <input name="advanced_filter[act_type][]" value="<?php echo $type[0] ?>" type="checkbox">
-                                <?php print_lang_value($type[0], $site_language)?>
+                                <input name="advanced_filter[act_type][]" value="<?php echo $item['original'][0] ?>" type="checkbox" id="<?php echo $item['label'] ?>">
+                                <label for="<?php echo $item['label']; ?>"><?php echo $item['label']; ?></label>
                               </li>
                           <?php } ?>
                       </ul>
@@ -109,11 +120,14 @@ $fulltext_lang['en'] = __('English','leisref');
                       <header class="row-fluid border-bottom">
                           <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
                       </header>
-                      <ul>
-                          <?php foreach ($collection_list as $collection) { ?>
+                      <ul class="two-columns-list">
+                          <?php
+                              $collection_list_translated = translate_filter_options($collection_list, $lang);
+                          ?>
+                          <?php foreach ($collection_list_translated as $item) { ?>
                               <li class="cat-item">
-                                <input name="advanced_filter[collection][]" value="<?php echo $collection[0] ?>" type="checkbox">
-                                <?php print_lang_value($collection[0], $site_language)?>
+                                <input name="advanced_filter[collection][]" value="<?php echo $item['original'][0] ?>" type="checkbox" id="<?php echo $item['label'] ?>">
+                                <label for="<?php echo $item['label']; ?>"><?php echo $item['label']; ?></label>
                               </li>
                           <?php } ?>
                       </ul>

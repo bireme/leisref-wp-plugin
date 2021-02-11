@@ -21,6 +21,8 @@ $count = 10;
 $filter = '';
 
 $advanced_filter_param = $_GET['advanced_filter'];
+$act_number = $_GET['act_number'];
+
 $start = ($page * $count) - $count;
 
 if ( $user_filter != '' || $advanced_filter_param) {
@@ -72,8 +74,11 @@ if ($leisref_initial_filter != ''){
     $filter = $user_filter;
 }
 
-$leisref_search = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $lang;
+if ($act_number != ''){
+    $filter .= ' AND act_number:' . $act_number;
+}
 
+$leisref_search = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $lang;
 
 $response = @file_get_contents($leisref_search);
 if ($response){
@@ -132,11 +137,23 @@ $fulltext_lang['en'] = __('English','leisref');
                     <input type="hidden" name="format" id="format" value="<?php echo $format ? $format : 'summary'; ?>">
                     <input type="hidden" name="count" id="count" value="<?php echo $count; ?>">
                     <input type="hidden" name="page" id="page" value="<?php echo $page; ?>">
+                    <input type="hidden" name="act_number" value="<?php echo $act_number; ?>">
+
                     <input value='<?php echo $query; ?>' name="q" class="input-search" id="s" type="text" placeholder="<?php _e('Enter one or more words', 'leisref'); ?>">
                     <input id="searchsubmit" value="<?php _e('Search', 'leisref'); ?>" type="submit">
                     <br/>
                     <a href="<?php echo real_site_url($leisref_plugin_slug) . 'advanced' ?>"><?php _e('Advanced search','leisref'); ?></a>
                 </form>
+                <div class="spacer"></div>
+
+                <?php if ($act_number != '') :?>
+                    <div class="row-fluid">
+                        <p>
+                            <strong><?php _e('Act number','leisref'); ?>: <?php echo $act_number; ?> [<a href="javascript:remove_act_number()"><?php _e('clear','leisref'); ?></a>]
+                        </p>
+                    </div>
+                <?php endif ?>
+
                 <div class="pull-right rss">
                     <a href="<?php echo $feed_url ?>" target="blank"><img src="<?php echo LEISREF_PLUGIN_URL; ?>template/images/icon_rss.png" ></a>
                 </div>
@@ -196,7 +213,9 @@ $fulltext_lang['en'] = __('English','leisref');
                                         <input type="hidden" name="format" id="format" value="<?php echo $format; ?>">
                                         <input type="hidden" name="count" id="count" value="<?php echo $count; ?>">
                                         <input type="hidden" name="q" id="query" value="<?php echo $query; ?>" >
+                                        <input type="hidden" name="act_number" value="<?php echo $act_number; ?>">
                                         <input type="hidden" name="filter" id="filter" value="" >
+
 
                                         <?php foreach ( $applied_filter_list as $filter => $filter_values ) :?>
                                             <h2><?php echo translate_label($leisref_texts, $filter, 'filter') ?></h2>
@@ -242,14 +261,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                         <?php foreach ( $collection_list as $collection ) { ?>
                                             <li class="cat-item">
                                                 <?php
-                                                    $filter_link = '?';
-                                                    if ($query != ''){
-                                                        $filter_link .= 'q=' . $query . '&';
-                                                    }
-                                                    $filter_link .= 'filter=collection:"' . $collection[0] . '"';
-                                                    if ($user_filter != ''){
-                                                        $filter_link .= ' AND ' . $user_filter ;
-                                                    }
+                                                    $filter_link = mount_filter_link('collection', $collection[0], $query, $user_filter, $act_number);
                                                 ?>
                                                 <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $collection[1]; ?></span>
@@ -267,14 +279,7 @@ $fulltext_lang['en'] = __('English','leisref');
                 					<ul>
                                         <?php foreach ( $descriptor_list as $descriptor) { ?>
                                             <?php
-                                                $filter_link = '?';
-                                                if ($query != ''){
-                                                    $filter_link .= 'q=' . $query . '&';
-                                                }
-                                                $filter_link .= 'filter=descriptor:"' . $descriptor[0] . '"';
-                                                if ($user_filter != ''){
-                                                    $filter_link .= ' AND ' . $user_filter ;
-                                                }
+                                                $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
                                                 <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
@@ -293,14 +298,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <ul>
                                         <?php foreach ( $act_type_list as $type) { ?>
                                             <?php
-                                                $filter_link = '?';
-                                                if ($query != ''){
-                                                    $filter_link .= 'q=' . $query . '&';
-                                                }
-                                                $filter_link .= 'filter=act_type:"' . $type[0] . '"';
-                                                if ($user_filter != ''){
-                                                    $filter_link .= ' AND ' . $user_filter ;
-                                                }
+                                                $filter_link = mount_filter_link('act_type', $type[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
                                                 <a href='<?php echo $filter_link; ?>'><?php print_lang_value($type[0], $site_language)?></a>
@@ -319,14 +317,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <ul>
                                         <?php foreach ( $scope_region_list as $region) { ?>
                                             <?php
-                                                $filter_link = '?';
-                                                if ($query != ''){
-                                                    $filter_link .= 'q=' . $query . '&';
-                                                }
-                                                $filter_link .= 'filter=scope_region:"' . $region[0] . '"';
-                                                if ($user_filter != ''){
-                                                    $filter_link .= ' AND ' . $user_filter ;
-                                                }
+                                                $filter_link = mount_filter_link('scope_region', $region[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
                                                 <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
@@ -346,14 +337,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                         <?php foreach ( $language_list as $lang ) { ?>
                                             <li class="cat-item">
                                                 <?php
-                                                    $filter_link = '?';
-                                                    if ($query != ''){
-                                                        $filter_link .= 'q=' . $query . '&';
-                                                    }
-                                                    $filter_link .= 'filter=language:"' . $lang[0] . '"';
-                                                    if ($user_filter != ''){
-                                                        $filter_link .= ' AND ' . $user_filter ;
-                                                    }
+                                                    $filter_link = mount_filter_link('language', $lang[0], $query, $user_filter, $act_number);
                                                 ?>
                                                 <a href='<?php echo $filter_link; ?>'><?php print_lang_value($lang[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $lang[1]; ?></span>
@@ -372,14 +356,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <ul>
                                         <?php foreach ( $publication_year as $year) { ?>
                                             <?php
-                                                $filter_link = '?';
-                                                if ($query != ''){
-                                                    $filter_link .= 'q=' . $query . '&';
-                                                }
-                                                $filter_link .= 'filter=publication_year:"' . $year[0] . '"';
-                                                if ($user_filter != ''){
-                                                    $filter_link .= ' AND ' . $user_filter ;
-                                                }
+                                                $filter_link = mount_filter_link('publication_year', $year[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
                                                 <a href='<?php echo $filter_link; ?>'><?php echo $year[0] ?></a>

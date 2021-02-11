@@ -153,4 +153,38 @@ if ( !function_exists('real_site_url') ) {
     }
 }
 
+if ( !function_exists('translate_filter_options') ) {
+
+    function translate_filter_options($filter, $lang_code){
+        // translate and sort list
+        $list_translated = array();
+        foreach ($filter as $filter_option) {
+            $translation = get_lang_value($filter_option[0], $lang_code);
+            if ($translation != ''){
+                $list_translated[] = array("label" => $translation, "original" => $filter_option);
+            }
+        }
+        asort($list_translated, SORT_STRING);
+
+        return $list_translated;
+    }
+}
+
+function mount_filter_link($filter_name, $filter_query, $query, $user_filter, $act_number){
+    $filter_link = '?';
+    if ($query != ''){
+        $filter_link .= 'q=' . $query . '&';
+    }
+    $filter_link .= 'filter=' . $filter_name . ':"' . $filter_query . '"';
+    if ($user_filter != ''){
+        $filter_link .= ' AND ' . $user_filter ;
+    }
+    if ($act_number != ''){
+        $filter_link .= '&act_number=' . $act_number ;
+    }
+    return $filter_link;
+
+}
+
+
 ?>

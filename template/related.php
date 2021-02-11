@@ -20,6 +20,7 @@
     }
 
     if ( $similar_docs ) {
+        echo '<h1 class="h1-header">' . _e('More related','leisref') .'</h1>';
         foreach ( $similar_docs as $src => $docs ) {
             ?>
             <div class="box4">

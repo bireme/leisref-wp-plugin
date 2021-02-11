@@ -68,17 +68,17 @@ function leisref_page_admin() {
                         ?>
 
                         <tr valign="top">
-                            <th scope="row"><?php _e('Related Documents filter', 'leisref'); ?>:</th>
+                            <th scope="row"><?php _e('Sources for similar documents', 'leisref'); ?>:</th>
                             <td>
                                 <input type="text" name="leisref_config[default_filter_db]" value='<?php echo $config['default_filter_db']; ?>' class="regular-text code">
-                                <small style="display: block;">* <?php _e('The filters must be separated by commas.', 'leisref'); ?></small>
+                                <small style="display: block;">* <?php _e('The database names must be separated by commas.', 'leisref'); ?></small>
                             </td>
                         </tr>
                         <tr valign="top">
-                            <th scope="row"><?php _e('More Related filter', 'leisref'); ?>:</th>
+                            <th scope="row"><?php _e('Sources for related documents', 'leisref'); ?>:</th>
                             <td>
                                 <input type="text" name="leisref_config[extra_filter_db]" value='<?php echo $config['extra_filter_db']; ?>' class="regular-text code">
-                                <small style="display: block;">* <?php _e('The filters must be separated by commas.', 'leisref'); ?></small>
+                                <small style="display: block;">* <?php _e('The database names must be separated by commas.', 'leisref'); ?></small>
                             </td>
                         </tr>
                         <tr valign="top">
@@ -166,53 +166,6 @@ function leisref_page_admin() {
                             </td>
                         </tr>
 
-                        <?php /*
-                        <tr valign="top">
-                            <th scope="row">
-                                <?php _e('Display filters', 'leisref'); ?>:
-                            </th>
-                            <td>
-                                <fieldset>
-                                    <label for="available_filter_descriptor">
-                                        <input type="checkbox" name="leisref_config[available_filter][]" value="descriptor" id="available_filter_descriptor" <?php echo (!isset($config['available_filter']) || in_array('descriptor', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
-                                        <?php _e('Subject', 'leisref'); ?>
-                                    </label>
-                                    <br/>
-                                    <label for="available_filter_act_type">
-                                        <input type="checkbox" name="leisref_config[available_filter][]" value="act_type" id="available_filter_act_type" <?php echo (!isset($config['available_filter']) || in_array('act_type', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
-                                        <?php _e('Act type', 'leisref'); ?>
-                                    </label>
-                                    <br/>
-                                    <label for="available_filter_scope_region">
-                                        <input type="checkbox" name="leisref_config[available_filter][]" value="scope_region" id="available_scope_region" <?php echo (!isset($config['available_filter']) || in_array('scope_region', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
-                                        <?php _e('Country/region', 'leisref'); ?>
-                                    </label>
-                                    <br/>
-                                    <!--
-                                    <label for="available_filter_database">
-                                        <input type="checkbox" name="leisref_config[available_filter][]" value="database" id="available_filter_database" <?php echo (!isset($config['available_filter']) || in_array('database', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
-                                        <?php _e('Database', 'leisref'); ?>
-                                    </label>
-                                    <br/>
-
-                                    <label for="available_filter_collection">
-                                        <input type="checkbox" name="leisref_config[available_filter][]" value="collection" id="available_filter_collection" <?php echo (!isset($config['available_filter']) ||  in_array('collection', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
-                                        <?php _e('Collection', 'leisref'); ?>
-                                    </label>
-                                    <br/>
-                                    <label for="available_filter_language">
-                                        <input type="checkbox" name="leisref_config[available_filter][]" value="language" id="available_filter_language" <?php echo (!isset($config['available_filter']) ||  in_array('language', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
-                                        <?php _e('Language', 'leisref'); ?>
-                                    </label>
-                                    <br/>
-                                    <label for="available_filter_year">
-                                        <input type="checkbox" name="leisref_config[available_filter][]" value="year" id="available_filter_year" <?php echo (!isset($config['available_filter']) ||  in_array('year', $config['available_filter']) ?  " checked='true'" : '') ;?> ></input>
-                                        <?php _e('Year', 'leisref'); ?>
-                                    </label>
-                                </fieldset>
-                            </td>
-                        </tr>
-                      */ ?>
 
                     </tbody>
                 </table>
@@ -223,7 +176,7 @@ function leisref_page_admin() {
         </div>
         <script type="text/javascript">
             var $j = jQuery.noConflict();
-            
+
             $j( function() {
               $j( "ul.droptrue" ).sortable({
                 connectWith: "ul"
