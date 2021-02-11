@@ -27,6 +27,7 @@ $start = ($page * $count) - $count;
 
 $leisref_search_url = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $lang;
 $leisref_search_url.= "&facet.field=act_type&f.act_type.facet.limit=-1&facet.field=collection&f.collection.facet.limit=-1";
+$leisref_search_url.= "&facet.field=scope&f.scope.facet.limit=-1&facet.field=scope_state&f.scope_state.facet.limit=-1";
 
 $response = @file_get_contents($leisref_search_url);
 if ($response){
@@ -36,12 +37,11 @@ if ($response){
     $start = $response_json->diaServerResponse[0]->response->start;
     $legislation_list = $response_json->diaServerResponse[0]->response->docs;
 
-    $descriptor_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->descriptor_filter;
     $act_type_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->act_type;
+    $scope_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->scope;
     $scope_region_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->scope_region;
-    $language_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->language;
+    $scope_state_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->scope_state;
     $collection_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->collection;
-    $publication_year = $response_json->diaServerResponse[0]->facet_counts->facet_fields->publication_year;
 }
 
 $home_url = isset($leisref_config['home_url_' . $lang]) ? $leisref_config['home_url_' . $lang] : real_site_url();
@@ -114,6 +114,46 @@ $fulltext_lang['en'] = __('English','leisref');
                       </ul>
                   </div>
                 <?php endif; ?>
+
+                <?php if ($content == 'State') :  ?>
+                  <div class="row-fluid widget_categories">
+                      <header class="row-fluid border-bottom">
+                          <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_state', 'filter'); ?></h1>
+                      </header>
+                      <ul class="two-columns-list">
+                          <?php
+                              $state_list_translated = translate_filter_options($scope_state_list, $lang);
+                          ?>
+                          <?php foreach ($state_list_translated as $item) { ?>
+                              <li class="cat-item">
+                                <input name="advanced_filter[scope_state][]" value="<?php echo $item['original'][0] ?>" type="checkbox" id="<?php echo $item['label'] ?>">
+                                <label for="<?php echo $item['label']; ?>"><?php echo $item['label']; ?></label>
+                              </li>
+                          <?php } ?>
+                      </ul>
+                  </div>
+                <?php endif; ?>
+
+                <?php if ($content == 'Scope') :  ?>
+                  <div class="row-fluid widget_categories">
+                      <header class="row-fluid border-bottom">
+                          <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope', 'filter'); ?></h1>
+                      </header>
+                      <ul class="two-columns-list">
+                          <?php
+                              $scope_list_translated = translate_filter_options($scope_list, $lang);
+                          ?>
+                          <?php foreach ($scope_list_translated as $item) { ?>
+                              <li class="cat-item">
+                                <input name="advanced_filter[scope][]" value="<?php echo $item['original'][0] ?>" type="checkbox" id="<?php echo $item['label'] ?>">
+                                <label for="<?php echo $item['label']; ?>"><?php echo $item['label']; ?></label>
+                              </li>
+                          <?php } ?>
+                      </ul>
+                  </div>
+                <?php endif; ?>
+
+
 
                 <?php if ($content == 'Collection') :  ?>
                   <div class="row-fluid widget_categories">

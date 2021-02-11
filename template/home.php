@@ -90,7 +90,9 @@ if ($response){
 
     $descriptor_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->descriptor_filter;
     $act_type_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->act_type;
+    $scope_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->scope;
     $scope_region_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->scope_region;
+    $scope_state_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->scope_state;
     $language_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->language;
     $collection_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->collection;
     $publication_year = $response_json->diaServerResponse[0]->facet_counts->facet_fields->publication_year;
@@ -309,6 +311,25 @@ $fulltext_lang['en'] = __('English','leisref');
                                 </section>
                             <?php endif; ?>
 
+                            <?php if ( $content == 'Scope' ): ?>
+                                <section class="row-fluid marginbottom25 widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope', 'filter') ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ($scope_list as $scope) { ?>
+                                            <?php
+                                                $filter_link = mount_filter_link('scope', $scope[0], $query, $user_filter, $act_number);
+                                            ?>
+                                            <li class="cat-item">
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($scope[0], $site_language)?></a>
+                                                <span class="cat-item-count"><?php echo $scope[1] ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
                             <?php if ( $content == 'Country/region' ): ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
@@ -322,6 +343,25 @@ $fulltext_lang['en'] = __('English','leisref');
                                             <li class="cat-item">
                                                 <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
                                                 <span class="cat-item-count"><?php echo $region[1] ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'State' ): ?>
+                                <section class="row-fluid marginbottom25 widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_state', 'filter') ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ($scope_state_list as $state) { ?>
+                                            <?php
+                                                $filter_link = mount_filter_link('scope_state', $state[0], $query, $user_filter, $act_number);
+                                            ?>
+                                            <li class="cat-item">
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($state[0], $site_language)?></a>
+                                                <span class="cat-item-count"><?php echo $state[1] ?></span>
                                             </li>
                                         <?php } ?>
                                     </ul>

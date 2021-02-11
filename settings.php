@@ -121,14 +121,20 @@ function leisref_page_admin() {
                                     <p align="left"><?php _e('Available', 'leisref');?><br>
                                       <ul id="sortable1" class="droptrue">
                                       <?php
-                                      if(!in_array('Subject', $order) && !in_array('Subject ', $order) ){
-                                        echo '<li class="ui-state-default" id="Subject">'.translate('Subject','leisref').'</li>';
+                                      if(!in_array('Act type', $order) && !in_array('Act type ', $order) ){
+                                        echo '<li class="ui-state-default" id="Act type">'.translate('Act type','leisref').'</li>';
+                                      }
+                                      if(!in_array('Scope', $order) && !in_array('Scope ', $order) ){
+                                        echo '<li class="ui-state-default" id="Scope">'.translate('Scope','leisref').'</li>';
                                       }
                                       if(!in_array('Act type', $order) && !in_array('Act type ', $order) ){
                                         echo '<li class="ui-state-default" id="Act type">'.translate('Act type','leisref').'</li>';
                                       }
                                       if(!in_array('Country/region', $order) && !in_array('Country/region ', $order) ){
                                         echo '<li class="ui-state-default" id="Country/region">'.translate('Country/region','leisref').'</li>';
+                                      }
+                                      if(!in_array('State', $order) && !in_array('State ', $order) ){
+                                        echo '<li class="ui-state-default" id="State">'.translate('State','leisref').'</li>';
                                       }
                                       if(!in_array('Database', $order) && !in_array('Database ', $order) ){
                                         echo '<li class="ui-state-default" id="Database">'.translate('Database','leisref').'</li>';
