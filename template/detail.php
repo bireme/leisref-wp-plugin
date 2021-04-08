@@ -52,9 +52,22 @@ $fulltext_lang['en'] = __('English','leisref');
             <div class="row-fluid breadcrumb">
                 <a href="<?php echo $home_url ?>"><?php _e('Home','leisref'); ?></a> >
                 <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
-                <?php _e('Act','leisref'); ?>
+                <?php if ($resource->title) : ?>
+                    <?php echo $resource->title ?>
+                <?php else: ?>
+                    <?php print_lang_value($resource->act_type, $site_language); ?>
+                    Nº <?php echo $resource->act_number[0]; ?>
+                    <?php
+                        if ($resource->issue_date[0]) {
+                            echo '- ' . format_act_date($resource->issue_date[0], $lang);
+                        }
+                    ?>
+                <?php endif; ?>
             </div>
+
             <section id="conteudo">
+                <a href="javascript:history.back()"><?php _e('Back','leisref'); ?></a> | <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php _e('New search','leisref'); ?></a>
+
                 <header class="row-fluid border-bottom">
                     <h1 class="h1-header"><?php echo $resource->title; ?></h1>
                 </header>
