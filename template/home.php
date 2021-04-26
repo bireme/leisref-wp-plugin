@@ -47,10 +47,12 @@ if ( $user_filter != '' || $advanced_filter_param) {
         }
     }
 
-    // process advanced form filter list
-    foreach($advanced_filter_param as $adv_filter_name => $adv_filter_value) {
-        foreach($adv_filter_value as $filter_value){
-            $applied_filter_list[$adv_filter_name][] = str_replace('"', '', $filter_value);
+    if ($advanced_filter_param) {
+        // process advanced form filter list
+        foreach($advanced_filter_param as $adv_filter_name => $adv_filter_value) {
+            foreach($adv_filter_value as $filter_value){
+                $applied_filter_list[$adv_filter_name][] = str_replace('"', '', $filter_value);
+            }
         }
     }
 
