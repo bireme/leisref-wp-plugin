@@ -183,14 +183,17 @@
                 $document_url_parts = explode("|", $fulltext);
                 $document_lang = $document_url_parts[0];
                 $document_url = $document_url_parts[1];
+
+                $document_path = parse_url($document_url, PHP_URL_PATH);
+                $document_ext = pathinfo($document_path, PATHINFO_EXTENSION);
                 $extension_list = array('pdf', 'html', 'htm', 'doc');
-                $document_extension = end(explode('.', $document_url));
+
             ?>
-            <?php if ( in_array($document_extension, $extension_list) ) :?>
+            <?php if (  $document_ext == '' || in_array($document_ext, $extension_list) ) :?>
                 <span class="more">
                     <a href="<?php echo $document_url ?>" target="_blank">
                         <?php _e('Text in','leisref') ?> <?php echo $fulltext_lang[$document_lang] ?>
-                        <?php echo ' (' . strtoupper($document_extension) . ')' ;?>
+                        <?php if ($document_ext) echo ' (' . strtoupper($document_ext) . ')';?>
                     </a>
                 </span>&nbsp;&nbsp;
             <?php endif; ?>
