@@ -12,16 +12,17 @@ $leisref_initial_filter = $leisref_config['initial_filter'];
 $site_language = strtolower(get_bloginfo('language'));
 $lang = substr($site_language,0,2);
 
-$query = ( isset($_GET['s']) ? $_GET['s'] : $_GET['q'] );
+$query = ( isset($_GET['s']) ? sanitize_text_field($_GET['s']) : sanitize_text_field($_GET['q']) );
 $query = stripslashes($query);
-$user_filter = stripslashes($_GET['filter']);
-$page = ( isset($_GET['page']) ? $_GET['page'] : 1 );
+$sanitize_user_filter = sanitize_text_field($_GET['filter']);
+$user_filter = stripslashes($sanitize_user_filter);
+$page = ( isset($_GET['page']) ? sanitize_text_field($_GET['page']) : 1 );
 $total = 0;
 $count = 10;
 $filter = '';
 
-$advanced_filter_param = $_GET['advanced_filter'];
-$act_number = $_GET['act_number'];
+$advanced_filter_param = sanitize_text_field($_GET['advanced_filter']);
+$act_number = sanitize_text_field($_GET['act_number']);
 
 $start = ($page * $count) - $count;
 
@@ -137,7 +138,7 @@ $fulltext_lang['en'] = __('English','leisref');
             <section class="header-search">
                 <form role="search" method="get" name="searchForm" id="searchForm" action="<?php echo real_site_url($leisref_plugin_slug); ?>">
                     <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>">
-                    <input type="hidden" name="sort" id="sort" value="<?php echo $_GET['sort']; ?>">
+                    <input type="hidden" name="sort" id="sort" value="<?php echo sanitize_text_field($_GET['sort']); ?>">
                     <input type="hidden" name="format" id="format" value="<?php echo $format ? $format : 'summary'; ?>">
                     <input type="hidden" name="count" id="count" value="<?php echo $count; ?>">
                     <input type="hidden" name="page" id="page" value="<?php echo $page; ?>">

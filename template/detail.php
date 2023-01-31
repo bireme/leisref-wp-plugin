@@ -6,7 +6,7 @@ Template Name: LeisRef Detail
 global $leisref_service_url, $leisref_plugin_slug, $leisref_plugin_title, $leisref_texts, $similar_docs_url;
 
 $leisref_config = get_option('leisref_config');
-$resource_id   = $_GET['id'];
+$resource_id = sanitize_text_field($_GET['id']);
 
 $site_language = strtolower(get_bloginfo('language'));
 $lang = substr($site_language,0,2);
