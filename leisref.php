@@ -70,23 +70,31 @@ if(!class_exists('LeisRef_Plugin')) {
         } // END public static function deactivate
 
         function load_translation(){
-            global $leisref_texts;
-
 		    // load internal plugin translations
 		    load_plugin_textdomain( 'leisref', false,  LEISREF_PLUGIN_DIR . '/languages' );
-            // load plugin translations
-            $site_language = strtolower(get_bloginfo('language'));
-            $lang = substr($site_language,0,2);
-
-            $leisref_texts = @parse_ini_file(LEISREF_PLUGIN_PATH . "/languages/texts_" . $lang . ".ini", true);
 		}
 
 		function plugin_init() {
+            global $leisref_texts;
+
 		    $leisref_config = get_option('leisref_config');
+            $leisref_config['use_translation'] = true;
 
 		    if ( $leisref_config && $leisref_config['plugin_slug'] != ''){
 		        $this->plugin_slug = $leisref_config['plugin_slug'];
 		    }
+            if ($leisref_config['use_translation']){
+                $site_language = strtolower(get_bloginfo('language'));
+                $lang = substr($site_language,0,2);
+
+                $leisref_texts = @parse_ini_file(LEISREF_PLUGIN_PATH . "/languages/texts_".$lang.".ini", true);
+                if ( !$leisref_texts ) {
+                    $leisref_texts = @parse_ini_file(LEISREF_PLUGIN_PATH . "/languages/texts_".$lang."-SAMPLE.ini", true);
+                    if ( !$leisref_texts ) {
+                        $leisref_texts = @parse_ini_file(LEISREF_PLUGIN_PATH . "/languages/texts_en-SAMPLE.ini", true);
+                    }
+                }
+            }
 
 		}
 
