@@ -459,7 +459,7 @@ ul.two-columns-list{
 
 }
 .list_badge {
-	width: 15%;
+  width: 15%;
   position: relative;
   top: 50%;
   text-align: center;
@@ -468,7 +468,7 @@ ul.two-columns-list{
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-	float: right;
+  float: right;
 }
 
 
@@ -512,4 +512,20 @@ ul.two-columns-list{
 	margin: 5%;
 	width: 90%;
 	box-shadow: 2px 2px 5px #888;
+}
+
+@media (max-width:1000px) {
+    ul.col3 li {
+        width: 27% !important;
+    }
+}
+@media (max-width:992px) {
+    ul.col3 li {
+        width: 41% !important;
+    }
+}
+@media (max-width:600px) {
+    ul.col3 li {
+        width: 80% !important;
+    }
 }
