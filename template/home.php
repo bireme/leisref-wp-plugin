@@ -286,10 +286,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                             <?php
                                                 $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number);
                                             ?>
-                                            <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
-                                                <span class="cat-item-count"><?php echo $descriptor[1] ?></span>
-                                            </li>
+                                            <?php if ( filter_var($descriptor[0], FILTER_VALIDATE_INT) === false ) : ?>
+                                                <li class="cat-item">
+                                                    <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
+                                                    <span class="cat-item-count"><?php echo $descriptor[1] ?></span>
+                                                </li>
+                                            <?php endif; ?>
                                         <?php } ?>
                 					</ul>
                 				</section>
