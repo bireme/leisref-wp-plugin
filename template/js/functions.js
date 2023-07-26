@@ -62,27 +62,27 @@ function show_more_list(){
 
 function remove_filter(id) {
     // remove hidden field
-    $("#"+id).remove();
+    $j("#"+id).remove();
     var filter = '';
 
-    $('.apply_filter').each(function(i){
+    $j('.apply_filter').each(function(i){
         filter += this.value + ' AND ';
     });
     // remove last AND of string
     filter = filter.replace(/\sAND\s$/, "");
 
-    $('#filter').val(filter);
-    $("#formFilters").submit();
+    $j('#filter').val(filter);
+    $j("#formFilters").submit();
 }
 
 function remove_act_number() {
     // remove hidden field
-    $("input[name=act_number]").remove();
+    $j("input[name=act_number]").remove();
 
     if (document.getElementById('formFilters')) {
-        $("#formFilters").submit();
+        $j("#formFilters").submit();
     }else{
-        $("#searchForm").submit();
+        $j("#searchForm").submit();
     }
 }
 
