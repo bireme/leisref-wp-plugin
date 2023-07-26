@@ -9,7 +9,7 @@
             <?php if ($resource->title) : ?>
                 <?php echo $resource->title ?>
             <?php else: ?>
-                <?php print_lang_value($resource->act_type, $site_language); ?>
+                <?php leisref_print_lang_value($resource->act_type, $site_language); ?>
                 Nº <?php echo $resource->act_number[0]; ?>
                 <?php
                     if ($resource->issue_date[0]) {
@@ -31,7 +31,7 @@
 
 <?php if ($resource->source_name): ?>
     <div class="row-fluid">
-        <?php _e('Source','leisref'); ?>: <strong><?php print_lang_value($resource->source_name, $lang) ;?></strong>
+        <?php _e('Source','leisref'); ?>: <strong><?php leisref_print_lang_value($resource->source_name, $lang) ;?></strong>
     </div>
 <?php endif; ?>
 
@@ -44,7 +44,7 @@
 
 <?php if ($resource->organ_issuer): ?>
     <div class="row-fluid">
-        <?php _e('Organ issuer','leisref'); ?>: <strong><?php print_lang_value($resource->organ_issuer[0], $lang);?></strong>
+        <?php _e('Organ issuer','leisref'); ?>: <strong><?php leisref_print_lang_value($resource->organ_issuer[0], $lang);?></strong>
     </div>
 <?php endif; ?>
 
@@ -53,10 +53,10 @@
     <div class="row-fluid">
         <?php _e('Act scope','leisref'); ?>:
         <strong>
-        <?php print_lang_value($resource->scope, $lang);?>
-        <?php if ($resource->scope_state) echo ' - '; print_lang_value($resource->scope_state, $lang);?>
-        <?php if ($resource->scope_city) echo ' - '; print_lang_value($resource->scope_city, $lang);?>
-        <?php if ($resource->scope_region) echo ' / '; print_lang_value($resource->scope_region, $lang) ;?>
+        <?php leisref_print_lang_value($resource->scope, $lang);?>
+        <?php if ($resource->scope_state) echo ' - '; leisref_print_lang_value($resource->scope_state, $lang);?>
+        <?php if ($resource->scope_city) echo ' - '; leisref_print_lang_value($resource->scope_city, $lang);?>
+        <?php if ($resource->scope_region) echo ' / '; leisref_print_lang_value($resource->scope_region, $lang) ;?>
         </strong>
     </div>
 <?php endif; ?>
@@ -64,14 +64,14 @@
 <?php if ($resource->language && $detail_page) : ?>
     <div class="row-fluid">
         <?php _e('Language','leisref'); ?>:
-        <strong><?php print_lang_value($resource->language, $lang);?></strong>
+        <strong><?php leisref_print_lang_value($resource->language, $lang);?></strong>
     </div>
 <?php endif; ?>
 
 <?php if ($resource->collection && $detail_page) : ?>
     <div class="row-fluid">
         <?php _e('Collection','leisref'); ?>:
-        <strong><?php print_lang_value($resource->collection, $lang);?></strong>
+        <strong><?php leisref_print_lang_value($resource->collection, $lang);?></strong>
     </div>
 <?php endif; ?>
 
@@ -89,12 +89,12 @@
                 $rel_act_title = $rel_parts[6];
             ?>
             <?php
-                print_lang_value($rel_relation, $lang);
+                leisref_print_lang_value($rel_relation, $lang);
                 if ($rel_act_link != ''){
                     echo '<a href="' . real_site_url($leisref_plugin_slug) . 'resource/?id=' . $rel_act_link . '">';
                 }
                 echo '&nbsp';
-                print_lang_value($rel_act_type, $lang);
+                leisref_print_lang_value($rel_act_type, $lang);
                 echo '&nbsp';
                 if ($rel_act_title){
                     echo $rel_act_title;
@@ -134,12 +134,12 @@
                 if ($rel_act_apparatus != ''){
                     echo '(' . $rel_act_apparatus . ') ';
                 }
-                print_lang_value($rel_relation, $lang);
+                leisref_print_lang_value($rel_relation, $lang);
                 if ($rel_act_link != ''){
                     echo '<a href="' . real_site_url($leisref_plugin_slug) . 'resource/?id=' . $rel_act_link . '">';
                 }
                 echo '&nbsp';
-                print_lang_value($rel_act_type, $lang);
+                leisref_print_lang_value($rel_act_type, $lang);
                 echo '&nbsp';
                 if ($rel_act_title){
                     echo $rel_act_title;

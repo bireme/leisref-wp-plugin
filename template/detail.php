@@ -55,7 +55,7 @@ $fulltext_lang['en'] = __('English','leisref');
                 <?php if ($resource->title) : ?>
                     <?php echo $resource->title ?>
                 <?php else: ?>
-                    <?php print_lang_value($resource->act_type, $site_language); ?>
+                    <?php leisref_print_lang_value($resource->act_type, $site_language); ?>
                     Nº <?php echo $resource->act_number[0]; ?>
                     <?php
                         if ($resource->issue_date[0]) {

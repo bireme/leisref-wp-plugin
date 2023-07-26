@@ -232,7 +232,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                                     <span class="filter-item">
                                                         <?php
                                                             if ($filter != 'descriptor' && $filter != 'publication_year'){
-                                                                echo print_lang_value($value, $site_language);
+                                                                leisref_print_lang_value($value, $site_language);
                                                             }else{
                                                                 echo $value;
                                                             }
@@ -257,7 +257,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                 $content = trim($content);
                             ?>
 
-                            <?php if ($content == 'Collection') :  ?>
+                            <?php if ($content == 'Collection') : ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
@@ -268,7 +268,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                                 <?php
                                                     $filter_link = mount_filter_link('collection', $collection[0], $query, $user_filter, $act_number);
                                                 ?>
-                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($collection[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $collection[1]; ?></span>
                                             </li>
                                         <?php } ?>
@@ -282,7 +282,7 @@ $fulltext_lang['en'] = __('English','leisref');
                 						<h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter') ?></h1>
                 					</header>
                 					<ul>
-                                        <?php foreach ( $descriptor_list as $descriptor) { ?>
+                                        <?php foreach ( $descriptor_list as $descriptor ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number);
                                             ?>
@@ -306,7 +306,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                                 $filter_link = mount_filter_link('act_type', $type[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($type[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($type[0], $site_language)?></a>
                                                 <span class="cat-item-count"><?php echo $type[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -325,7 +325,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                                 $filter_link = mount_filter_link('scope', $scope[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($scope[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($scope[0], $site_language)?></a>
                                                 <span class="cat-item-count"><?php echo $scope[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -344,7 +344,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                                 $filter_link = mount_filter_link('scope_region', $region[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($region[0], $site_language)?></a>
                                                 <span class="cat-item-count"><?php echo $region[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -363,7 +363,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                                 $filter_link = mount_filter_link('scope_state', $state[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($state[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($state[0], $site_language)?></a>
                                                 <span class="cat-item-count"><?php echo $state[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -382,14 +382,13 @@ $fulltext_lang['en'] = __('English','leisref');
                                                 <?php
                                                     $filter_link = mount_filter_link('language', $lang[0], $query, $user_filter, $act_number);
                                                 ?>
-                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($lang[0], $site_language); ?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($lang[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $lang[1]; ?></span>
                                             </li>
                                         <?php } ?>
                                     </ul>
                                 </section>
                             <?php endif; ?>
-
 
                             <?php if ($content == 'Year' ) :?>
                                 <section class="row-fluid marginbottom25 widget_categories">
@@ -453,7 +452,7 @@ $order = explode(';', $leisref_config['available_filter']);
                       ?>
                       <div class="list_bloco">
                         <div class="list_link">
-                          <a href='<?php echo $filter_link; ?>'><?php print_lang_value($collection[0], $site_language); ?></a>
+                          <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($collection[0], $site_language); ?></a>
                         </div>
                         <div class="list_badge">
                             <span><?php echo $collection[1]; ?></span>
@@ -516,7 +515,7 @@ $order = explode(';', $leisref_config['available_filter']);
                 <li>
                     <div class="list_bloco">
                       <div class="list_link">
-                        <a href='<?php echo $filter_link; ?>'><?php print_lang_value($type[0], $site_language)?></a>
+                        <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($type[0], $site_language)?></a>
 
                       </div>
                       <div class="list_badge">
@@ -550,7 +549,7 @@ $order = explode(';', $leisref_config['available_filter']);
                 <li class="cat-item">
                     <div class="list_bloco">
                       <div class="list_link">
-                        <a href='<?php echo $filter_link; ?>'><?php print_lang_value($region[0], $site_language)?></a>
+                        <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($region[0], $site_language)?></a>
                       </div>
                       <div class="list_badge">
                         <span ><?php echo $region[1] ?></span>
@@ -583,7 +582,7 @@ $order = explode(';', $leisref_config['available_filter']);
 
                         <div class="list_bloco">
                           <div class="list_link">
-                            <a href='<?php echo $filter_link; ?>'><?php print_lang_value($lang[0], $site_language); ?></a>
+                            <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($lang[0], $site_language); ?></a>
                           </div>
                           <div class="list_badge">
                             <span><?php echo $lang[1]; ?></span>
