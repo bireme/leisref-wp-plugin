@@ -99,6 +99,7 @@ if ($response){
     $language_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->language;
     $collection_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->collection;
     $publication_year = $response_json->diaServerResponse[0]->facet_counts->facet_fields->publication_year;
+    $database_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->indexed_database;
 }
 
 $page_url_params = real_site_url($leisref_plugin_slug) . '?q=' . urlencode($query)  . '&filter=' . urlencode($user_filter);
@@ -252,12 +253,12 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php endif; ?>
 
                             <?php
-                              $order = explode(';', $leisref_config['available_filter']);
-                              foreach($order as $index=>$content) {
-                                $content = trim($content);
+                                $order = explode(';', $leisref_config['available_filter']);
+                                foreach($order as $index=>$content) {
+                                    $content = trim($content);
                             ?>
 
-                            <?php if ($content == 'Collection') : ?>
+                            <?php if ( $content == 'Collection' ) : ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
@@ -276,7 +277,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                 </section>
                             <?php endif; ?>
 
-                            <?php if ($content == 'Subject' ): ?>
+                            <?php if ( $content == 'Subject' ) : ?>
                 			    <section class="row-fluid marginbottom25 widget_categories">
                 					<header class="row-fluid border-bottom marginbottom15">
                 						<h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter') ?></h1>
@@ -297,18 +298,18 @@ $fulltext_lang['en'] = __('English','leisref');
                 				</section>
                             <?php endif; ?>
 
-                            <?php if ( $content == 'Act type' ): ?>
+                            <?php if ( $content == 'Act type' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter') ?></h1>
                                     </header>
                                     <ul>
-                                        <?php foreach ( $act_type_list as $type) { ?>
+                                        <?php foreach ( $act_type_list as $type ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('act_type', $type[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($type[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($type[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $type[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -316,18 +317,18 @@ $fulltext_lang['en'] = __('English','leisref');
                                 </section>
                             <?php endif; ?>
 
-                            <?php if ( $content == 'Scope' ): ?>
+                            <?php if ( $content == 'Scope' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope', 'filter') ?></h1>
                                     </header>
                                     <ul>
-                                        <?php foreach ($scope_list as $scope) { ?>
+                                        <?php foreach ( $scope_list as $scope ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('scope', $scope[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($scope[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($scope[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $scope[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -335,18 +336,18 @@ $fulltext_lang['en'] = __('English','leisref');
                                 </section>
                             <?php endif; ?>
 
-                            <?php if ( $content == 'Country/region' ): ?>
+                            <?php if ( $content == 'Country/region' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_region', 'filter') ?></h1>
                                     </header>
                                     <ul>
-                                        <?php foreach ( $scope_region_list as $region) { ?>
+                                        <?php foreach ( $scope_region_list as $region ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('scope_region', $region[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($region[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($region[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $region[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -354,18 +355,18 @@ $fulltext_lang['en'] = __('English','leisref');
                                 </section>
                             <?php endif; ?>
 
-                            <?php if ( $content == 'State' ): ?>
+                            <?php if ( $content == 'State' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_state', 'filter') ?></h1>
                                     </header>
                                     <ul>
-                                        <?php foreach ($scope_state_list as $state) { ?>
+                                        <?php foreach ( $scope_state_list as $state ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('scope_state', $state[0], $query, $user_filter, $act_number);
                                             ?>
                                             <li class="cat-item">
-                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($state[0], $site_language)?></a>
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($state[0], $site_language); ?></a>
                                                 <span class="cat-item-count"><?php echo $state[1] ?></span>
                                             </li>
                                         <?php } ?>
@@ -392,13 +393,13 @@ $fulltext_lang['en'] = __('English','leisref');
                                 </section>
                             <?php endif; ?>
 
-                            <?php if ($content == 'Year' ) :?>
+                            <?php if ( $content == 'Year' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'year', 'filter') ?></h1>
                                     </header>
                                     <ul>
-                                        <?php foreach ( $publication_year as $year) { ?>
+                                        <?php foreach ( $publication_year as $year ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('publication_year', $year[0], $query, $user_filter, $act_number);
                                             ?>
@@ -409,10 +410,28 @@ $fulltext_lang['en'] = __('English','leisref');
                                         <?php } ?>
                                     </ul>
                                 </section>
-                              <?php endif; ?>
-                          <?php } ?>
-                      <?php endif; ?>
+                            <?php endif; ?>
 
+                            <?php if ( $content == 'Database' ) : ?>
+                                <section class="row-fluid marginbottom25 widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'database', 'filter') ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $database_list as $db ) { ?>
+                                            <?php
+                                                $filter_link = mount_filter_link('indexed_database', $db[0], $query, $user_filter, $act_number);
+                                            ?>
+                                            <li class="cat-item">
+                                                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($db[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $db[1] ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+                        <?php } ?>
+                    <?php endif; ?>
                 </aside>
     			<div class="spacer"></div>
             </div> <!-- close DIV.result-area -->

@@ -34,12 +34,11 @@ if ( !function_exists('leisref_get_lang_value') ) {
             $translated = $lang_value[$default_lang_code];
         } else {
             $translated = ltrim(strstr($string, '^'), '^');
+            if ( !$translated ) $translated = $string;
         }
 
         return $translated;
     }
-} else {
-    echo "<pre>"; print_r($_SERVER); echo "</pre>"; die();
 }
 
 if ( !function_exists('format_date') ) {

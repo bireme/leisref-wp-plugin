@@ -96,74 +96,46 @@ function leisref_page_admin() {
                             <th scope="row"><?php _e('Search filters', 'leisref');?>:</th>
 
                             <?php
-                              if(!isset($config['available_filter'])){
-                                $config['available_filter'] = 'Subject;Act type;Country/region;Database;Collection;Language;Year';
-                                $order = explode(';', $config['available_filter'] );
-                              }else {
-                                $order = array_filter(explode(';', $config['available_filter']));
-                            }
-
+                                $available_filters = 'Subject;Act type;Scope;Country/region;State;Collection;Language;Year;Database';
+                                $available_filter_list = explode(';', $available_filters);
+                                if(!isset($config['available_filter'])){
+                                    $order = $available_filter_list;
+                                } else {
+                                    $order = array_filter(explode(';', $config['available_filter']));
+                                }
                             ?>
 
                             <td>
-                              <table border=0>
-                                <tr>
-                                <td >
-                                    <p align="left"><?php _e('Available', 'leisref');?><br>
-                                      <ul id="sortable1" class="droptrue">
-                                      <?php
-                                      if(!in_array('Act type', $order) && !in_array('Act type ', $order) ){
-                                        echo '<li class="ui-state-default" id="Act type">'.translate('Act type','leisref').'</li>';
-                                      }
-                                      if(!in_array('Scope', $order) && !in_array('Scope ', $order) ){
-                                        echo '<li class="ui-state-default" id="Scope">'.translate('Scope','leisref').'</li>';
-                                      }
-                                      if(!in_array('Act type', $order) && !in_array('Act type ', $order) ){
-                                        echo '<li class="ui-state-default" id="Act type">'.translate('Act type','leisref').'</li>';
-                                      }
-                                      if(!in_array('Country/region', $order) && !in_array('Country/region ', $order) ){
-                                        echo '<li class="ui-state-default" id="Country/region">'.translate('Country/region','leisref').'</li>';
-                                      }
-                                      if(!in_array('State', $order) && !in_array('State ', $order) ){
-                                        echo '<li class="ui-state-default" id="State">'.translate('State','leisref').'</li>';
-                                      }
-                                      if(!in_array('Database', $order) && !in_array('Database ', $order) ){
-                                        echo '<li class="ui-state-default" id="Database">'.translate('Database','leisref').'</li>';
-                                      }
-                                      if(!in_array('Collection', $order) && !in_array('Collection ', $order) ){
-                                        echo '<li class="ui-state-default" id="Collection">'.translate('Collection','leisref').'</li>';
-                                      }
-                                      if(!in_array('Language', $order) && !in_array('Language ', $order) ){
-                                        echo '<li class="ui-state-default" id="Language">'.translate('Language','leisref').'</li>';
-                                      }
-                                      if(!in_array('Year', $order) && !in_array('Year ', $order) ){
-                                        echo '<li class="ui-state-default" id="Year">'.translate('Year','leisref').'</li>';
-                                      }
-                                      ?>
-                                      </ul>
-
-                                    </p>
-                                </td>
-                                <td>
-                                    <p align="left"><?php _e('Selected', 'leisref');?> <br>
-                                      <ul id="sortable2" class="sortable-list">
-                                      <?php
-                                      foreach ($order as $index => $item) {
-                                        $item = trim($item); // Important
-                                        echo '<li class="ui-state-default" id="'.$item.'">'.translate($item ,'leisref').'</li>';
-                                      }
-                                      ?>
-                                      </ul>
-                                      <input type="hidden" id="order_aux" name="leisref_config[available_filter]" value="<?php echo trim($config['available_filter']); ?> " >
-
-                                    </p>
-                                </td>
-                                </tr>
+                                <table border=0>
+                                    <tr>
+                                        <td>
+                                            <p align="left"><?php _e('Available', 'leisref');?><br>
+                                                <ul id="sortable1" class="droptrue">
+                                                    <?php foreach ($available_filter_list as $key => $value) : ?>
+                                                        <?php if ( !in_array($value, $order) ) : ?>
+                                                            <?php echo '<li class="ui-state-default" id="'.$value.'">'.translate($value,'direve').'</li>'; ?>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p align="left"><?php _e('Selected', 'leisref');?> <br>
+                                                <ul id="sortable2" class="sortable-list">
+                                                    <?php
+                                                        foreach ($order as $index => $item) {
+                                                            $item = trim($item); // Important
+                                                            echo '<li class="ui-state-default" id="'.$item.'">'.translate($item ,'leisref').'</li>';
+                                                        }
+                                                    ?>
+                                                </ul>
+                                                <input type="hidden" id="order_aux" name="leisref_config[available_filter]" value="<?php echo trim($config['available_filter']); ?> " >
+                                            </p>
+                                        </td>
+                                    </tr>
                                 </table>
                             </td>
                         </tr>
-
-
                     </tbody>
                 </table>
                 <p class="submit">
