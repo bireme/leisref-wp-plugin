@@ -1,30 +1,35 @@
 # Copyright (C) 2021 LeisRef
 # This file is distributed under the same license as the LeisRef package.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2021-04-08 20:27:49+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-08-02 18:13-0300\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: leisref.php:95
+#: leisref.php:103
 msgid "Legislation Settings"
 msgstr ""
 
-#: leisref.php:95 leisref.php:232
+#: leisref.php:103 leisref.php:240
 msgid "Legislation"
 msgstr ""
 
-#: leisref.php:144
+#: leisref.php:152
 msgid "Legislation sidebar"
 msgstr ""
 
-#: leisref.php:155
+#: leisref.php:163
 msgid "Legislation header"
 msgstr ""
 
@@ -34,103 +39,144 @@ msgstr ""
 msgid "go to page"
 msgstr ""
 
-#: settings.php:8
+#: settings.php:6
+msgid "Subject"
+msgstr ""
+
+#: settings.php:7
+msgid "Act type"
+msgstr ""
+
+#: settings.php:8 template/metadata.php:54
+msgid "Act scope"
+msgstr ""
+
+#: settings.php:9
+msgid "Country"
+msgstr ""
+
+#: settings.php:10
+msgid "State"
+msgstr ""
+
+#: settings.php:11 template/metadata.php:66
+msgid "Language"
+msgstr ""
+
+#: settings.php:12 template/metadata.php:73
+msgid "Collection"
+msgstr ""
+
+#: settings.php:13
+msgid "Year"
+msgstr ""
+
+#: settings.php:14
+msgid "Database"
+msgstr ""
+
+#: settings.php:19
 msgid "Legislation settings"
 msgstr ""
 
-#: settings.php:17
+#: settings.php:28
 msgid "Plugin page"
 msgstr ""
 
-#: settings.php:21
+#: settings.php:32
 msgid "Filter query"
 msgstr ""
 
-#: settings.php:25
+#: settings.php:36
 msgid "AddThis profile ID"
 msgstr ""
 
-#: settings.php:29
+#: settings.php:40
 msgid "Google Analytics code"
 msgstr ""
 
-#: settings.php:43
+#: settings.php:54
 msgid "Home URL"
 msgstr ""
 
-#: settings.php:48 settings.php:55
+#: settings.php:59 settings.php:66
 msgid "Page title"
 msgstr ""
 
-#: settings.php:62
+#: settings.php:73
 msgid "Sources for similar documents"
 msgstr ""
 
-#: settings.php:65 settings.php:72
+#: settings.php:76 settings.php:83
 msgid "The database names must be separated by commas."
 msgstr ""
 
-#: settings.php:69
+#: settings.php:80
 msgid "Sources for related documents"
 msgstr ""
 
-#: settings.php:77
+#: settings.php:88
 msgid "Page layout"
 msgstr ""
 
-#: settings.php:82
+#: settings.php:93
 msgid "Show filters as whole page"
 msgstr ""
 
-#: settings.php:89
+#: settings.php:100
 msgid "Show normal page"
 msgstr ""
 
-#: settings.php:96
+#: settings.php:107
 msgid "Search filters"
 msgstr ""
 
-#: settings.php:112
+#: settings.php:123
 msgid "Available"
 msgstr ""
 
-#: settings.php:148
+#: settings.php:134
 msgid "Selected"
 msgstr ""
 
-#: settings.php:170
+#: settings.php:154
 msgid "Save changes"
 msgstr ""
 
-#: template/advanced.php:50 template/detail.php:42 template/home.php:110
+#: template-functions.php:75 template/metadata.php:105
+#: template/metadata.php:150
+msgid "of"
+msgstr ""
+
+#: template/advanced.php:51 template/detail.php:42 template/home.php:114
 msgid "Portuguese"
 msgstr ""
 
-#: template/advanced.php:51 template/detail.php:43 template/home.php:111
+#: template/advanced.php:52 template/detail.php:43 template/home.php:115
 msgid "Spanish"
 msgstr ""
 
-#: template/advanced.php:52 template/detail.php:44 template/home.php:112
+#: template/advanced.php:53 template/detail.php:44 template/home.php:116
 msgid "English"
 msgstr ""
 
-#: template/advanced.php:61 template/detail.php:53 template/home.php:121
+#: template/advanced.php:62 template/detail.php:53 template/home.php:125
 msgid "Home"
 msgstr ""
 
-#: template/advanced.php:66
+#: template/advanced.php:67
 msgid "Advanced Search"
 msgstr ""
 
-#: template/advanced.php:84 template/home.php:144
+#: template/advanced.php:85 template/home.php:148
 msgid "Enter one or more words"
 msgstr ""
 
-#: template/advanced.php:85 template/advanced.php:182 template/home.php:145
+#: template/advanced.php:86 template/advanced.php:183 template/home.php:149
 msgid "Search"
 msgstr ""
 
-#: template/advanced.php:89
+#: template/advanced.php:90
 msgid "Search by act number"
 msgstr ""
 
@@ -150,35 +196,35 @@ msgstr ""
 msgid "Related articles"
 msgstr ""
 
-#: template/home.php:126
+#: template/home.php:130
 msgid "Search result"
 msgstr ""
 
-#: template/home.php:147
+#: template/home.php:151
 msgid "Advanced search"
 msgstr ""
 
-#: template/home.php:154
+#: template/home.php:158
 msgid "Act number"
 msgstr ""
 
-#: template/home.php:154
+#: template/home.php:158
 msgid "clear"
 msgstr ""
 
-#: template/home.php:169
+#: template/home.php:173
 msgid "No results found"
 msgstr ""
 
-#: template/home.php:172 template/home.php:420
+#: template/home.php:176 template/home.php:443
 msgid "Normative Acts"
 msgstr ""
 
-#: template/home.php:200
+#: template/home.php:204
 msgid "Filters"
 msgstr ""
 
-#: template/home.php:210
+#: template/home.php:214
 msgid "Selected filters"
 msgstr ""
 
@@ -194,28 +240,11 @@ msgstr ""
 msgid "Organ issuer"
 msgstr ""
 
-#: template/metadata.php:54
-msgid "Act scope"
-msgstr ""
-
-#: template/metadata.php:66
-msgid "Language"
-msgstr ""
-
-#: template/metadata.php:73
-msgid "Collection"
-msgstr ""
-
-#: template/metadata.php:105 template/metadata.php:150
-#: template-functions.php:71
-msgid "of"
-msgstr ""
-
 #: template/metadata.php:175
 msgid "Read more"
 msgstr ""
 
-#: template/metadata.php:192
+#: template/metadata.php:195
 msgid "Text in"
 msgstr ""
 
@@ -225,24 +254,4 @@ msgstr ""
 
 #: template/related.php:61 template/similar.php:45
 msgid "No related documents"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "LeisRef"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "https://github.com/bireme/leisref-wp-plugin/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "VHL Legislation Directory WordPress plugin"
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "BIREME/OPAS/OMS"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://reddes.bvsalud.org/"
 msgstr ""

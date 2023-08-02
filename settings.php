@@ -2,6 +2,17 @@
 function leisref_page_admin() {
     $config = get_option('leisref_config');
 
+    $filter_labels = array(
+        'subject' => __('Subject', 'leisref'),
+        'act-type' => __('Act type', 'leisref'),
+        'scope' => __('Act scope', 'leisref'),
+        'country-region' => __('Country', 'leisref'),
+        'state' => __('State', 'leisref'),
+        'language' => __('Language', 'leisref'),
+        'collection' => __('Collection', 'leisref'),
+        'year' => __('Year', 'leisref'),
+        'database' => __('Database', 'leisref'),
+    );
 ?>
     <div class="wrap">
             <div id="icon-options-general" class="icon32"></div>
@@ -109,23 +120,24 @@ function leisref_page_admin() {
                                 <table border=0>
                                     <tr>
                                         <td>
-                                            <p align="left"><?php _e('Available', 'leisref');?><br>
+                                            <p align="left"><?php _e('Available', 'leisref');?><br />
                                                 <ul id="sortable1" class="droptrue">
                                                     <?php foreach ($available_filter_list as $key => $value) : ?>
-                                                        <?php if ( !in_array($value, $order) ) : ?>
-                                                            <?php echo '<li class="ui-state-default" id="'.$value.'">'.translate($value,'direve').'</li>'; ?>
+                                                        <?php if ( !in_array($value, $order) ) : $slug = sanitize_title($value); ?>
+                                                            <?php echo '<li class="ui-state-default" id="'.$value.'">'.$filter_labels[$slug].'</li>'; ?>
                                                         <?php endif; ?>
                                                     <?php endforeach; ?>
                                                 </ul>
                                             </p>
                                         </td>
                                         <td>
-                                            <p align="left"><?php _e('Selected', 'leisref');?> <br>
+                                            <p align="left"><?php _e('Selected', 'leisref');?><br />
                                                 <ul id="sortable2" class="sortable-list">
                                                     <?php
                                                         foreach ($order as $index => $item) {
+                                                            $slug = sanitize_title($item);
                                                             $item = trim($item); // Important
-                                                            echo '<li class="ui-state-default" id="'.$item.'">'.translate($item ,'leisref').'</li>';
+                                                            echo '<li class="ui-state-default" id="'.$item.'">'.$filter_labels[$slug].'</li>';
                                                         }
                                                     ?>
                                                 </ul>

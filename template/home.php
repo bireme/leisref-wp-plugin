@@ -280,7 +280,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Subject' ) : ?>
                 			    <section class="row-fluid marginbottom25 widget_categories">
                 					<header class="row-fluid border-bottom marginbottom15">
-                						<h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter') ?></h1>
+                						<h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter'); ?></h1>
                 					</header>
                 					<ul>
                                         <?php foreach ( $descriptor_list as $descriptor ) { ?>
@@ -301,7 +301,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Act type' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $act_type_list as $type ) { ?>
@@ -320,7 +320,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Scope' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope', 'filter'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $scope_list as $scope ) { ?>
@@ -339,7 +339,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Country/region' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_region', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_region', 'filter'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $scope_region_list as $region ) { ?>
@@ -358,7 +358,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'State' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_state', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_state', 'filter'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $scope_state_list as $state ) { ?>
@@ -396,7 +396,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Year' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'year', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'year', 'filter'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $publication_year as $year ) { ?>
@@ -415,7 +415,7 @@ $fulltext_lang['en'] = __('English','leisref');
                             <?php if ( $content == 'Database' ) : ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'database', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'database', 'filter'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $database_list as $db ) { ?>

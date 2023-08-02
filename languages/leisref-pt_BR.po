@@ -4,29 +4,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2021-04-08 20:27:49+00:00\n"
-"PO-Revision-Date: 2021-04-08 17:30-0300\n"
+"POT-Creation-Date: 2023-08-02 18:06-0300\n"
+"PO-Revision-Date: 2023-08-02 18:13-0300\n"
 "Last-Translator: Vinicius de Andrade <antoniov@paho.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: leisref.php:95
+#: leisref.php:103
 msgid "Legislation Settings"
 msgstr "Ajustes Legislação"
 
-#: leisref.php:95 leisref.php:232
+#: leisref.php:103 leisref.php:240
 msgid "Legislation"
 msgstr "Legislação"
 
-#: leisref.php:144
+#: leisref.php:152
 msgid "Legislation sidebar"
 msgstr "Sidebar Legislação"
 
-#: leisref.php:155
+#: leisref.php:163
 msgid "Legislation header"
 msgstr "Cabeçalho Legislação"
 
@@ -36,103 +39,144 @@ msgstr "Cabeçalho Legislação"
 msgid "go to page"
 msgstr "ir para página"
 
-#: settings.php:8
+#: settings.php:6
+msgid "Subject"
+msgstr "Assunto"
+
+#: settings.php:7
+msgid "Act type"
+msgstr "Tipo do ato"
+
+#: settings.php:8 template/metadata.php:54
+msgid "Act scope"
+msgstr "Escopo"
+
+#: settings.php:9
+msgid "Country"
+msgstr "País"
+
+#: settings.php:10
+msgid "State"
+msgstr "Estado"
+
+#: settings.php:11 template/metadata.php:66
+msgid "Language"
+msgstr "Idioma"
+
+#: settings.php:12 template/metadata.php:73
+msgid "Collection"
+msgstr "Coleção"
+
+#: settings.php:13
+msgid "Year"
+msgstr "Ano"
+
+#: settings.php:14
+msgid "Database"
+msgstr "Base de dados"
+
+#: settings.php:19
 msgid "Legislation settings"
 msgstr "Legislação ajustes"
 
-#: settings.php:17
+#: settings.php:28
 msgid "Plugin page"
 msgstr "Página de Plugin"
 
-#: settings.php:21
+#: settings.php:32
 msgid "Filter query"
 msgstr "Filtro de pesquisa"
 
-#: settings.php:25
+#: settings.php:36
 msgid "AddThis profile ID"
-msgstr "ID  do Perfil AddThis"
+msgstr "ID do perfil AddThis"
 
-#: settings.php:29
+#: settings.php:40
 msgid "Google Analytics code"
 msgstr "Código do Google Analytics"
 
-#: settings.php:43
+#: settings.php:54
 msgid "Home URL"
 msgstr "Início"
 
-#: settings.php:48 settings.php:55
+#: settings.php:59 settings.php:66
 msgid "Page title"
 msgstr "Título da página"
 
-#: settings.php:62
+#: settings.php:73
 msgid "Sources for similar documents"
 msgstr "Fontes para documentos similares"
 
-#: settings.php:65 settings.php:72
+#: settings.php:76 settings.php:83
 msgid "The database names must be separated by commas."
 msgstr "O nome das bases precisa ser separada por virgula."
 
-#: settings.php:69
+#: settings.php:80
 msgid "Sources for related documents"
 msgstr "Fontes para documentos relacionados"
 
-#: settings.php:77
+#: settings.php:88
 msgid "Page layout"
 msgstr "Layout da página"
 
-#: settings.php:82
+#: settings.php:93
 msgid "Show filters as whole page"
 msgstr "Mostrar filtros em página inteira"
 
-#: settings.php:89
+#: settings.php:100
 msgid "Show normal page"
 msgstr "Mostrar página normal"
 
-#: settings.php:96
+#: settings.php:107
 msgid "Search filters"
 msgstr "Filtros de pesquisa"
 
-#: settings.php:112
+#: settings.php:123
 msgid "Available"
 msgstr "Disponíveis"
 
-#: settings.php:148
+#: settings.php:134
 msgid "Selected"
 msgstr "Selecionados"
 
-#: settings.php:170
+#: settings.php:154
 msgid "Save changes"
 msgstr "Salvar mudanças"
 
-#: template/advanced.php:50 template/detail.php:42 template/home.php:110
+#: template-functions.php:75 template/metadata.php:105
+#: template/metadata.php:150
+msgid "of"
+msgstr "de"
+
+#: template/advanced.php:51 template/detail.php:42 template/home.php:114
 msgid "Portuguese"
 msgstr "Português"
 
-#: template/advanced.php:51 template/detail.php:43 template/home.php:111
+#: template/advanced.php:52 template/detail.php:43 template/home.php:115
 msgid "Spanish"
 msgstr "Espanhol"
 
-#: template/advanced.php:52 template/detail.php:44 template/home.php:112
+#: template/advanced.php:53 template/detail.php:44 template/home.php:116
 msgid "English"
 msgstr "Inglês"
 
-#: template/advanced.php:61 template/detail.php:53 template/home.php:121
+#: template/advanced.php:62 template/detail.php:53 template/home.php:125
 msgid "Home"
 msgstr "Ínicio"
 
-#: template/advanced.php:66
+#: template/advanced.php:67
 msgid "Advanced Search"
 msgstr "Busca avançada"
 
-#: template/advanced.php:84 template/home.php:144
+#: template/advanced.php:85 template/home.php:148
 msgid "Enter one or more words"
 msgstr "Entre uma ou mais palavras"
 
-#: template/advanced.php:85 template/advanced.php:182 template/home.php:145
+#: template/advanced.php:86 template/advanced.php:183 template/home.php:149
 msgid "Search"
 msgstr "Pesquisa"
 
-#: template/advanced.php:89
+#: template/advanced.php:90
 msgid "Search by act number"
 msgstr "Buscar por número do ato"
 
@@ -152,35 +196,35 @@ msgstr "Compartilhar"
 msgid "Related articles"
 msgstr "Artigos relacionados"
 
-#: template/home.php:126
+#: template/home.php:130
 msgid "Search result"
 msgstr "Resultado da pesquisa"
 
-#: template/home.php:147
+#: template/home.php:151
 msgid "Advanced search"
 msgstr "Busca avançada"
 
-#: template/home.php:154
+#: template/home.php:158
 msgid "Act number"
 msgstr "Número do ato"
 
-#: template/home.php:154
+#: template/home.php:158
 msgid "clear"
 msgstr "limpar"
 
-#: template/home.php:169
+#: template/home.php:173
 msgid "No results found"
 msgstr "Nenhum resultado encontrado"
 
-#: template/home.php:172 template/home.php:420
+#: template/home.php:176 template/home.php:443
 msgid "Normative Acts"
 msgstr "Atos Normativos"
 
-#: template/home.php:200
+#: template/home.php:204
 msgid "Filters"
 msgstr "Filtros"
 
-#: template/home.php:210
+#: template/home.php:214
 msgid "Selected filters"
 msgstr "Selecione os filtros"
 
@@ -196,58 +240,21 @@ msgstr "Data de publicação"
 msgid "Organ issuer"
 msgstr "Orgão emissor"
 
-#: template/metadata.php:54
-msgid "Act scope"
-msgstr "Escopo"
-
-#: template/metadata.php:66
-msgid "Language"
-msgstr "Idioma"
-
-#: template/metadata.php:73
-msgid "Collection"
-msgstr "Coleção"
-
-#: template/metadata.php:105 template/metadata.php:150
-#: template-functions.php:71
-msgid "of"
-msgstr "de"
-
 #: template/metadata.php:175
 msgid "Read more"
 msgstr "Veja mais"
 
-#: template/metadata.php:192
+#: template/metadata.php:195
 msgid "Text in"
 msgstr "Texto em"
 
 #: template/related.php:23
 msgid "More related"
-msgstr ""
+msgstr "Mais relacionados"
 
 #: template/related.php:61 template/similar.php:45
 msgid "No related documents"
 msgstr "Nenhum documento relacionado"
-
-#. Plugin Name of the plugin/theme
-msgid "LeisRef"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "https://github.com/bireme/leisref-wp-plugin/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "VHL Legislation Directory WordPress plugin"
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "BIREME/OPAS/OMS"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://reddes.bvsalud.org/"
-msgstr ""
 
 #~ msgid "Fulltext"
 #~ msgstr "Texto completo"
@@ -274,21 +281,6 @@ msgstr ""
 
 #~ msgid "Display filters"
 #~ msgstr "Mostrar filtros"
-
-#~ msgid "Subject"
-#~ msgstr "Assunto"
-
-#~ msgid "Act type"
-#~ msgstr "Tipo do ato"
-
-#~ msgid "Country/region"
-#~ msgstr "País/região"
-
-#~ msgid "Database"
-#~ msgstr "Base de dados"
-
-#~ msgid "Year"
-#~ msgstr "Ano"
 
 #~ msgid "Total"
 #~ msgstr "Total"
