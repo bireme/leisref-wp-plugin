@@ -10,7 +10,7 @@ $leisref_config = get_option('leisref_config');
 $leisref_initial_filter = $leisref_config['initial_filter'];
 
 $site_language = strtolower(get_bloginfo('language'));
-$lang = substr($site_language,0,2);
+$_lang = substr($site_language,0,2);
 
 $query = ( isset($_GET['s']) ? sanitize_text_field($_GET['s']) : sanitize_text_field($_GET['q']) );
 $query = stripslashes($query);
@@ -81,16 +81,17 @@ if ($act_number != ''){
     $filter .= ' AND act_number:' . $act_number;
 }
 
-$leisref_search = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $lang;
+$leisref_search = $leisref_service_url . 'api/leisref/search/?q=' . urlencode($query) . '&fq=' . urlencode($filter) . '&start=' . $start . '&lang=' . $_lang;
+
+// echo "<pre>"; print_r($leisref_search); echo "</pre>"; die();
 
 $response = @file_get_contents($leisref_search);
 if ($response){
     $response_json = json_decode($response);
-    //var_dump($response_json);
+    // echo "<pre>"; print_r($response_json); echo "</pre>"; die();
     $total = $response_json->diaServerResponse[0]->response->numFound;
     $start = $response_json->diaServerResponse[0]->response->start;
     $legislation_list = $response_json->diaServerResponse[0]->response->docs;
-
     $descriptor_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->descriptor_filter;
     $act_type_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->act_type;
     $scope_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->scope;
@@ -108,8 +109,8 @@ $feed_url = real_site_url($leisref_plugin_slug) . 'legislation-feed?q=' . urlenc
 $pages = new Paginator($total, $start, $count);
 $pages->paginate($page_url_params);
 
-$home_url = isset($leisref_config['home_url_' . $lang]) ? $leisref_config['home_url_' . $lang] : real_site_url();
-$plugin_breadcrumb = isset($leisref_config['plugin_title_' . $lang]) ? $leisref_config['plugin_title_' . $lang] : $leisref_config['plugin_title'];
+$home_url = isset($leisref_config['home_url_' . $_lang]) ? $leisref_config['home_url_' . $_lang] : real_site_url();
+$plugin_breadcrumb = isset($leisref_config['plugin_title_' . $_lang]) ? $leisref_config['plugin_title_' . $_lang] : $leisref_config['plugin_title'];
 
 $fulltext_lang['pt-br'] = __('Portuguese','leisref');
 $fulltext_lang['es'] = __('Spanish','leisref');
@@ -120,7 +121,7 @@ $fulltext_lang['en'] = __('English','leisref');
 <?php get_header('leisref');?>
 
     <div id="content" class="row-fluid">
-	  <div class="ajusta2">
+      <div class="ajusta2">
           <div class="row-fluid breadcrumb">
               <a href="<?php echo $home_url ?>"><?php _e('Home','leisref'); ?></a> >
               <?php if ($query == '' && $filter == ''): ?>
@@ -138,7 +139,7 @@ $fulltext_lang['en'] = __('English','leisref');
           <!-- end sidebar leisref-header -->
             <section class="header-search">
                 <form role="search" method="get" name="searchForm" id="searchForm" action="<?php echo real_site_url($leisref_plugin_slug); ?>">
-                    <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>">
+                    <input type="hidden" name="lang" id="lang" value="<?php echo $_lang; ?>">
                     <input type="hidden" name="sort" id="sort" value="<?php echo sanitize_text_field($_GET['sort']); ?>">
                     <input type="hidden" name="format" id="format" value="<?php echo $format ? $format : 'summary'; ?>">
                     <input type="hidden" name="count" id="count" value="<?php echo $count; ?>">
@@ -168,26 +169,26 @@ $fulltext_lang['en'] = __('English','leisref');
 <?php if ($leisref_config['page_layout'] != 'whole_page' || $_GET['q'] != '' || $_GET['filter'] != '' ) :  // test for page layout,  query search and Filters ?>
 
             <div class="content-area result-list">
-    			<section id="conteudo">
+                <section id="conteudo">
                     <?php if ( isset($total) && strval($total) == 0) :?>
                         <h1 class="h1-header"><?php _e('No results found','leisref'); ?></h1>
                     <?php else :?>
-        				<header class="row-fluid border-bottom">
-    					   <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
-        				</header>
-        				<div class="row-fluid">
+                        <header class="row-fluid border-bottom">
+                           <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
+                        </header>
+                        <div class="row-fluid">
                             <?php foreach ( $legislation_list as $resource) { ?>
-        					    <article class="conteudo-loop">
+                                <article class="conteudo-loop">
                                     <?php include('metadata.php') ?>
-            					</article>
+                                </article>
                             <?php } ?>
-        				</div>
+                        </div>
                         <div class="row-fluid">
                             <?php echo $pages->display_pages(); ?>
                         </div>
                     <?php endif; ?>
-    			</section>
-    			<aside id="sidebar">
+                </section>
+                <aside id="sidebar">
 
                     <?php dynamic_sidebar('leisref-home');?>
 
@@ -214,14 +215,13 @@ $fulltext_lang['en'] = __('English','leisref');
                                         <h1 class="h1-header"><?php echo _e('Selected filters', 'leisref') ?></h1>
                                     </header>
                                     <form method="get" name="searchFilter" id="formFilters" action="<?php echo real_site_url($leisref_plugin_slug); ?>">
-                                        <input type="hidden" name="lang" id="lang" value="<?php echo $lang; ?>">
+                                        <input type="hidden" name="lang" id="lang" value="<?php echo $_lang; ?>">
                                         <input type="hidden" name="sort" id="sort" value="<?php echo $sort; ?>">
                                         <input type="hidden" name="format" id="format" value="<?php echo $format; ?>">
                                         <input type="hidden" name="count" id="count" value="<?php echo $count; ?>">
                                         <input type="hidden" name="q" id="query" value="<?php echo $query; ?>" >
                                         <input type="hidden" name="act_number" value="<?php echo $act_number; ?>">
                                         <input type="hidden" name="filter" id="filter" value="" >
-
 
                                         <?php foreach ( $applied_filter_list as $filter => $filter_values ) :?>
                                             <h2><?php echo translate_label($leisref_texts, $filter, 'filter') ?></h2>
@@ -263,7 +263,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'collection', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $collection_list as $collection ) { ?>
                                             <li class="cat-item">
                                                 <?php
@@ -274,15 +274,21 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($collection_list) == 20 ) : ?>
+                                    <div class="show-more text-center">
+                                        <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="collection"><?php _e('show more','leisref'); ?></a>
+                                        <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                    </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
 
                             <?php if ( $content == 'Subject' ) : ?>
-                			    <section class="row-fluid marginbottom25 widget_categories">
-                					<header class="row-fluid border-bottom marginbottom15">
-                						<h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter'); ?></h1>
-                					</header>
-                					<ul>
+                                <section class="row-fluid marginbottom25 widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'descriptor', 'filter'); ?></h1>
+                                    </header>
+                                    <ul class="filter-list">
                                         <?php foreach ( $descriptor_list as $descriptor ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number);
@@ -294,8 +300,14 @@ $fulltext_lang['en'] = __('English','leisref');
                                                 </li>
                                             <?php endif; ?>
                                         <?php } ?>
-                					</ul>
-                				</section>
+                                    </ul>
+                                    <?php if ( count($descriptor_list) == 20 ) : ?>
+                                    <div class="show-more text-center">
+                                        <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="descriptor_filter"><?php _e('show more','leisref'); ?></a>
+                                        <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                    </div>
+                                    <?php endif; ?>
+                                </section>
                             <?php endif; ?>
 
                             <?php if ( $content == 'Act type' ) : ?>
@@ -303,7 +315,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'act_type', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $act_type_list as $type ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('act_type', $type[0], $query, $user_filter, $act_number);
@@ -314,6 +326,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($act_type_list) == 20 ) : ?>
+                                    <div class="show-more text-center">
+                                        <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="act_type"><?php _e('show more','leisref'); ?></a>
+                                        <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                    </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
 
@@ -322,7 +340,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $scope_list as $scope ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('scope', $scope[0], $query, $user_filter, $act_number);
@@ -333,6 +351,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($scope_list) == 20 ) : ?>
+                                    <div class="show-more text-center">
+                                        <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="scope"><?php _e('show more','leisref'); ?></a>
+                                        <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                    </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
 
@@ -341,7 +365,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_region', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $scope_region_list as $region ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('scope_region', $region[0], $query, $user_filter, $act_number);
@@ -352,6 +376,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($scope_region_list) == 20 ) : ?>
+                                        <div class="show-more text-center">
+                                            <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="scope_region"><?php _e('show more','leisref'); ?></a>
+                                            <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                        </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
 
@@ -360,7 +390,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'scope_state', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $scope_state_list as $state ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('scope_state', $state[0], $query, $user_filter, $act_number);
@@ -371,6 +401,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($scope_state_list) == 20 ) : ?>
+                                        <div class="show-more text-center">
+                                            <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="scope_state"><?php _e('show more','leisref'); ?></a>
+                                            <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                        </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
 
@@ -379,7 +415,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'language', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $language_list as $lang ) { ?>
                                             <li class="cat-item">
                                                 <?php
@@ -390,6 +426,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($language_list) == 20 ) : ?>
+                                        <div class="show-more text-center">
+                                            <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="language"><?php _e('show more','leisref'); ?></a>
+                                            <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                        </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
 
@@ -398,7 +440,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'year', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $publication_year as $year ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('publication_year', $year[0], $query, $user_filter, $act_number);
@@ -409,6 +451,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($publication_year) == 20 ) : ?>
+                                        <div class="show-more text-center">
+                                            <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="publication_year"><?php _e('show more','leisref'); ?></a>
+                                            <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                        </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
 
@@ -417,7 +465,7 @@ $fulltext_lang['en'] = __('English','leisref');
                                     <header class="row-fluid border-bottom marginbottom15">
                                         <h1 class="h1-header"><?php echo translate_label($leisref_texts, 'database', 'filter'); ?></h1>
                                     </header>
-                                    <ul>
+                                    <ul class="filter-list">
                                         <?php foreach ( $database_list as $db ) { ?>
                                             <?php
                                                 $filter_link = mount_filter_link('indexed_database', $db[0], $query, $user_filter, $act_number);
@@ -428,12 +476,18 @@ $fulltext_lang['en'] = __('English','leisref');
                                             </li>
                                         <?php } ?>
                                     </ul>
+                                    <?php if ( count($database_list) == 20 ) : ?>
+                                        <div class="show-more text-center">
+                                            <a href="javascript:void(0)" class="btn-ajax" data-fb="30" data-cluster="indexed_database"><?php _e('show more','leisref'); ?></a>
+                                            <a href="javascript:void(0)" class="loading"><?php _e('loading','leisref'); ?>...</a>
+                                        </div>
+                                    <?php endif; ?>
                                 </section>
                             <?php endif; ?>
                         <?php } ?>
                     <?php endif; ?>
                 </aside>
-    			<div class="spacer"></div>
+                <div class="spacer"></div>
             </div> <!-- close DIV.result-area -->
 <?php else: // start whole page ?>
 
@@ -443,7 +497,7 @@ $fulltext_lang['en'] = __('English','leisref');
      <h1 class="h1-header"> <?php echo $total; ?> <?php _e('Normative Acts','leisref'); ?></h1>
      </header>
   </section>
-		</div> <!-- close DIV.ajusta2 -->
+        </div> <!-- close DIV.ajusta2 -->
 <?php
 $order = explode(';', $leisref_config['available_filter']);
 
@@ -654,10 +708,58 @@ $order = explode(';', $leisref_config['available_filter']);
 <?php } ?>
 
 </div>
+
 <div class="spacer"></div>
 
 <?php endif; // end whole page?>
 
+</div>
 
-	</div>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $(document).on( "click", ".btn-ajax", function(e) {
+            e.preventDefault();
+
+            var _this = $(this);
+            var fb = $(this).data('fb');
+            var cluster = $(this).data('cluster');
+
+            $(this).hide();
+            $(this).next('.loading').show();
+
+            $.ajax({ 
+                type: "POST",
+                url: leisref_script_vars.ajaxurl,
+                data: {
+                    action: 'leisref_show_more_clusters',
+                    lang: '<?php echo $_lang; ?>',
+                    site_lang: '<?php echo $site_language; ?>',
+                    query: '<?php echo $query; ?>',
+                    filter: '<?php echo $filter; ?>',
+                    uf: '<?php echo $user_filter; ?>',
+                    act_number: '<?php echo $act_number; ?>',
+                    cluster: cluster,
+                    fb: fb
+                },
+                success: function(response){
+                    var html = $.parseHTML( response );
+                    _this.parent().siblings('.filter-list').replaceWith( response );
+                    _this.data('fb', fb+10);
+                    _this.next('.loading').hide();
+
+                    var len = $(html).find(".cat-item").length;
+                    var mod = parseInt(len % 10);
+
+                    if ( mod ) {
+                        _this.remove();
+                    } else {
+                        _this.show();
+                    }
+                },
+                error: function(error){ console.log(error) }
+            });
+        });
+    });
+</script>
+
 <?php get_footer();?>

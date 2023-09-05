@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2023-08-02 18:13-0300\n"
+"POT-Creation-Date: 2023-09-05 19:02-0300\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,25 +17,25 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: leisref.php:103
+#: leisref.php:105
 msgid "Legislation Settings"
 msgstr ""
 
-#: leisref.php:103 leisref.php:240
+#: leisref.php:105 leisref.php:242
 msgid "Legislation"
 msgstr ""
 
-#: leisref.php:152
+#: leisref.php:154
 msgid "Legislation sidebar"
 msgstr ""
 
-#: leisref.php:163
+#: leisref.php:165
 msgid "Legislation header"
 msgstr ""
 
-#: lib/Paginator.php:37 lib/Paginator.php:38 lib/Paginator.php:49
-#: lib/Paginator.php:55 lib/Paginator.php:64 lib/Paginator.php:65
-#: lib/Paginator.php:71 lib/Paginator.php:72
+#: lib/Paginator.php:33 lib/Paginator.php:34 lib/Paginator.php:45
+#: lib/Paginator.php:51 lib/Paginator.php:60 lib/Paginator.php:61
+#: lib/Paginator.php:67 lib/Paginator.php:68
 msgid "go to page"
 msgstr ""
 
@@ -148,19 +148,19 @@ msgstr ""
 msgid "of"
 msgstr ""
 
-#: template/advanced.php:51 template/detail.php:42 template/home.php:114
+#: template/advanced.php:51 template/detail.php:42 template/home.php:115
 msgid "Portuguese"
 msgstr ""
 
-#: template/advanced.php:52 template/detail.php:43 template/home.php:115
+#: template/advanced.php:52 template/detail.php:43 template/home.php:116
 msgid "Spanish"
 msgstr ""
 
-#: template/advanced.php:53 template/detail.php:44 template/home.php:116
+#: template/advanced.php:53 template/detail.php:44 template/home.php:117
 msgid "English"
 msgstr ""
 
-#: template/advanced.php:62 template/detail.php:53 template/home.php:125
+#: template/advanced.php:62 template/detail.php:53 template/home.php:126
 msgid "Home"
 msgstr ""
 
@@ -168,11 +168,11 @@ msgstr ""
 msgid "Advanced Search"
 msgstr ""
 
-#: template/advanced.php:85 template/home.php:148
+#: template/advanced.php:85 template/home.php:149
 msgid "Enter one or more words"
 msgstr ""
 
-#: template/advanced.php:86 template/advanced.php:183 template/home.php:149
+#: template/advanced.php:86 template/advanced.php:183 template/home.php:150
 msgid "Search"
 msgstr ""
 
@@ -196,36 +196,48 @@ msgstr ""
 msgid "Related articles"
 msgstr ""
 
-#: template/home.php:130
+#: template/home.php:131
 msgid "Search result"
 msgstr ""
 
-#: template/home.php:151
+#: template/home.php:152
 msgid "Advanced search"
 msgstr ""
 
-#: template/home.php:158
+#: template/home.php:159
 msgid "Act number"
 msgstr ""
 
-#: template/home.php:158
+#: template/home.php:159
 msgid "clear"
 msgstr ""
 
-#: template/home.php:173
+#: template/home.php:174
 msgid "No results found"
 msgstr ""
 
-#: template/home.php:176 template/home.php:443
+#: template/home.php:177 template/home.php:497
 msgid "Normative Acts"
 msgstr ""
 
-#: template/home.php:204
+#: template/home.php:205
 msgid "Filters"
 msgstr ""
 
-#: template/home.php:214
+#: template/home.php:215
 msgid "Selected filters"
+msgstr ""
+
+#: template/home.php:279 template/home.php:306 template/home.php:331
+#: template/home.php:356 template/home.php:381 template/home.php:406
+#: template/home.php:431 template/home.php:456 template/home.php:481
+msgid "show more"
+msgstr ""
+
+#: template/home.php:280 template/home.php:307 template/home.php:332
+#: template/home.php:357 template/home.php:382 template/home.php:407
+#: template/home.php:432 template/home.php:457 template/home.php:482
+msgid "loading"
 msgstr ""
 
 #: template/metadata.php:34

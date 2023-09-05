@@ -50,6 +50,8 @@ if(!class_exists('LeisRef_Plugin')) {
             add_filter( 'document_title_separator', array(&$this, 'title_tag_sep') );
             add_filter( 'document_title_parts', array(&$this, 'theme_slug_render_title'));
             add_filter( 'wp_title', array(&$this, 'theme_slug_render_wp_title'));
+            add_action( 'wp_ajax_leisref_show_more_clusters', array($this, 'leisref_show_more_clusters'));
+            add_action( 'wp_ajax_nopriv_leisref_show_more_clusters', array($this, 'leisref_show_more_clusters'));
 
         } // END public function __construct
 
@@ -258,6 +260,13 @@ if(!class_exists('LeisRef_Plugin')) {
             wp_enqueue_style('leisref-page', LEISREF_PLUGIN_URL . 'template/css/style.css', array(), LEISREF_VERSION);
             wp_enqueue_script('slick-js', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js');
             wp_enqueue_script('leisref-page', LEISREF_PLUGIN_URL . 'template/js/functions.js', array(), LEISREF_VERSION);
+
+            wp_enqueue_script('jquery');
+            wp_localize_script('jquery', 'leisref_script_vars', array(
+                    'ajaxurl' => admin_url( 'admin-ajax.php' ),
+                    'ajaxnonce' => wp_create_nonce( 'ajax_post_validation' )
+                )
+            );
 		}
 
 		function register_settings(){
@@ -301,6 +310,24 @@ if(!class_exists('LeisRef_Plugin')) {
 		<?php
 		    } //endif
 		}
+
+        function leisref_show_more_clusters() {
+            global $leisref_service_url;
+            $leisref_service_url = $this->service_url;
+
+            ob_start();
+            include LEISREF_PLUGIN_PATH . '/template/cluster.php';
+            $contents = ob_get_contents();
+            ob_end_clean();
+
+            if ( $contents ) {
+                echo $contents;
+            } else {
+                echo 0;
+            }
+
+            die();
+        }
 
 	}
 }

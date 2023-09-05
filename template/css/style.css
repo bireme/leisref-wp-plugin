@@ -125,7 +125,7 @@ input[type=radio]{float:left; margin:3px 5px 0 0;}
 
 /* SIDEBAR */
 #sidebar{width:27%; float:right;}
-#recent-posts-3 ul, #categories-3 ul, .widget_categories ul {list-style:none; float:left; width:100%; margin: 0; padding: 0;}
+#recent-posts-3 ul, #categories-3 ul, .widget_categories ul {list-style:none; float:left; width:100%;}
 #recent-posts-3 ul li{float:left; width:100%; margin-bottom:10px; font-size:13px;}
 .widget_categories ul li{position:relative; width:100%; float:left; color:rgb(102,102,102); font-size:13px !important; margin-bottom:4px; padding-bottom:4px; border-bottom:1px solid rgb(229,229,229);}
 .widget_categories ul li a { display: block; width: 85%; }
@@ -370,8 +370,19 @@ ul.two-columns-list{
     transform: rotate(45deg) translate(-6px, -6px) ;
 }
 
-/* loader */
+.text-center {
+    text-align: center;
+}
 
+.show-more {
+    clear: both;
+}
+
+.loading {
+    display: none;
+}
+
+/* loader */
 .loader {
     border: 2px solid #f3f3f3; /* Light grey */
     border-top: 2px solid #3498db; /* Blue */
@@ -385,8 +396,6 @@ ul.two-columns-list{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-
 
 @media screen {
 	UL.col3{
@@ -437,8 +446,6 @@ ul.two-columns-list{
 
 }
 
-
-
 .list_bloco {
 	position: relative;
 	width: 100%;
@@ -471,7 +478,6 @@ ul.two-columns-list{
   float: right;
 }
 
-
 .list_badge span {
 	background: rgb(172,172,172);
 	color: rgb(255,255,255);
@@ -495,7 +501,6 @@ ul.two-columns-list{
 	margin-bottom: 10px;
 	border-radius: 5px;
 }
-
 
 .destak {
 	border: 1px solid #ccc;
