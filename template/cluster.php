@@ -36,127 +36,145 @@ if ($response){
 ?>
 
 <?php if($cluster == 'collection'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $collection_list as $collection ) { ?>
-            <li class="cat-item">
-                <?php $filter_link = mount_filter_link('collection', $collection[0], $query, $user_filter, $act_number); ?>
-                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($collection[0], $site_lang); ?></a>
-                <span class="cat-item-count"><?php echo $collection[1]; ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($collection_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $collection_list as $collection ) : ?>
+                <li class="cat-item">
+                    <?php $filter_link = mount_filter_link('collection', $collection[0], $query, $user_filter, $act_number); ?>
+                    <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($collection[0], $site_lang); ?></a>
+                    <span class="cat-item-count"><?php echo $collection[1]; ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'descriptor_filter'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $descriptor_list as $descriptor ) { ?>
-            <?php
-                $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number);
-            ?>
-            <?php if ( filter_var($descriptor[0], FILTER_VALIDATE_INT) === false ) : ?>
-                <li class="cat-item">
-                    <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
-                    <span class="cat-item-count"><?php echo $descriptor[1] ?></span>
-                </li>
-            <?php endif; ?>
-        <?php } ?>
-    </ul>
+    <?php if($descriptor_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $descriptor_list as $descriptor ) : ?>
+                <?php
+                    $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number);
+                ?>
+                <?php if ( filter_var($descriptor[0], FILTER_VALIDATE_INT) === false ) : ?>
+                    <li class="cat-item">
+                        <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
+                        <span class="cat-item-count"><?php echo $descriptor[1] ?></span>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'act_type'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $act_type_list as $type ) { ?>
-            <?php
-                $filter_link = mount_filter_link('act_type', $type[0], $query, $user_filter, $act_number);
-            ?>
-            <li class="cat-item">
-                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($type[0], $site_lang); ?></a>
-                <span class="cat-item-count"><?php echo $type[1] ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($act_type_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $act_type_list as $type ) : ?>
+                <?php
+                    $filter_link = mount_filter_link('act_type', $type[0], $query, $user_filter, $act_number);
+                ?>
+                <li class="cat-item">
+                    <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($type[0], $site_lang); ?></a>
+                    <span class="cat-item-count"><?php echo $type[1] ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'scope'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $scope_list as $scope ) { ?>
-            <?php
-                $filter_link = mount_filter_link('scope', $scope[0], $query, $user_filter, $act_number);
-            ?>
-            <li class="cat-item">
-                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($scope[0], $site_lang); ?></a>
-                <span class="cat-item-count"><?php echo $scope[1] ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($scope_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $scope_list as $scope ) : ?>
+                <?php
+                    $filter_link = mount_filter_link('scope', $scope[0], $query, $user_filter, $act_number);
+                ?>
+                <li class="cat-item">
+                    <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($scope[0], $site_lang); ?></a>
+                    <span class="cat-item-count"><?php echo $scope[1] ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'scope_region'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $scope_region_list as $region ) { ?>
-            <?php
-                $filter_link = mount_filter_link('scope_region', $region[0], $query, $user_filter, $act_number);
-            ?>
-            <li class="cat-item">
-                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($region[0], $site_lang); ?></a>
-                <span class="cat-item-count"><?php echo $region[1] ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($scope_region_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $scope_region_list as $region ) : ?>
+                <?php
+                    $filter_link = mount_filter_link('scope_region', $region[0], $query, $user_filter, $act_number);
+                ?>
+                <li class="cat-item">
+                    <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($region[0], $site_lang); ?></a>
+                    <span class="cat-item-count"><?php echo $region[1] ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'scope_state'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $scope_state_list as $state ) { ?>
-            <?php
-                $filter_link = mount_filter_link('scope_state', $state[0], $query, $user_filter, $act_number);
-            ?>
-            <li class="cat-item">
-                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($state[0], $site_lang); ?></a>
-                <span class="cat-item-count"><?php echo $state[1] ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($scope_state_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $scope_state_list as $state ) : ?>
+                <?php
+                    $filter_link = mount_filter_link('scope_state', $state[0], $query, $user_filter, $act_number);
+                ?>
+                <li class="cat-item">
+                    <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($state[0], $site_lang); ?></a>
+                    <span class="cat-item-count"><?php echo $state[1] ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'language'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $language_list as $lang ) { ?>
-            <li class="cat-item">
-                <?php
-                    $filter_link = mount_filter_link('language', $lang[0], $query, $user_filter, $act_number);
-                ?>
-                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($lang[0], $site_lang); ?></a>
-                <span class="cat-item-count"><?php echo $lang[1]; ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($language_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $language_list as $lang ) : ?>
+                <li class="cat-item">
+                    <?php
+                        $filter_link = mount_filter_link('language', $lang[0], $query, $user_filter, $act_number);
+                    ?>
+                    <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($lang[0], $site_lang); ?></a>
+                    <span class="cat-item-count"><?php echo $lang[1]; ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'publication_year'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $publication_year as $year ) { ?>
-            <?php
-                $filter_link = mount_filter_link('publication_year', $year[0], $query, $user_filter, $act_number);
-            ?>
-            <li class="cat-item">
-                <a href='<?php echo $filter_link; ?>'><?php echo $year[0] ?></a>
-                <span class="cat-item-count"><?php echo $year[1] ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($publication_year): ?>
+        <ul class="filter-list">
+            <?php foreach ( $publication_year as $year ) : ?>
+                <?php
+                    $filter_link = mount_filter_link('publication_year', $year[0], $query, $user_filter, $act_number);
+                ?>
+                <li class="cat-item">
+                    <a href='<?php echo $filter_link; ?>'><?php echo $year[0] ?></a>
+                    <span class="cat-item-count"><?php echo $year[1] ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php if($cluster == 'indexed_database'): ?>
-    <ul class="filter-list">
-        <?php foreach ( $database_list as $db ) { ?>
-            <?php
-                $filter_link = mount_filter_link('indexed_database', $db[0], $query, $user_filter, $act_number);
-            ?>
-            <li class="cat-item">
-                <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($db[0], $site_lang); ?></a>
-                <span class="cat-item-count"><?php echo $db[1] ?></span>
-            </li>
-        <?php } ?>
-    </ul>
+    <?php if($database_list): ?>
+        <ul class="filter-list">
+            <?php foreach ( $database_list as $db ) : ?>
+                <?php
+                    $filter_link = mount_filter_link('indexed_database', $db[0], $query, $user_filter, $act_number);
+                ?>
+                <li class="cat-item">
+                    <a href='<?php echo $filter_link; ?>'><?php leisref_print_lang_value($db[0], $site_lang); ?></a>
+                    <span class="cat-item-count"><?php echo $db[1] ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endif; ?>
