@@ -290,15 +290,12 @@ $fulltext_lang['en'] = __('English','leisref');
                                     </header>
                                     <ul class="filter-list">
                                         <?php foreach ( $descriptor_list as $descriptor ) { ?>
-                                            <?php
-                                                $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number);
-                                            ?>
-                                            <?php if ( filter_var($descriptor[0], FILTER_VALIDATE_INT) === false ) : ?>
-                                                <li class="cat-item">
-                                                    <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
-                                                    <span class="cat-item-count"><?php echo $descriptor[1] ?></span>
-                                                </li>
-                                            <?php endif; ?>
+                                            <?php $filter_link = mount_filter_link('descriptor', $descriptor[0], $query, $user_filter, $act_number); ?>
+                                            <?php $class = ( filter_var($descriptor[0], FILTER_VALIDATE_INT) === false ) ? 'cat-item' : 'cat-item hide'; ?>
+                                            <li class="<?php echo $class; ?>">
+                                                <a href='<?php echo $filter_link; ?>'><?php echo $descriptor[0] ?></a>
+                                                <span class="cat-item-count"><?php echo $descriptor[1] ?></span>
+                                            </li>
                                         <?php } ?>
                                     </ul>
                                     <?php if ( count($descriptor_list) == 20 ) : ?>
