@@ -65,5 +65,13 @@
             </div>
             <?php
         }
+    } else {
+        ?>
+        <div class="">
+            <ul>
+                <?php echo '<li>' . __('No related documents', 'leisref') . '</li>'; ?>
+            </ul>
+        </div>
+        <?php
     }
 ?>
