@@ -740,14 +740,15 @@ $order = explode(';', $leisref_config['available_filter']);
                 },
                 success: function(response){
                     var html = $.parseHTML( response );
+                    var this_len = _this.parent().siblings('.filter-list').find(".cat-item").length;
                     _this.parent().siblings('.filter-list').replaceWith( response );
                     _this.data('fb', fb+10);
                     _this.next('.loading').hide();
 
-                    var len = $(html).find(".cat-item").length;
-                    var mod = parseInt(len % 10);
+                    var response_len = $(html).find(".cat-item").length;
+                    var mod = parseInt(response_len % 10);
 
-                    if ( mod ) {
+                    if ( mod || response_len == this_len ) {
                         _this.remove();
                     } else {
                         _this.show();
