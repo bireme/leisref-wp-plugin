@@ -318,7 +318,7 @@ ul.two-columns-list{
     .container {width: 97%;}
     .header-search .input-search {width:60%;}
     #searchsubmit {padding: 10px 10px;}
-  .help {margin-left: 2px;}
+    .help {margin-left: 2px;}
     /*#parent {margin-top: 40px;}*/
     .more {display: table;    min-width: 190px;}
     .rss, .tooltip { display: none;}
