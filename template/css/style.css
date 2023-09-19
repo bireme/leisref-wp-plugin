@@ -90,6 +90,7 @@ ol.doc-loop li p {font-size: .9rem; font-weight: normal; color:rgb(102,102,102);
 .resultsBar {margin-top:5px;}
 .resultsBar div select {margin:0 .8rem 5px 0;}
 .resultsBar div select#per_page{margin:0;}
+.rss {position: relative; bottom: 4rem;}
 .rss_feed{float:left;margin-left:5px;}
 .more{padding:3px 6px;background:rgb(0,74,142);font-size: 80%;border-radius:4px;}
 .more a{color:rgb(255,255,255);text-decoration:none;}

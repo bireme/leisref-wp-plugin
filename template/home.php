@@ -487,6 +487,7 @@ $fulltext_lang['en'] = __('English','leisref');
                 </aside>
                 <div class="spacer"></div>
             </div> <!-- close DIV.result-area -->
+
 <?php else: // start whole page ?>
 
 <div class="content-area result-list">
@@ -699,6 +700,9 @@ $fulltext_lang['en'] = __('English','leisref');
             <?php } ?>
         </ul>
     </section>
+
+    <div class="spacer marginbottom25"></div>
+
 <?php endif; ?>
 
 <?php } ?>
