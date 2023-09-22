@@ -262,11 +262,10 @@ if(!class_exists('LeisRef_Plugin')) {
             wp_enqueue_script('leisref-page', LEISREF_PLUGIN_URL . 'template/js/functions.js', array(), LEISREF_VERSION);
 
             wp_enqueue_script('jquery');
-            wp_localize_script('jquery', 'leisref_script_vars', array(
-                    'ajaxurl' => admin_url( 'admin-ajax.php' ),
-                    'ajaxnonce' => wp_create_nonce( 'ajax_post_validation' )
-                )
-            );
+            wp_add_inline_script('jquery', 'const leisref_script_vars = ' . json_encode( array(
+                'ajaxurl' => admin_url( 'admin-ajax.php' ),
+                'ajaxnonce' => wp_create_nonce( 'ajax_post_validation' )
+            )), 'before');
         }
 
         function register_settings(){
