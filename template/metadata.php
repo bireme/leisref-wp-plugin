@@ -13,7 +13,7 @@
                 Nº <?php echo $resource->act_number[0]; ?>
                 <?php
                     if ($resource->issue_date[0]) {
-                        echo '- ' . format_act_date($resource->issue_date[0], $lang);
+                        echo '- ' . format_act_date($resource->issue_date[0], $site_language);
                     }
                 ?>
             <?php endif; ?>
@@ -31,7 +31,7 @@
 
 <?php if ($resource->source_name): ?>
     <div class="row-fluid">
-        <?php _e('Source','leisref'); ?>: <strong><?php leisref_print_lang_value($resource->source_name, $lang) ;?></strong>
+        <?php _e('Source','leisref'); ?>: <strong><?php leisref_print_lang_value($resource->source_name, $site_language) ;?></strong>
     </div>
 <?php endif; ?>
 
@@ -44,7 +44,7 @@
 
 <?php if ($resource->organ_issuer): ?>
     <div class="row-fluid">
-        <?php _e('Organ issuer','leisref'); ?>: <strong><?php leisref_print_lang_value($resource->organ_issuer[0], $lang);?></strong>
+        <?php _e('Organ issuer','leisref'); ?>: <strong><?php leisref_print_lang_value($resource->organ_issuer[0], $site_language);?></strong>
     </div>
 <?php endif; ?>
 
@@ -53,10 +53,10 @@
     <div class="row-fluid">
         <?php _e('Act scope','leisref'); ?>:
         <strong>
-        <?php leisref_print_lang_value($resource->scope, $lang);?>
-        <?php if ($resource->scope_state) echo ' - '; leisref_print_lang_value($resource->scope_state, $lang);?>
-        <?php if ($resource->scope_city) echo ' - '; leisref_print_lang_value($resource->scope_city, $lang);?>
-        <?php if ($resource->scope_region) echo ' / '; leisref_print_lang_value($resource->scope_region, $lang) ;?>
+        <?php leisref_print_lang_value($resource->scope, $site_language);?>
+        <?php if ($resource->scope_state) echo ' - '; leisref_print_lang_value($resource->scope_state, $site_language);?>
+        <?php if ($resource->scope_city) echo ' - '; leisref_print_lang_value($resource->scope_city, $site_language);?>
+        <?php if ($resource->scope_region) echo ' / '; leisref_print_lang_value($resource->scope_region, $site_language) ;?>
         </strong>
     </div>
 <?php endif; ?>
@@ -64,14 +64,14 @@
 <?php if ($resource->language && $detail_page) : ?>
     <div class="row-fluid">
         <?php _e('Language','leisref'); ?>:
-        <strong><?php leisref_print_lang_value($resource->language, $lang);?></strong>
+        <strong><?php leisref_print_lang_value($resource->language, $site_language);?></strong>
     </div>
 <?php endif; ?>
 
 <?php if ($resource->collection && $detail_page) : ?>
     <div class="row-fluid">
         <?php _e('Collection','leisref'); ?>:
-        <strong><?php leisref_print_lang_value($resource->collection, $lang);?></strong>
+        <strong><?php leisref_print_lang_value($resource->collection, $site_language);?></strong>
     </div>
 <?php endif; ?>
 
@@ -89,12 +89,12 @@
                 $rel_act_title = $rel_parts[6];
             ?>
             <?php
-                leisref_print_lang_value($rel_relation, $lang);
+                leisref_print_lang_value($rel_relation, $site_language);
                 if ($rel_act_link != ''){
                     echo '<a href="' . real_site_url($leisref_plugin_slug) . 'resource/?id=' . $rel_act_link . '">';
                 }
                 echo '&nbsp';
-                leisref_print_lang_value($rel_act_type, $lang);
+                leisref_print_lang_value($rel_act_type, $site_language);
                 echo '&nbsp';
                 if ($rel_act_title){
                     echo $rel_act_title;
@@ -103,7 +103,7 @@
                 }
                 if ($rel_act_date != 'None'){
                     echo ', ' . __('of', 'leisref'). '&nbsp';
-                    echo format_act_date($rel_act_date, $lang) . '&nbsp';
+                    echo format_act_date($rel_act_date, $site_language) . '&nbsp';
                 }
                 if ($rel_act_link != ''){
                     echo '</a>';
@@ -134,12 +134,12 @@
                 if ($rel_act_apparatus != ''){
                     echo '(' . $rel_act_apparatus . ') ';
                 }
-                leisref_print_lang_value($rel_relation, $lang);
+                leisref_print_lang_value($rel_relation, $site_language);
                 if ($rel_act_link != ''){
                     echo '<a href="' . real_site_url($leisref_plugin_slug) . 'resource/?id=' . $rel_act_link . '">';
                 }
                 echo '&nbsp';
-                leisref_print_lang_value($rel_act_type, $lang);
+                leisref_print_lang_value($rel_act_type, $site_language);
                 echo '&nbsp';
                 if ($rel_act_title){
                     echo $rel_act_title;
@@ -148,7 +148,7 @@
                 }
                 if ($rel_act_date != 'None'){
                     echo ', ' . __('of', 'leisref'). '&nbsp';
-                    echo format_act_date($rel_act_date, $lang) . '&nbsp';
+                    echo format_act_date($rel_act_date, $site_language) . '&nbsp';
                 }
                 if ($rel_act_link != ''){
                     echo '</a>';

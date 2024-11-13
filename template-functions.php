@@ -56,6 +56,7 @@ if ( !function_exists('format_date') ) {
 
 if ( !function_exists('format_act_date') ) {
     function format_act_date($string, $lang){
+        $lang = substr($lang,0,2);
         $months = array();
         $months['pt'] = array('Janeiro','Feveiro', 'Março', 'Abril', 'Maio', 'Junho',
                               'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
