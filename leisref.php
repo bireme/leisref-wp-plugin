@@ -282,7 +282,7 @@ if(!class_exists('LeisRef_Plugin')) {
         function google_analytics_code(){
             global $wp;
 
-            $pagename = $wp->query_vars['pagename'] ?? null;
+            $pagename = $wp->query_vars['pagename'] ?? '';
             $plugin_config = get_option('leisref_config');
 
             // check if is defined GA code and pagename starts with plugin slug
