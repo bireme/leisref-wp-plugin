@@ -18,7 +18,7 @@ if ( !function_exists('leisref_print_lang_value') ) {
 if ( !function_exists('leisref_get_lang_value') ) {
     function leisref_get_lang_value($string, $lang_code, $default_lang_code = 'en'){
         $lang_value = array();
-        $occs = preg_split('/\|/', $string);
+        $occs = ($string === null) ? [] : explode('|', (string)$string);
 
         foreach ($occs as $occ){
             $re_sep = (strpos($occ, '~') !== false ? '/\~/' : '/\^/');

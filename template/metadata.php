@@ -59,7 +59,7 @@
     </div>
 <?php endif; ?>
 
-<?php if ($resource->organ_issuer): ?>
+<?php if (isset($resource->organ_issuer) && $resource->organ_issuer): ?>
     <div class="row-fluid">
         <?php _e('Organ issuer','leisref'); ?>: <strong><?php leisref_print_lang_value($resource->organ_issuer[0], $site_language);?></strong>
     </div>
@@ -71,8 +71,8 @@
         <?php _e('Act scope','leisref'); ?>:
         <strong>
         <?php leisref_print_lang_value($resource->scope, $site_language);?>
-        <?php if ($resource->scope_state) echo ' - '; leisref_print_lang_value($resource->scope_state, $site_language);?>
-        <?php if ($resource->scope_city) echo ' - '; leisref_print_lang_value($resource->scope_city, $site_language);?>
+        <?php if (isset($resource->scope_state) && $resource->scope_state) { echo ' - '; leisref_print_lang_value($resource->scope_state, $site_language); } ?>
+        <?php if (isset($resource->scope_city) && $resource->scope_city) { echo ' - '; leisref_print_lang_value($resource->scope_city, $site_language); } ?>
         <?php if ($resource->scope_region) echo ' / '; leisref_print_lang_value($resource->scope_region, $site_language) ;?>
         </strong>
     </div>
@@ -85,7 +85,7 @@
     </div>
 <?php endif; ?>
 
-<?php if ($resource->collection && $detail_page) : ?>
+<?php if (isset($resource->collection) && $resource->collection && $detail_page) : ?>
     <div class="row-fluid">
         <?php _e('Collection','leisref'); ?>:
         <strong><?php leisref_print_lang_value($resource->collection, $site_language);?></strong>
@@ -180,7 +180,7 @@
 <?php endif; ?>
 
 
-<?php if ($resource->descriptor || $resource->keyword ) : ?>
+<?php if ($resource->descriptor || (isset($resource->keyword) && $resource->keyword)) : ?>
     <div id="conteudo-loop-tags" class="row-fluid margintop10">
         <i class="ico-tags"> </i>
         <?php
