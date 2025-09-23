@@ -1,10 +1,7 @@
 <?php
     $document_url = '#';
     $detail_page = (isset($resource_id) ? true: false);
-    /*
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-    */
+    
 ?>
 
 <div class="row-fluid">
@@ -37,12 +34,17 @@
 </div>
 
 <div class="row-fluid">
-    <?php 
+    <?php /*
     if ($resource->official_ementa){ 
         echo $resource->official_ementa[0];
     }elseif($resource->unofficial_ementa){ 
         echo $resource->unofficial_ementa[0];
-    }
+    }*/?>
+
+    <?php
+    /*Ajuste de ementa usando coalescencia */
+    $ementa = $resource->official_ementa[0] ?? $resource->unofficial_ementa[0] ?? null;
+    if (isset($ementa) && $ementa !== '') echo $ementa;
     ?>
 </div>
 
@@ -180,7 +182,7 @@
 <?php endif; ?>
 
 
-<?php if ($resource->descriptor || (isset($resource->keyword) && $resource->keyword)) : ?>
+<?php if ((isset($resource->descriptor) && $resource->descriptor) || (isset($resource->keyword) && $resource->keyword)) : ?>
     <div id="conteudo-loop-tags" class="row-fluid margintop10">
         <i class="ico-tags"> </i>
         <?php

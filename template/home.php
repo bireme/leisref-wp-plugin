@@ -209,7 +209,7 @@ $fulltext_lang['en'] = __('English','leisref');
                         </div>
 
                         <div id="filters">
-                            <?php if ($applied_filter_list) :?>
+                            <?php if (isset($applied_filter_list) && $applied_filter_list) : ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid marginbottom15">
                                         <h1 class="h1-header"><?php echo _e('Selected filters', 'leisref') ?></h1>

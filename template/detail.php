@@ -11,7 +11,7 @@ $resource_id = sanitize_text_field($_GET['id']);
 $site_language = strtolower(get_bloginfo('language'));
 $lang = substr($site_language,0,2);
 
-$leisref_addthis_id = $leisref_config['addthis_profile_id'];
+$leisref_addthis_id = $leisref_config['addthis_profile_id'] ?? null;
 $leisref_service_request = $leisref_service_url . 'api/leisref/search/?id=' . $resource_id . '&op=related&lang=' . $lang;
 
 $response = @file_get_contents($leisref_service_request);
