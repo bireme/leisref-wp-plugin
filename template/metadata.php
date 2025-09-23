@@ -1,12 +1,18 @@
 <?php
     $document_url = '#';
     $detail_page = (isset($resource_id) ? true: false);
+    /*
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    */
 ?>
 
 <div class="row-fluid">
     <h2 class="h2-loop-tit">
         <a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>">
-            <?php if ($resource->title) : ?>
+            <?php 
+                if (isset($resource->title)) {
+                if ($resource->title) : ?>
                 <?php echo $resource->title ?>
             <?php else: ?>
                 <?php leisref_print_lang_value($resource->act_type, $site_language); ?>
@@ -17,16 +23,27 @@
                     }
                 ?>
             <?php endif; ?>
+            <?php }else{ ?>
+                <?php leisref_print_lang_value($resource->act_type, $site_language); ?>
+                Nº <?php echo $resource->act_number[0]; ?>
+                <?php
+                    if ($resource->issue_date[0]) {
+                        echo '- ' . format_act_date($resource->issue_date[0], $site_language);
+                    }
+                ?>
+            <?php } ?>
         </a>
     </h2>
 </div>
 
 <div class="row-fluid">
-    <?php if ($resource->official_ementa): ?>
-        <?php echo $resource->official_ementa[0];?>
-    <?php elseif ($resource->unofficial_ementa): ?>
-        <?php echo $resource->unofficial_ementa[0];?>
-    <?php endif; ?>
+    <?php 
+    if ($resource->official_ementa){ 
+        echo $resource->official_ementa[0];
+    }elseif($resource->unofficial_ementa){ 
+        echo $resource->unofficial_ementa[0];
+    }
+    ?>
 </div>
 
 <?php if ($resource->source_name): ?>
@@ -75,6 +92,8 @@
     </div>
 <?php endif; ?>
 
+
+<?php if (isset($resource->relationship_active)): ?>
 <?php if ($resource->relationship_active): ?>
     <?php foreach ( $resource->relationship_active as $rel) { ?>
         <div class="row-fluid">
@@ -115,8 +134,9 @@
         </div>
     <?php } ?>
 <?php endif; ?>
+<?php endif; ?>
 
-
+<?php if (isset($resource->relationship_passive)): ?>
 <?php if ($resource->relationship_passive): ?>
     <?php foreach ( $resource->relationship_passive as $rel) { ?>
         <div class="row-fluid">
@@ -157,6 +177,8 @@
         </div>
     <?php } ?>
 <?php endif; ?>
+<?php endif; ?>
+
 
 <?php if ($resource->descriptor || $resource->keyword ) : ?>
     <div id="conteudo-loop-tags" class="row-fluid margintop10">
@@ -183,11 +205,9 @@
                 $document_url_parts = explode("|", $fulltext);
                 $document_lang = $document_url_parts[0];
                 $document_url = $document_url_parts[1];
-
                 $document_path = parse_url($document_url, PHP_URL_PATH);
                 $document_ext = pathinfo($document_path, PATHINFO_EXTENSION);
                 $extension_list = array('pdf', 'html', 'htm', 'doc');
-
             ?>
             <?php if (  $document_ext == '' || in_array($document_ext, $extension_list) ) :?>
                 <span class="more">

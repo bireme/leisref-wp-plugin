@@ -24,7 +24,7 @@ if ( !function_exists('leisref_get_lang_value') ) {
             $re_sep = (strpos($occ, '~') !== false ? '/\~/' : '/\^/');
             $lv = preg_split($re_sep, $occ);
             $lang = substr($lv[0],0,2);
-            $value = $lv[1];
+            if(isset($lv[1])){ $value = $lv[1]; }else{ $value = '';}
             $lang_value[$lang] = $value;
         }
 
@@ -51,6 +51,53 @@ if ( !function_exists('format_date') ) {
         }
 
         return $date_formated;
+    }
+}
+if ( !function_exists('format_act_date') ) {
+    function format_act_date($string, $lang){
+        $lang = substr(strtolower((string)$lang), 0, 2);
+        if (!in_array($lang, ['pt','es','en'], true)) {
+            $lang = 'en';
+        }
+
+        // Tenta parsers comuns: "YYYY-MM-DD" ou "YYYYMMDD"
+        $dt = DateTimeImmutable::createFromFormat('Y-m-d', $string) ?: DateTimeImmutable::createFromFormat('Ymd', $string);
+
+        if (!$dt) {
+            return $string; // fallback: não conseguiu interpretar a data
+        }
+
+        // Resolve locale por idioma
+        $locale = [
+            'pt' => 'pt_BR',
+            'es' => 'es_ES',
+            'en' => 'en_US',
+        ][$lang];
+
+        // Obtém nome do mês no idioma (Intl) ou faz fallback para arrays
+        if (class_exists('IntlDateFormatter')) {
+            $fmt = new IntlDateFormatter(
+                $locale,
+                IntlDateFormatter::NONE,
+                IntlDateFormatter::NONE,
+                'America/Sao_Paulo',
+                IntlDateFormatter::GREGORIAN,
+                'MMMM'
+            );
+            $month_name = $fmt->format($dt);
+        } else {
+            // Fallback sem Intl
+            $months = [
+                'pt' => ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                'es' => ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                'en' => ['January','February','March','April','May','June','July','August','September','October','November','December'],
+            ];
+            $month_name = $months[$lang][(int)$dt->format('n') - 1];
+        }
+
+        // Monta saída no formato "15 of September of 2025" (mantendo sua tradução de 'of')
+        $of = __('of', 'leisref');
+        return $dt->format('d') . ' ' . $of . ' ' . $month_name . ' ' . $of . ' ' . $dt->format('Y');
     }
 }
 

@@ -4,11 +4,11 @@ Plugin Name: LeisRef
 Plugin URI: https://github.com/bireme/leisref-wp-plugin/
 Description: VHL Legislation Directory WordPress plugin
 Author: BIREME/OPAS/OMS
-Version: 0.4
+Version: 0.5
 Author URI: http://reddes.bvsalud.org/
 */
 
-define('LEISREF_VERSION', '0.4' );
+define('LEISREF_VERSION', '0.5' );
 
 define('LEISREF_SYMBOLIC_LINK', false );
 define('LEISREF_PLUGIN_DIRNAME', 'leisref' );
