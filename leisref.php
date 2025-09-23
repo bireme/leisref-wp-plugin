@@ -7,7 +7,6 @@ Author: BIREME/OPAS/OMS
 Version: 0.5
 Author URI: http://reddes.bvsalud.org/
 */
-
 define('LEISREF_VERSION', '0.5' );
 
 define('LEISREF_SYMBOLIC_LINK', false );
@@ -283,7 +282,7 @@ if(!class_exists('LeisRef_Plugin')) {
         function google_analytics_code(){
             global $wp;
 
-            $pagename = $wp->query_vars["pagename"];
+            $pagename = $wp->query_vars['pagename'] ?? null;
             $plugin_config = get_option('leisref_config');
 
             // check if is defined GA code and pagename starts with plugin slug

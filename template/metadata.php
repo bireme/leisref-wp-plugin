@@ -1,7 +1,6 @@
 <?php
     $document_url = '#';
     $detail_page = (isset($resource_id) ? true: false);
-    
 ?>
 
 <div class="row-fluid">

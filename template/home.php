@@ -12,17 +12,18 @@ $leisref_initial_filter = $leisref_config['initial_filter'];
 $site_language = strtolower(get_bloginfo('language'));
 $_lang = substr($site_language,0,2);
 
-$query = ( isset($_GET['s']) ? sanitize_text_field($_GET['s']) : sanitize_text_field($_GET['q']) );
-$query = stripslashes($query);
-$sanitize_user_filter = sanitize_text_field($_GET['filter']);
+$query = isset($_GET['s'])
+    ? sanitize_text_field($_GET['s'])
+    : sanitize_text_field($_GET['q'] ?? '');$query = stripslashes($query);
+$sanitize_user_filter = sanitize_text_field($_GET['filter'] ?? '');
 $user_filter = stripslashes($sanitize_user_filter);
 $page = ( isset($_GET['page']) ? sanitize_text_field($_GET['page']) : 1 );
 $total = 0;
 $count = 10;
 $filter = '';
 
-$advanced_filter_param = sanitize_text_field($_GET['advanced_filter']);
-$act_number = sanitize_text_field($_GET['act_number']);
+$advanced_filter_param = isset($_GET['advanced_filter']) ? sanitize_text_field($_GET['advanced_filter']) : null;
+$act_number = sanitize_text_field($_GET['act_number'] ?? '');
 
 $start = ($page * $count) - $count;
 

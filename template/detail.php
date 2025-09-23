@@ -20,7 +20,7 @@ if ($response){
     $response_json = json_decode($response);
     $resource = $response_json->diaServerResponse[0]->match->docs[0];
     // create param to find similars
-    $similar_text = $resource->title;
+    $similar_text = isset($resource->title) ? $resource->title : '';
     if (isset($resource->mj)){
         $similar_text .= ' ' . implode(' ', $resource->mj);
     }
@@ -52,7 +52,7 @@ $fulltext_lang['en'] = __('English','leisref');
             <div class="row-fluid breadcrumb">
                 <a href="<?php echo $home_url ?>"><?php _e('Home','leisref'); ?></a> >
                 <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
-                <?php if ($resource->title) : ?>
+                <?php if (isset($resource->title) && $resource->title) : ?>
                     <?php echo $resource->title ?>
                 <?php else: ?>
                     <?php leisref_print_lang_value($resource->act_type, $site_language); ?>
@@ -69,7 +69,7 @@ $fulltext_lang['en'] = __('English','leisref');
                 <a href="javascript:history.back()"><?php _e('Back','leisref'); ?></a> | <a href="<?php echo real_site_url($leisref_plugin_slug); ?>"><?php _e('New search','leisref'); ?></a>
 
                 <header class="row-fluid border-bottom">
-                    <h1 class="h1-header"><?php echo $resource->title; ?></h1>
+                    <h1 class="h1-header"><?php //echo $resource->title; ?></h1>
                 </header>
                 <div class="row-fluid">
                     <article class="conteudo-loop">
