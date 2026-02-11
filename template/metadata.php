@@ -195,7 +195,7 @@
 <?php endif; ?>
 
 <?php if (!$detail_page) : ?>
-    <a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>" class="read-more"><?php _e('Read more','leisref') ?></a>
+    <a href="<?php echo real_site_url($leisref_plugin_slug); ?>resource/?id=<?php echo $resource->id; ?>" class="read-more" style="float:right;"><?php _e('Read more','leisref') ?></a>
 <?php endif; ?>
 
 
