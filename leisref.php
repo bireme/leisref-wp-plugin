@@ -99,6 +99,14 @@ if(!class_exists('LeisRef_Plugin')) {
 
         }
 
+        add_action( 'plugins_loaded', function () {
+    load_plugin_textdomain(
+        'leisref', // precisa ser exatamente o mesmo textdomain usado no _e()
+        false,
+        dirname( plugin_basename( __FILE__ ) ) . '/languages'
+    );
+});
+
         function admin_menu() {
 
             add_submenu_page( 'options-general.php', __('Legislation Settings', 'leisref'), __('Legislation', 'leisref'), 'manage_options', 'leisref', 'leisref_page_admin');
