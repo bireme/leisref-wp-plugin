@@ -12,9 +12,6 @@ $leisref_initial_filter = $leisref_config['initial_filter'];
 $site_language = strtolower(get_bloginfo('language'));
 $_lang = substr($site_language,0,2);
 
-$locale = str_replace('-', '_', get_bloginfo('language')); switch_to_locale( $locale );
-echo get_locale();
-
 $query = isset($_GET['s'])
     ? sanitize_text_field($_GET['s'])
     : sanitize_text_field($_GET['q'] ?? '');$query = stripslashes($query);
