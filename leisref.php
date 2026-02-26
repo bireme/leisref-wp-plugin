@@ -78,6 +78,8 @@ if(!class_exists('LeisRef_Plugin')) {
         function plugin_init() {
             global $leisref_texts;
 
+            load_plugin_textdomain('leisref', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+
             $leisref_config = get_option('leisref_config');
             $leisref_config['use_translation'] = true;
 
@@ -99,13 +101,7 @@ if(!class_exists('LeisRef_Plugin')) {
 
         }
 
-        add_action( 'plugins_loaded', function () {
-    load_plugin_textdomain(
-        'leisref', // precisa ser exatamente o mesmo textdomain usado no _e()
-        false,
-        dirname( plugin_basename( __FILE__ ) ) . '/languages'
-    );
-});
+
 
         function admin_menu() {
 
