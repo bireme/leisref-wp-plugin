@@ -174,12 +174,12 @@ function leisref_page_admin() {
 
             $j(function(){
                 $j('#similar-docs').on('change', function() {
-                    $j('#default-filter-db').prop('disabled', this.checked);
-                }).trigger('change');
+                    $j('#default-filter-db').prop('disabled', !this.checked);
+                });
 
                 $j('#related-docs').on('change', function() {
-                    $j('#extra-filter-db').prop('disabled', this.checked);
-                }).trigger('change');
+                    $j('#extra-filter-db').prop('disabled', !this.checked);
+                });
 
                 $j( "ul.droptrue" ).sortable({
                     connectWith: "ul"
