@@ -99,6 +99,9 @@ $fulltext_lang['en'] = __('English','leisref');
                         </footer>
                     </article>
                 </div>
+
+<!-- Start: Display Related Docs -->
+<?php if ( $leisref_config['show_related_docs'] ) : ?>
                 <div class="row-fluid">
                     <div id="loader" class="loader" style="display: inline-block;"></div>
                 </div>
@@ -108,14 +111,20 @@ $fulltext_lang['en'] = __('English','leisref');
                     </div>
                 </div>
 <?php
-$sources = ( $leisref_config['extra_filter_db'] ) ? $leisref_config['extra_filter_db'] : '';
-$url = LEISREF_PLUGIN_URL.'template/related.php?query='.$related_query.'&sources='.$sources.'&lang='.$lang;
+    $sources = ( $leisref_config['extra_filter_db'] ) ? $leisref_config['extra_filter_db'] : '';
+    $url = LEISREF_PLUGIN_URL.'template/related.php?query='.$related_query.'&sources='.$sources.'&lang='.$lang;
 ?>
 <script type="text/javascript">
     show_related("<?php echo $url; ?>");
 </script>
+<?php endif; ?>
+<!-- End: Display Related Docs -->
+
             </section>
             <aside id="sidebar">
+
+<!-- Start: Display Similar Docs -->
+<?php if ( $leisref_config['show_similar_docs'] ) : ?>
                 <section class="row-fluid marginbottom25 widget_categories">
                     <header class="row-fluid border-bottom marginbottom15">
                         <h1 class="h1-header"><?php _e('Related articles','leisref'); ?></h1>
@@ -130,7 +139,10 @@ $url = LEISREF_PLUGIN_URL.'template/similar.php?query='.$similar_query.'&lang='.
     show_similar("<?php echo $url; ?>");
 </script>
                 </section>
-             </aside>
+<?php endif; ?>
+<!-- End: Display Similar Docs -->
+
+            </aside>
         </div>
     </div>
 

@@ -70,16 +70,30 @@ function leisref_page_admin() {
                         ?>
 
                         <tr valign="top">
+                            <th scope="row"><?php _e('Similar documents', 'leisref'); ?>:</th>
+                            <td>
+                                <input type="checkbox" id="similar-docs" name="leisref_config[show_similar_docs]" value="1" <?php if ( $config['show_similar_docs'] == '1' ): echo ' checked="checked"'; endif;?> >
+                                <?php _e('Show similar documents', 'leisref'); ?>
+                            </td>
+                        </tr>
+                        <tr valign="top">
                             <th scope="row"><?php _e('Sources for similar documents', 'leisref'); ?>:</th>
                             <td>
-                                <input type="text" name="leisref_config[default_filter_db]" value='<?php echo $config['default_filter_db']; ?>' class="regular-text code">
+                                <input type="text" id="default-filter-db" name="leisref_config[default_filter_db]" value='<?php echo $config['default_filter_db']; ?>' class="regular-text code">
                                 <small style="display: block;">* <?php _e('The database names must be separated by commas.', 'leisref'); ?></small>
+                            </td>
+                        </tr>
+                        <tr valign="top">
+                            <th scope="row"><?php _e('Related documents', 'leisref'); ?>:</th>
+                            <td>
+                                <input type="checkbox" id="related-docs" name="leisref_config[show_related_docs]" value="1" <?php if ( $config['show_related_docs'] == '1' ): echo ' checked="checked"'; endif;?> >
+                                <?php _e('Show related documents', 'leisref'); ?>
                             </td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><?php _e('Sources for related documents', 'leisref'); ?>:</th>
                             <td>
-                                <input type="text" name="leisref_config[extra_filter_db]" value='<?php echo $config['extra_filter_db']; ?>' class="regular-text code">
+                                <input type="text" id="extra-filter-db" name="leisref_config[extra_filter_db]" value='<?php echo $config['extra_filter_db']; ?>' class="regular-text code">
                                 <small style="display: block;">* <?php _e('The database names must be separated by commas.', 'leisref'); ?></small>
                             </td>
                         </tr>
@@ -158,23 +172,29 @@ function leisref_page_admin() {
         <script type="text/javascript">
             var $j = jQuery.noConflict();
 
-            $j( function() {
-              $j( "ul.droptrue" ).sortable({
-                connectWith: "ul"
-              });
+            $j(function(){
+                $('#similar-docs').on('change', function() {
+                    $('#default-filter-db').prop('disabled', this.checked);
+                }).trigger('change'); 
 
-              $j('.sortable-list').sortable({
+                $('#related-docs').on('change', function() {
+                    $('#extra-filter-db').prop('disabled', this.checked);
+                }).trigger('change'); 
 
-                connectWith: 'ul',
-                update: function(event, ui) {
-                  var changedList = this.id;
-                  var order = $j(this).sortable('toArray');
-                  var positions = order.join(';');
-                  $j('#order_aux').val(positions);
+                $j( "ul.droptrue" ).sortable({
+                    connectWith: "ul"
+                });
 
-                }
-              });
-            } );
+                $j('.sortable-list').sortable({
+                    connectWith: 'ul',
+                    update: function(event, ui) {
+                        var changedList = this.id;
+                        var order = $j(this).sortable('toArray');
+                        var positions = order.join(';');
+                        $j('#order_aux').val(positions);
+                    }
+                });
+            });
         </script>
 <?php
 }
