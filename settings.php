@@ -173,12 +173,12 @@ function leisref_page_admin() {
             var $j = jQuery.noConflict();
 
             $j(function(){
-                $('#similar-docs').on('change', function() {
-                    $('#default-filter-db').prop('disabled', this.checked);
+                $j('#similar-docs').on('change', function() {
+                    $j('#default-filter-db').prop('disabled', this.checked);
                 });
 
-                $('#related-docs').on('change', function() {
-                    $('#extra-filter-db').prop('disabled', this.checked);
+                $j('#related-docs').on('change', function() {
+                    $j('#extra-filter-db').prop('disabled', this.checked);
                 });
 
                 $j( "ul.droptrue" ).sortable({
