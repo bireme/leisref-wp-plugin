@@ -5,31 +5,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LeisRef 0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/leisref\n"
-"POT-Creation-Date: 2023-09-05 19:02-0300\n"
+"POT-Creation-Date: 2026-04-20 13:27-0300\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.9\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: leisref.php:105
+#: leisref.php:108
 msgid "Legislation Settings"
 msgstr ""
 
-#: leisref.php:105 leisref.php:242
+#: leisref.php:108 leisref.php:245
 msgid "Legislation"
 msgstr ""
 
-#: leisref.php:154
+#: leisref.php:157
 msgid "Legislation sidebar"
 msgstr ""
 
-#: leisref.php:165
+#: leisref.php:168
 msgid "Legislation header"
 msgstr ""
 
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Act type"
 msgstr ""
 
-#: settings.php:8 template/metadata.php:54
+#: settings.php:8 template/metadata.php:72
 msgid "Act scope"
 msgstr ""
 
@@ -59,11 +59,11 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#: settings.php:11 template/metadata.php:66
+#: settings.php:11 template/metadata.php:84
 msgid "Language"
 msgstr ""
 
-#: settings.php:12 template/metadata.php:73
+#: settings.php:12 template/metadata.php:91
 msgid "Collection"
 msgstr ""
 
@@ -104,63 +104,79 @@ msgid "Page title"
 msgstr ""
 
 #: settings.php:73
-msgid "Sources for similar documents"
+msgid "Similar documents"
 msgstr ""
 
-#: settings.php:76 settings.php:83
-msgid "The database names must be separated by commas."
+#: settings.php:76
+msgid "Show similar documents"
 msgstr ""
 
 #: settings.php:80
+msgid "Sources for similar documents"
+msgstr ""
+
+#: settings.php:83 settings.php:97
+msgid "The database names must be separated by commas."
+msgstr ""
+
+#: settings.php:87
+msgid "Related documents"
+msgstr ""
+
+#: settings.php:90
+msgid "Show related documents"
+msgstr ""
+
+#: settings.php:94
 msgid "Sources for related documents"
 msgstr ""
 
-#: settings.php:88
+#: settings.php:102
 msgid "Page layout"
 msgstr ""
 
-#: settings.php:93
+#: settings.php:107
 msgid "Show filters as whole page"
 msgstr ""
 
-#: settings.php:100
+#: settings.php:114
 msgid "Show normal page"
 msgstr ""
 
-#: settings.php:107
+#: settings.php:121
 msgid "Search filters"
 msgstr ""
 
-#: settings.php:123
+#: settings.php:137
 msgid "Available"
 msgstr ""
 
-#: settings.php:134
+#: settings.php:148
 msgid "Selected"
 msgstr ""
 
-#: settings.php:154
+#: settings.php:168
 msgid "Save changes"
 msgstr ""
 
-#: template-functions.php:75 template/metadata.php:105
-#: template/metadata.php:150
+#: template-functions.php:99 template-functions.php:123
+#: template/metadata.php:125 template/metadata.php:171
 msgid "of"
 msgstr ""
 
-#: template/advanced.php:51 template/detail.php:42 template/home.php:115
+#: template/advanced.php:51 template/detail.php:42 template/home.php:116
 msgid "Portuguese"
 msgstr ""
 
-#: template/advanced.php:52 template/detail.php:43 template/home.php:116
+#: template/advanced.php:52 template/detail.php:43 template/home.php:117
 msgid "Spanish"
 msgstr ""
 
-#: template/advanced.php:53 template/detail.php:44 template/home.php:117
+#: template/advanced.php:53 template/detail.php:44 template/home.php:118
 msgid "English"
 msgstr ""
 
-#: template/advanced.php:62 template/detail.php:53 template/home.php:126
+#: template/advanced.php:62 template/detail.php:53 template/home.php:127
 msgid "Home"
 msgstr ""
 
@@ -168,11 +184,11 @@ msgstr ""
 msgid "Advanced Search"
 msgstr ""
 
-#: template/advanced.php:85 template/home.php:149
+#: template/advanced.php:85 template/home.php:150
 msgid "Enter one or more words"
 msgstr ""
 
-#: template/advanced.php:86 template/advanced.php:183 template/home.php:150
+#: template/advanced.php:86 template/advanced.php:183 template/home.php:151
 msgid "Search"
 msgstr ""
 
@@ -192,71 +208,71 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: template/detail.php:121
+#: template/detail.php:130
 msgid "Related articles"
 msgstr ""
 
-#: template/home.php:131
+#: template/home.php:132
 msgid "Search result"
 msgstr ""
 
-#: template/home.php:152
+#: template/home.php:153
 msgid "Advanced search"
 msgstr ""
 
-#: template/home.php:159
+#: template/home.php:160
 msgid "Act number"
 msgstr ""
 
-#: template/home.php:159
+#: template/home.php:160
 msgid "clear"
 msgstr ""
 
-#: template/home.php:174
+#: template/home.php:175
 msgid "No results found"
 msgstr ""
 
-#: template/home.php:177 template/home.php:497
+#: template/home.php:178 template/home.php:497
 msgid "Normative Acts"
 msgstr ""
 
-#: template/home.php:205
+#: template/home.php:206
 msgid "Filters"
 msgstr ""
 
-#: template/home.php:215
+#: template/home.php:216
 msgid "Selected filters"
 msgstr ""
 
-#: template/home.php:279 template/home.php:306 template/home.php:331
-#: template/home.php:356 template/home.php:381 template/home.php:406
-#: template/home.php:431 template/home.php:456 template/home.php:481
+#: template/home.php:280 template/home.php:304 template/home.php:329
+#: template/home.php:354 template/home.php:379 template/home.php:404
+#: template/home.php:429 template/home.php:454 template/home.php:479
 msgid "show more"
 msgstr ""
 
-#: template/home.php:280 template/home.php:307 template/home.php:332
-#: template/home.php:357 template/home.php:382 template/home.php:407
-#: template/home.php:432 template/home.php:457 template/home.php:482
+#: template/home.php:281 template/home.php:305 template/home.php:330
+#: template/home.php:355 template/home.php:380 template/home.php:405
+#: template/home.php:430 template/home.php:455 template/home.php:480
 msgid "loading"
 msgstr ""
 
-#: template/metadata.php:34
+#: template/metadata.php:52
 msgid "Source"
 msgstr ""
 
-#: template/metadata.php:40
+#: template/metadata.php:58
 msgid "Publication date"
 msgstr ""
 
-#: template/metadata.php:47
+#: template/metadata.php:65
 msgid "Organ issuer"
 msgstr ""
 
-#: template/metadata.php:175
+#: template/metadata.php:198
 msgid "Read more"
 msgstr ""
 
-#: template/metadata.php:195
+#: template/metadata.php:216
 msgid "Text in"
 msgstr ""
 
@@ -264,6 +280,6 @@ msgstr ""
 msgid "More related"
 msgstr ""
 
-#: template/related.php:61 template/similar.php:45
+#: template/related.php:61 template/related.php:72 template/similar.php:45
 msgid "No related documents"
 msgstr ""
