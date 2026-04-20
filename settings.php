@@ -175,11 +175,11 @@ function leisref_page_admin() {
             $j(function(){
                 $('#similar-docs').on('change', function() {
                     $('#default-filter-db').prop('disabled', this.checked);
-                }).trigger('change'); 
+                });
 
                 $('#related-docs').on('change', function() {
                     $('#extra-filter-db').prop('disabled', this.checked);
-                }).trigger('change'); 
+                });
 
                 $j( "ul.droptrue" ).sortable({
                     connectWith: "ul"
